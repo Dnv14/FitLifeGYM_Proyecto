@@ -4,6 +4,7 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 /**
@@ -25,13 +26,29 @@ public class ControlForms {
     }
     
     
+    private void mostrarDialogo(JDialog nuevoDialogo) {
+        nuevoDialogo.setResizable(false);
+        nuevoDialogo.setLocationRelativeTo(this.frameActual);
+        nuevoDialogo.setVisible(true);
+    }
+    
+    //frames
     public void navegarMenuPrincipal(){
         mostrarPantalla(new MainFitLifeFORM(this));
     }
     
-    public void navegarRegistrarse(){
-        RegistrarseFORM registroForm = new RegistrarseFORM(frameActual, true, this);
-        registroForm.setLocationRelativeTo(this.frameActual);
-        registroForm.setVisible(true);
+    public void navegarBenificios(){
+        mostrarPantalla(new BeneficiosFORM(this));
     }
+    
+    //Dialogs
+    public void navegarRegistrarse(){
+        mostrarDialogo(new RegistrarseFORM(this.frameActual, true, this));
+    }
+    
+    public void navegarIniciarSesion(){
+        mostrarDialogo(new IniciarSesionFORM(this.frameActual, true, this));
+    }
+    
+    
 }

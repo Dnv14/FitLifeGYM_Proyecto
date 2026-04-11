@@ -18,6 +18,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
     public RegistrarseFORM(java.awt.Frame parent, boolean modal, ControlForms control) {
         super(parent, modal);
         this.control = control;
+        this.setResizable(false);
         initComponents();
     }
 
@@ -281,7 +282,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        // TODO add your handling code here:
+        control.navegarBenificios();
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
