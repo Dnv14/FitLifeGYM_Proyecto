@@ -41,6 +41,10 @@ public class ControlForms {
         mostrarPantalla(new BeneficiosFORM(this));
     }
     
+    public void navegarBienvenida(){
+        mostrarPantalla(new BienvenidaFORM(this));
+    }
+    
     //Dialogs
     public void navegarRegistrarse(){
         mostrarDialogo(new RegistrarseFORM(this.frameActual, true, this));

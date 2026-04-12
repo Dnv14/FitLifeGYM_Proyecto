@@ -228,7 +228,8 @@ public class BeneficiosFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrecioActionPerformed
 
     private void btnSuscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuscribirseActionPerformed
-
+        //temporal
+        control.navegarBienvenida();
     }//GEN-LAST:event_btnSuscribirseActionPerformed
 
     private void checkBoxNutricionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxNutricionActionPerformed
