@@ -278,7 +278,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        //control.navegarBenificios();
+        control.navegarBenificios();
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
@@ -310,7 +310,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
     }//GEN-LAST:event_txtContrasenia1ActionPerformed
 
     private void btnVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAtrasActionPerformed
-        dispose();
+        control.navegarMenuPrincipal();
     }//GEN-LAST:event_btnVolverAtrasActionPerformed
 
     private void txtCorreoElectronico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoElectronico1ActionPerformed

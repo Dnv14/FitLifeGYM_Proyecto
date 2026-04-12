@@ -6,12 +6,22 @@ package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos;
  * @author Julian
  */
 public class NuevoClienteDTO {
+    private Long idCliente;
     private final String nombre;
     private final String apellidos;
     private final String correo;
     private final String telefono;
     private final String pin;
 
+    public NuevoClienteDTO(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin) {
+        this.idCliente = idCliente;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.pin = pin;
+    }
+    
     public NuevoClienteDTO(String nombre, String apellidos, String correo, String telefono, String pin) {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -20,6 +30,10 @@ public class NuevoClienteDTO {
         this.pin = pin;
     }
 
+    public Long getIdCliente() {
+        return idCliente;
+    }
+    
     public String getNombre() {
         return nombre;
     }

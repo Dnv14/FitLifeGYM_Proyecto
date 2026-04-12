@@ -4,6 +4,8 @@
 
 package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado;
 
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.presentacion.ControlForms;
+
 /**
  *
  * @author Diego
@@ -11,6 +13,8 @@ package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado;
 public class FuncionalidadComprarMembresiaUsuarioNoRegistrado {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ControlForms control = new ControlForms();
+        
+        control.navegarMenuPrincipal();
     }
 }
