@@ -37,12 +37,10 @@ public class MainFitLifeFORM extends javax.swing.JFrame {
         btnIniciarSesion = new javax.swing.JButton();
         lblTitulo3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        btnQuejasSugerencias = new javax.swing.JButton();
 
         popupMenu1.setLabel("popupMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel.setBackground(new java.awt.Color(18, 18, 18));
 
@@ -133,34 +131,33 @@ public class MainFitLifeFORM extends javax.swing.JFrame {
                     .addContainerGap(356, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 460));
-
         jPanel3.setBackground(new java.awt.Color(44, 44, 44));
-
-        btnQuejasSugerencias.setBackground(new java.awt.Color(51, 51, 51));
-        btnQuejasSugerencias.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnQuejasSugerencias.setForeground(new java.awt.Color(255, 255, 255));
-        btnQuejasSugerencias.setText("Quejas o Sugerencias");
-        btnQuejasSugerencias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnQuejasSugerencias.addActionListener(this::btnQuejasSugerenciasActionPerformed);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(662, Short.MAX_VALUE)
-                .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 860, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 860, 40));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -173,15 +170,10 @@ public class MainFitLifeFORM extends javax.swing.JFrame {
         control.navegarIniciarSesion();
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
-    private void btnQuejasSugerenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuejasSugerenciasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnQuejasSugerenciasActionPerformed
-
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton btnQuejasSugerencias;
     private javax.swing.JButton btnRegistrarse;
     private javax.swing.JPanel jPanel;
     private javax.swing.JPanel jPanel3;
