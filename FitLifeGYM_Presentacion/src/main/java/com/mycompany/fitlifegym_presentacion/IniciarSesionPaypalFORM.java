@@ -31,8 +31,6 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
         lblTitulo = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         jSeparator1 = new javax.swing.JSeparator();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        textMetodoPago3 = new javax.swing.JTextArea();
         jScrollPane9 = new javax.swing.JScrollPane();
         textBeneficiario = new javax.swing.JTextArea();
         btnTransferenciaRealizada = new javax.swing.JButton();
@@ -57,18 +55,6 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
 
         jSeparator1.setBackground(new java.awt.Color(225, 6, 0));
         jSeparator1.setForeground(new java.awt.Color(225, 6, 0));
-
-        jScrollPane8.setBorder(null);
-        jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane8.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        textMetodoPago3.setBackground(new java.awt.Color(18, 18, 18));
-        textMetodoPago3.setColumns(20);
-        textMetodoPago3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        textMetodoPago3.setForeground(new java.awt.Color(255, 255, 255));
-        textMetodoPago3.setRows(5);
-        textMetodoPago3.setText("Fecha de Vencimiento\n");
-        jScrollPane8.setViewportView(textMetodoPago3);
 
         jScrollPane9.setBorder(null);
         jScrollPane9.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -185,11 +171,6 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
                         .addGap(300, 300, 300)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(459, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(246, 246, 246)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,14 +204,9 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
                                 .addGap(87, 87, 87)
                                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                                 .addComponent(btnTransferenciaRealizada, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48))))))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(301, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(163, 163, 163)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -249,7 +225,7 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
 
     private void btnTransferenciaRealizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaRealizadaActionPerformed
         //temporal
-        control.navegarBienvenida();
+        
     }//GEN-LAST:event_btnTransferenciaRealizadaActionPerformed
 
     private void txtNombreTitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreTitularActionPerformed
@@ -316,7 +292,6 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitulo;
@@ -324,7 +299,6 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
     private javax.swing.JTextArea textBeneficiario1;
     private javax.swing.JTextArea textBeneficiario2;
     private javax.swing.JTextArea textBeneficiario3;
-    private javax.swing.JTextArea textMetodoPago3;
     private javax.swing.JTextField txtNombreTitular;
     private javax.swing.JTextField txtNombreTitular1;
     private javax.swing.JTextField txtNombreTitular2;

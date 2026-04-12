@@ -35,8 +35,6 @@ public class TransferenciaFORM extends javax.swing.JDialog {
         textBanco = new javax.swing.JTextArea();
         jScrollPane7 = new javax.swing.JScrollPane();
         textCuentaClabe = new javax.swing.JTextArea();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        textMetodoPago3 = new javax.swing.JTextArea();
         jScrollPane9 = new javax.swing.JScrollPane();
         textBeneficiario = new javax.swing.JTextArea();
         btnTransferenciaRealizada = new javax.swing.JButton();
@@ -78,18 +76,6 @@ public class TransferenciaFORM extends javax.swing.JDialog {
         textCuentaClabe.setRows(5);
         textCuentaClabe.setText("Número de cuenta / CLABE:            9876 5432 1098 7654 32");
         jScrollPane7.setViewportView(textCuentaClabe);
-
-        jScrollPane8.setBorder(null);
-        jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane8.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        textMetodoPago3.setBackground(new java.awt.Color(18, 18, 18));
-        textMetodoPago3.setColumns(20);
-        textMetodoPago3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        textMetodoPago3.setForeground(new java.awt.Color(255, 255, 255));
-        textMetodoPago3.setRows(5);
-        textMetodoPago3.setText("Fecha de Vencimiento\n");
-        jScrollPane8.setViewportView(textMetodoPago3);
 
         jScrollPane9.setBorder(null);
         jScrollPane9.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -155,12 +141,7 @@ public class TransferenciaFORM extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 138, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(459, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(246, 246, 246)))
+                .addGap(0, 263, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,11 +166,6 @@ public class TransferenciaFORM extends javax.swing.JDialog {
                         .addGap(15, 15, 15)
                         .addComponent(btnTransferenciaRealizada, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(120, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(301, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(163, 163, 163)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -208,7 +184,7 @@ public class TransferenciaFORM extends javax.swing.JDialog {
 
     private void btnTransferenciaRealizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaRealizadaActionPerformed
         //temporal
-        control.navegarBienvenida();
+        
     }//GEN-LAST:event_btnTransferenciaRealizadaActionPerformed
 
     /**
@@ -260,14 +236,12 @@ public class TransferenciaFORM extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextArea textBanco;
     private javax.swing.JTextArea textBeneficiario;
     private javax.swing.JTextArea textCuentaClabe;
-    private javax.swing.JTextArea textMetodoPago3;
     private javax.swing.JTextArea textMonto;
     // End of variables declaration//GEN-END:variables
 }
