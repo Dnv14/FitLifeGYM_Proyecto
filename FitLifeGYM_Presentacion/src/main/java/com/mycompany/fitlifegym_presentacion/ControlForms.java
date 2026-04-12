@@ -45,6 +45,10 @@ public class ControlForms {
         mostrarPantalla(new BienvenidaFORM(this));
     }
     
+    public void navegarMetodosPago(){
+        mostrarPantalla(new SuscribirseFORM(this));
+    }
+    
     //Dialogs
     public void navegarRegistrarse(){
         mostrarDialogo(new RegistrarseFORM(this.frameActual, true, this));
@@ -54,5 +58,16 @@ public class ControlForms {
         mostrarDialogo(new IniciarSesionFORM(this.frameActual, true, this));
     }
     
+    public void navegarTransferenciaMetodo(){
+        mostrarDialogo(new TransferenciaFORM(this.frameActual,true));
+    }
+    
+    public void navegarTarjetaMetodo(){
+        mostrarDialogo(new TarjetaFORM(this.frameActual, true));
+    }
+    
+    public void navegarIniciarSesionPaypal(){
+        mostrarDialogo(new IniciarSesionPaypalFORM(this.frameActual, true));
+    }
     
 }
