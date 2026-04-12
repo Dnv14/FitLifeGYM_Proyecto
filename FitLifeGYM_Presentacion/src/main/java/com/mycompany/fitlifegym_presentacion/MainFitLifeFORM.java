@@ -27,6 +27,7 @@ public class MainFitLifeFORM extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupMenu1 = new java.awt.PopupMenu();
         jPanel = new javax.swing.JPanel();
         lblTitulo2 = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JButton();
@@ -37,6 +38,8 @@ public class MainFitLifeFORM extends javax.swing.JFrame {
         lblTitulo3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnQuejasSugerencias = new javax.swing.JButton();
+
+        popupMenu1.setLabel("popupMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -187,5 +190,6 @@ public class MainFitLifeFORM extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lblTitulo2;
     private javax.swing.JLabel lblTitulo3;
+    private java.awt.PopupMenu popupMenu1;
     // End of variables declaration//GEN-END:variables
 }
