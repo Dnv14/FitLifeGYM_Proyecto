@@ -4,6 +4,8 @@
 
 package com.mycompany.funcionalidadiniciarsesionrenovarmembresia;
 
+import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.presentacion.ControlForms;
+
 /**
  *
  * @author Diego
@@ -11,6 +13,8 @@ package com.mycompany.funcionalidadiniciarsesionrenovarmembresia;
 public class FuncionalidadIniciarSesionRenovarMembresia {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ControlForms control = new ControlForms();
+        
+        control.navegarMenuPrincipal();
     }
 }
