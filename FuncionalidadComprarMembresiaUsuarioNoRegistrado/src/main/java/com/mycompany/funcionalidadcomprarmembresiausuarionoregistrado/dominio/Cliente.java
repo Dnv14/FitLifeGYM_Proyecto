@@ -12,15 +12,19 @@ public class Cliente {
     private String correo;
     private String telefono;
     private String pin;
+    private Integer tarjeta;
+    private MembresiaComprada membresíaComprada;
 
     public Cliente() {}
     
-    public Cliente(String nombre, String apellidos, String correo, String telefono, String pin) {
+    public Cliente(String nombre, String apellidos, String correo, String telefono, String pin, Integer tarjeta, MembresiaComprada membresíaComprada) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.telefono = telefono;
         this.pin = pin;
+        this.tarjeta = tarjeta;
+        this.membresíaComprada = membresíaComprada;
     }
     
     public Cliente(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin) {
@@ -79,6 +83,23 @@ public class Cliente {
     public void setPin(String pin) {
         this.pin = pin;
     }
+
+    public Integer getTarjeta() {
+        return tarjeta;
+    }
+
+    public void setTarjeta(Integer tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+
+    public MembresiaComprada getMembresíaComprada() {
+        return membresíaComprada;
+    }
+
+    public void setMembresíaComprada(MembresiaComprada membresíaComprada) {
+        this.membresíaComprada = membresíaComprada;
+    }
+     
 
     @Override
     public String toString() {

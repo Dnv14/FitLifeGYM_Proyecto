@@ -3,6 +3,7 @@ package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.presentac
 
 
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Cliente;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.TipoMembresia;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.NuevoClienteDTO;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.negocio.ObjetosBO;
 import java.util.List;
@@ -85,5 +86,24 @@ public class ControlForms {
     
     public List<Cliente> consultarClientes(){
         return objetosBO.getClientesBO().consultarClientes();
+    }
+    
+    public void seleccinarMembresia(String tipo){
+        double precio;
+        TipoMembresia tipoMembresia;
+        
+        switch(tipo){
+            case "Oro":
+                tipoMembresia = TipoMembresia.ORO;
+                precio = 750.0;
+                break;
+            case "Plata":
+                tipoMembresia = TipoMembresia.PLATA;
+                precio = 500.0;
+                break;
+            default:
+                tipoMembresia = TipoMembresia.BRONCE;
+                precio = 300.0;        
+        }        
     }
 }
