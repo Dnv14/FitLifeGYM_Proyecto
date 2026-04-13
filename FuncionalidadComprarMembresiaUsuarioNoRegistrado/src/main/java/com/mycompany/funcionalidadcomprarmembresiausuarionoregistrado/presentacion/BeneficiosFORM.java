@@ -34,9 +34,9 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         btnPrecio = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        checkBoxCursos = new javax.swing.JCheckBox();
         jSeparator4 = new javax.swing.JSeparator();
         lblTitulo = new javax.swing.JLabel();
-        checkBoxCursos = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         textAreaCursos = new javax.swing.JTextArea();
         checkBoxMusica = new javax.swing.JCheckBox();
@@ -60,6 +60,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel.setBackground(new java.awt.Color(18, 18, 18));
+        jPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPrecio.setBackground(new java.awt.Color(44, 44, 44));
         btnPrecio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -67,23 +68,29 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         btnPrecio.setText("precio");
         btnPrecio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnPrecio.addActionListener(this::btnPrecioActionPerformed);
+        jPanel.add(btnPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 187, 54));
 
         jSeparator1.setBackground(new java.awt.Color(225, 6, 0));
         jSeparator1.setForeground(new java.awt.Color(225, 6, 0));
+        jPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 93, 960, 10));
 
         jSeparator3.setBackground(new java.awt.Color(225, 6, 0));
         jSeparator3.setForeground(new java.awt.Color(225, 6, 0));
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, -1, 140));
+
+        checkBoxCursos.addActionListener(this::checkBoxCursosActionPerformed);
+        jPanel.add(checkBoxCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 20, 30));
 
         jSeparator4.setBackground(new java.awt.Color(225, 6, 0));
         jSeparator4.setForeground(new java.awt.Color(225, 6, 0));
+        jPanel.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 370, -1));
 
         lblTitulo.setBackground(new java.awt.Color(255, 255, 255));
         lblTitulo.setFont(new java.awt.Font("Arial", 3, 70)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setText("Beneficios");
-
-        checkBoxCursos.addActionListener(this::checkBoxCursosActionPerformed);
+        jPanel.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 9, 360, 94));
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -97,7 +104,10 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         textAreaCursos.setText("Cursos Especiales:");
         jScrollPane1.setViewportView(textAreaCursos);
 
+        jPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 370, 140));
+
         checkBoxMusica.addActionListener(this::checkBoxMusicaActionPerformed);
+        jPanel.add(checkBoxMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 20, 30));
 
         jScrollPane2.setBorder(null);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -110,10 +120,14 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         textAreaMusica.setText("Ambiente Musical Dinamico:");
         jScrollPane2.setViewportView(textAreaMusica);
 
+        jPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, 280, 140));
+
         jSeparator5.setBackground(new java.awt.Color(225, 6, 0));
         jSeparator5.setForeground(new java.awt.Color(225, 6, 0));
+        jPanel.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 950, -1));
 
         checkBoxFisico.addActionListener(this::checkBoxFisicoActionPerformed);
+        jPanel.add(checkBoxFisico, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 20, 30));
 
         jScrollPane4.setBorder(null);
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -127,11 +141,15 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         txtAreaProgresoFisico.setText("Progreso físico:");
         jScrollPane4.setViewportView(txtAreaProgresoFisico);
 
+        jPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 251, 370, -1));
+
         jSeparator6.setBackground(new java.awt.Color(225, 6, 0));
         jSeparator6.setForeground(new java.awt.Color(225, 6, 0));
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 5, 10, 530));
 
         checkBoxInstalaciones.addActionListener(this::checkBoxInstalacionesActionPerformed);
+        jPanel.add(checkBoxInstalaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 20, 20));
 
         jScrollPane5.setBorder(null);
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -145,7 +163,10 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         textAreaInstalaciones.setText("Acceso a nuestras instalaciones:");
         jScrollPane5.setViewportView(textAreaInstalaciones);
 
+        jPanel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 370, 130));
+
         checkBoxNutricion.addActionListener(this::checkBoxNutricionActionPerformed);
+        jPanel.add(checkBoxNutricion, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 20, -1));
 
         jScrollPane3.setBorder(null);
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -159,16 +180,20 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         textAreaCentroNutricion.setText("Centro de Nutrición:");
         jScrollPane3.setViewportView(textAreaCentroNutricion);
 
+        jPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 290, 140));
+
         lblPrecio.setBackground(new java.awt.Color(255, 255, 255));
         lblPrecio.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
         lblPrecio.setText("Todo esto a tan solo!!!:");
+        jPanel.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 210, 40));
 
         ComboBoxMembresia.setBackground(new java.awt.Color(44, 44, 44));
         ComboBoxMembresia.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         ComboBoxMembresia.setForeground(new java.awt.Color(255, 255, 255));
         ComboBoxMembresia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bronce", "Plata", "Oro" }));
         ComboBoxMembresia.addActionListener(this::ComboBoxMembresiaActionPerformed);
+        jPanel.add(ComboBoxMembresia, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 560, 80));
 
         btnSuscribirse1.setBackground(new java.awt.Color(255, 0, 51));
         btnSuscribirse1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -176,128 +201,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         btnSuscribirse1.setText("Suscribirse");
         btnSuscribirse1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnSuscribirse1.addActionListener(this::btnSuscribirse1ActionPerformed);
-
-        javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
-        jPanel.setLayout(jPanelLayout);
-        jPanelLayout.setHorizontalGroup(
-            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(340, 340, 340)
-                        .addComponent(checkBoxInstalaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(350, 350, 350)
-                        .addComponent(checkBoxCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(3, 3, 3)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(287, 287, 287)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(btnSuscribirse1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(checkBoxFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(650, 650, 650)
-                .addComponent(checkBoxNutricion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(680, 680, 680)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(btnPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(390, 390, 390)
-                .addComponent(ComboBoxMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(390, 390, 390)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(930, 930, 930)
-                .addComponent(checkBoxMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jPanelLayout.setVerticalGroup(
-            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(checkBoxInstalaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(121, 121, 121)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkBoxCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(btnSuscribirse1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(checkBoxFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(checkBoxNutricion))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(btnPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(340, 340, 340)
-                        .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(ComboBoxMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(checkBoxMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(380, 380, 380)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(4, 4, 4))
-        );
+        jPanel.add(btnSuscribirse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, 187, 54));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
