@@ -124,4 +124,8 @@ public class ControlForms {
         MembresiaCompradaDTO compra = new MembresiaCompradaDTO(membresia, hoy, hoy.plusMonths(1),membresia.getPrecio(), Estado.ACTIVO);
         membresiaCompradaBo.guardar(compra);
     }
+    
+    public Membresia getMembresiaSeleccionada(){
+        return membresia;
+    }
 }

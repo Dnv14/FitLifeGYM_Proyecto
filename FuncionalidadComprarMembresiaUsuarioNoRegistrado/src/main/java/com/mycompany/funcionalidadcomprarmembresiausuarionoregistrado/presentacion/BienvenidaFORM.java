@@ -4,6 +4,9 @@
  */
 package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.presentacion;
 
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Membresia;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.TipoMembresia;
+
 /**
  *
  * @author Diego
@@ -22,6 +25,32 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         this.control = control;
         this.setTitle("Bienvenida");
         initComponents();
+    }
+    
+    private void configiracionPorMembresia(){
+        Membresia membresia = control.getMembresiaSeleccionada();
+        if(membresia == null){
+            return;
+        }
+        
+        TipoMembresia tipoMembresia = membresia.getTipoMembresia();
+        
+        btnCursos.setEnabled(false);
+        btnNutricion.setEnabled(false);
+        btnAmbienteMusical.setEnabled(false);
+        btnProgreso.setEnabled(false);
+        
+        switch(tipoMembresia){
+            case ORO:
+                btnCursos.setEnabled(true);
+                btnProgreso.setEnabled(true);
+            case PLATA:
+                btnNutricion.setEnabled(true);
+                btnAmbienteMusical.setEnabled(true);
+            case BRONCE:
+                break;
+        }
+        
     }
 
     
