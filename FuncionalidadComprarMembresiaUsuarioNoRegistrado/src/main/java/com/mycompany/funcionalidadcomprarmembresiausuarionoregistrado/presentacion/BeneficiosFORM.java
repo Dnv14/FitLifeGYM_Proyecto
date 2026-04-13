@@ -348,6 +348,8 @@ public class BeneficiosFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboBoxMembresiaActionPerformed
 
     private void btnSuscribirse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuscribirse1ActionPerformed
+        String membresiaSeleccionado = (String) ComboBoxMembresia.getSelectedItem();
+        control.seleccinarMembresia(membresiaSeleccionado);
         control.navegarMetodosPago();
     }//GEN-LAST:event_btnSuscribirse1ActionPerformed
 

@@ -3,9 +3,17 @@ package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.presentac
 
 
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Cliente;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Estado;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Membresia;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.TipoMembresia;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.MembresiaCompradaDTO;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.NuevoClienteDTO;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.negocio.IMembresiaCompradaBO;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.negocio.MembresiaCompradaBOMock;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.negocio.ObjetosBO;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.persistencia.IMembresiaCompradaDAO;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.persistencia.MembresiaCompradaMock;
+import java.time.LocalDate;
 import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -17,6 +25,9 @@ import javax.swing.JFrame;
 public class ControlForms {
     private JFrame frameActual;
     private ObjetosBO objetosBO;
+    private Membresia membresia;
+    
+    private final IMembresiaCompradaBO membresiaCompradaBo = new MembresiaCompradaBOMock(new MembresiaCompradaMock());
 
     public ControlForms() {
         objetosBO = new ObjetosBO();
@@ -104,6 +115,13 @@ public class ControlForms {
             default:
                 tipoMembresia = TipoMembresia.BRONCE;
                 precio = 300.0;        
-        }        
+        }      
+        this.membresia = new Membresia(tipoMembresia, precio, LocalDate.now().plusMonths(1));
+    }
+    
+    public void procesarPagoTarjeta(){
+        LocalDate hoy = LocalDate.now();
+        MembresiaCompradaDTO compra = new MembresiaCompradaDTO(membresia, hoy, hoy.plusMonths(1),membresia.getPrecio(), Estado.ACTIVO);
+        membresiaCompradaBo.guardar(compra);
     }
 }
