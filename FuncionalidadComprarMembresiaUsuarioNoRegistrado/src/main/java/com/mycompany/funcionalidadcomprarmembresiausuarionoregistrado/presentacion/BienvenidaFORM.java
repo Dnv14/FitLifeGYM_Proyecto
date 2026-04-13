@@ -4,6 +4,7 @@
  */
 package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.presentacion;
 
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Cliente;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Membresia;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.TipoMembresia;
 
@@ -11,36 +12,41 @@ import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Ti
  *
  * @author Diego
  */
-
 //aqui el plan es que si no se lleno el textfiel con la membresia
 //el boton no se pueda utilizar y si le da click ahi ponga
 //esta funcion solo esta en el plan oro, actualizalo
 //o algo asi
 public class BienvenidaFORM extends javax.swing.JFrame {
-    
-   
+
     private ControlForms control;
-    
+
     public BienvenidaFORM(ControlForms control) {
         this.control = control;
         this.setTitle("Bienvenida");
         initComponents();
+        configiracionPorMembresia();
+        
+        Cliente cliente = control.getClienteActual();
+        if (cliente != null && cliente.getMembresíaComprada() != null) {
+            String plan = cliente.getMembresíaComprada().getMembresia().getTipoMembresia().toString();
+            lblTitulo.setText("Hola " + cliente.getNombre() + ", tu plan actual es: " + plan);
+        }
     }
-    
-    private void configiracionPorMembresia(){
+
+    private void configiracionPorMembresia() {
         Membresia membresia = control.getMembresiaSeleccionada();
-        if(membresia == null){
+        if (membresia == null) {
             return;
         }
-        
+
         TipoMembresia tipoMembresia = membresia.getTipoMembresia();
-        
+
         btnCursos.setEnabled(false);
         btnNutricion.setEnabled(false);
         btnAmbienteMusical.setEnabled(false);
         btnProgreso.setEnabled(false);
-        
-        switch(tipoMembresia){
+
+        switch (tipoMembresia) {
             case ORO:
                 btnCursos.setEnabled(true);
                 btnProgreso.setEnabled(true);
@@ -50,17 +56,16 @@ public class BienvenidaFORM extends javax.swing.JFrame {
             case BRONCE:
                 break;
         }
-        
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
-        lblTitulo4 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         textAreaInstalaciones = new javax.swing.JTextArea();
         btnCursos = new javax.swing.JButton();
@@ -76,10 +81,10 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(225, 6, 0));
         jSeparator1.setForeground(new java.awt.Color(225, 6, 0));
 
-        lblTitulo4.setBackground(new java.awt.Color(255, 255, 255));
-        lblTitulo4.setFont(new java.awt.Font("Arial", 3, 50)); // NOI18N
-        lblTitulo4.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo4.setText("Bienvenido: \"Nombre\"");
+        lblTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Bienvenido: \"Nombre\"");
 
         jScrollPane5.setBorder(null);
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -154,16 +159,17 @@ public class BienvenidaFORM extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                    .addContainerGap(172, Short.MAX_VALUE)
-                    .addComponent(lblTitulo4)
-                    .addGap(148, 148, 148)))
+            .addGroup(jPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(lblTitulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(17, 17, 17)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,11 +181,6 @@ public class BienvenidaFORM extends javax.swing.JFrame {
                     .addComponent(btnProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelLayout.createSequentialGroup()
-                    .addGap(27, 27, 27)
-                    .addComponent(lblTitulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(368, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -226,7 +227,6 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnQuejasSugerenciasActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAmbienteMusical;
@@ -237,7 +237,7 @@ public class BienvenidaFORM extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblTitulo4;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextArea textAreaInstalaciones;
     // End of variables declaration//GEN-END:variables
 }

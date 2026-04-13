@@ -55,7 +55,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         textAreaCentroNutricion = new javax.swing.JTextArea();
         lblPrecio = new javax.swing.JLabel();
         ComboBoxMembresia = new javax.swing.JComboBox<>();
-        btnSuscribirse1 = new javax.swing.JButton();
+        btnSuscribirse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -195,13 +195,13 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         ComboBoxMembresia.addActionListener(this::ComboBoxMembresiaActionPerformed);
         jPanel.add(ComboBoxMembresia, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 560, 80));
 
-        btnSuscribirse1.setBackground(new java.awt.Color(255, 0, 51));
-        btnSuscribirse1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnSuscribirse1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSuscribirse1.setText("Suscribirse");
-        btnSuscribirse1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnSuscribirse1.addActionListener(this::btnSuscribirse1ActionPerformed);
-        jPanel.add(btnSuscribirse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, 187, 54));
+        btnSuscribirse.setBackground(new java.awt.Color(255, 0, 51));
+        btnSuscribirse.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnSuscribirse.setForeground(new java.awt.Color(255, 255, 255));
+        btnSuscribirse.setText("Suscribirse");
+        btnSuscribirse.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnSuscribirse.addActionListener(this::btnSuscribirseActionPerformed);
+        jPanel.add(btnSuscribirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, 187, 54));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -251,11 +251,13 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         this.actualizarBeneficios();
     }//GEN-LAST:event_ComboBoxMembresiaActionPerformed
 
-    private void btnSuscribirse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuscribirse1ActionPerformed
+    private void btnSuscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuscribirseActionPerformed
+        
+        
         String membresiaSeleccionado = (String) ComboBoxMembresia.getSelectedItem();
         control.seleccinarMembresia(membresiaSeleccionado);
         control.navegarMetodosPago();
-    }//GEN-LAST:event_btnSuscribirse1ActionPerformed
+    }//GEN-LAST:event_btnSuscribirseActionPerformed
 
     private void actualizarBeneficios() {
         String membresia = (String) ComboBoxMembresia.getSelectedItem();
@@ -300,7 +302,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxMembresia;
     private javax.swing.JButton btnPrecio;
-    private javax.swing.JButton btnSuscribirse1;
+    private javax.swing.JButton btnSuscribirse;
     private javax.swing.JCheckBox checkBoxCursos;
     private javax.swing.JCheckBox checkBoxFisico;
     private javax.swing.JCheckBox checkBoxInstalaciones;
