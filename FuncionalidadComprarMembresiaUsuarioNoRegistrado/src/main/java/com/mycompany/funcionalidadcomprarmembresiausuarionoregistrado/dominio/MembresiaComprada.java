@@ -81,6 +81,13 @@ public class MembresiaComprada {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
+
+    @Override
+    public String toString() {
+        return "MembresiaComprada{" + "idMembresiaComprada=" + idMembresiaComprada + ", membresia=" + membresia.getTipoMembresia() + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", precioPagado=" + precioPagado + ", estado=" + estado + '}';
+    }
+    
+    
     
     
 }

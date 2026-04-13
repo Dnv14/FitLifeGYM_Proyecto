@@ -60,5 +60,12 @@ public class Membresia {
     public void setVigencia(LocalDate vigencia) {
         this.vigencia = vigencia;
     }
+
+    @Override
+    public String toString() {
+        return "Membresia{" + "idMembresia=" + idMembresia + ", tipoMembresia=" + tipoMembresia + ", precio=" + precio + ", vigencia=" + vigencia + '}';
+    }
+    
+    
     
 }

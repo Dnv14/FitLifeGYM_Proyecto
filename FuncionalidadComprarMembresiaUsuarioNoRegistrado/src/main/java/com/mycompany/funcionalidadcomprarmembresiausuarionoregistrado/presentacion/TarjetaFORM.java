@@ -285,6 +285,8 @@ public class TarjetaFORM extends javax.swing.JDialog {
             return;
         }
         control.procesarPagoTarjeta();
+        JOptionPane.showMessageDialog(this, "El pago se ha realizado correctamente.");
+        System.out.println(control.getMembresiaSeleccionada());
         control.navegarBienvenida();
         this.dispose();
     }//GEN-LAST:event_btnPagarAhoraActionPerformed

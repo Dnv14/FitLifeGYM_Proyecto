@@ -5,6 +5,7 @@ package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.presentac
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Cliente;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Estado;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Membresia;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.MembresiaComprada;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.TipoMembresia;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.MembresiaCompradaDTO;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.NuevoClienteDTO;
@@ -127,5 +128,9 @@ public class ControlForms {
     
     public Membresia getMembresiaSeleccionada(){
         return membresia;
+    }
+    
+    public MembresiaComprada getMembresiaComprada(){
+        return membresiaCompradaBo.obtenerTodas().get(membresiaCompradaBo.obtenerTodas().size() -1);
     }
 }
