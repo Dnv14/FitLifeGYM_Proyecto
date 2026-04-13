@@ -79,5 +79,12 @@ public class Cliente {
     public void setPin(String pin) {
         this.pin = pin;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellidos=" + apellidos + ", correo=" + correo + ", telefono=" + telefono + ", pin=" + pin + '}';
+    }
+    
+    
     
 }

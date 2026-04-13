@@ -13,14 +13,14 @@ public class NuevoClienteDTO {
     private final String telefono;
     private final String pin;
 
-    public NuevoClienteDTO(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin) {
-        this.idCliente = idCliente;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.pin = pin;
-    }
+//    public NuevoClienteDTO(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin) {
+//        this.idCliente = idCliente;
+//        this.nombre = nombre;
+//        this.apellidos = apellidos;
+//        this.correo = correo;
+//        this.telefono = telefono;
+//        this.pin = pin;
+//    }
     
     public NuevoClienteDTO(String nombre, String apellidos, String correo, String telefono, String pin) {
         this.nombre = nombre;

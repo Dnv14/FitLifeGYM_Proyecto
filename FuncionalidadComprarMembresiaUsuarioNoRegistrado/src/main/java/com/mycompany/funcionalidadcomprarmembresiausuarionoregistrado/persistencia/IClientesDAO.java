@@ -3,6 +3,7 @@ package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.persisten
 
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Cliente;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.NuevoClienteDTO;
+import java.util.List;
 
 /**
  *
@@ -10,4 +11,6 @@ import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.Nuevo
  */
 public interface IClientesDAO {
     public abstract Cliente registrarCliente(NuevoClienteDTO cliente);
+    public abstract Cliente consultarClientePorId(Long id);
+    public abstract List<Cliente> consultarClientes();
 }

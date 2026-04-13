@@ -12,6 +12,10 @@ import java.util.List;
  */
 public class MembresiaBOMock implements IMembresiaBO{
     private IMembresiaDAO membresiaDAO;
+
+    public MembresiaBOMock(IMembresiaDAO membresiaDAO) {
+        this.membresiaDAO = membresiaDAO;
+    }
     
     @Override
     public void guardar(MembresiaDTO membresia) {

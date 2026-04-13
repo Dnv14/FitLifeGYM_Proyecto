@@ -118,10 +118,6 @@
                   <Component id="jSeparator4" min="-2" pref="370" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="720" pref="720" max="-2" attributes="0"/>
-                  <Component id="btnTemporal" min="-2" pref="187" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Component id="jScrollPane5" min="-2" pref="370" max="-2" attributes="0"/>
               </Group>
@@ -131,81 +127,82 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
-                  <Component id="lblTitulo" min="-2" pref="94" max="-2" attributes="0"/>
-                  <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                  <Component id="checkBoxInstalaciones" min="-2" pref="20" max="-2" attributes="0"/>
-                  <EmptySpace min="121" pref="121" max="-2" attributes="0"/>
-                  <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="140" max="-2" attributes="0"/>
-                      <Component id="checkBoxCursos" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
+                          <Component id="lblTitulo" min="-2" pref="94" max="-2" attributes="0"/>
+                          <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                          <Component id="checkBoxInstalaciones" min="-2" pref="20" max="-2" attributes="0"/>
+                          <EmptySpace min="121" pref="121" max="-2" attributes="0"/>
+                          <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane1" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="checkBoxCursos" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                          <Component id="jSeparator6" min="-2" pref="530" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
+                          <Component id="jSeparator3" min="-2" pref="140" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="390" pref="390" max="-2" attributes="0"/>
+                          <Component id="btnSuscribirse1" min="-2" pref="54" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
+                          <Component id="checkBoxFisico" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
+                          <Component id="checkBoxNutricion" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="140" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="390" pref="390" max="-2" attributes="0"/>
+                          <Component id="btnPrecio" min="-2" pref="54" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="340" pref="340" max="-2" attributes="0"/>
+                          <Component id="lblPrecio" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Component id="ComboBoxMembresia" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="140" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
+                          <Component id="checkBoxMusica" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="240" pref="240" max="-2" attributes="0"/>
+                          <Component id="jSeparator5" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="380" pref="380" max="-2" attributes="0"/>
+                          <Component id="jSeparator4" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
+                          <Component id="jScrollPane5" min="-2" pref="130" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="93" pref="93" max="-2" attributes="0"/>
+                          <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                  <Component id="jSeparator6" min="-2" pref="530" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
-                  <Component id="jSeparator3" min="-2" pref="140" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="390" pref="390" max="-2" attributes="0"/>
-                  <Component id="btnSuscribirse1" min="-2" pref="54" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
-                  <Component id="checkBoxFisico" min="-2" pref="30" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
-                  <Component id="checkBoxNutricion" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="140" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="390" pref="390" max="-2" attributes="0"/>
-                  <Component id="btnPrecio" min="-2" pref="54" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="340" pref="340" max="-2" attributes="0"/>
-                  <Component id="lblPrecio" min="-2" pref="40" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                  <Component id="ComboBoxMembresia" min="-2" pref="80" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" pref="140" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
-                  <Component id="checkBoxMusica" min="-2" pref="30" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="240" pref="240" max="-2" attributes="0"/>
-                  <Component id="jSeparator5" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="380" pref="380" max="-2" attributes="0"/>
-                  <Component id="jSeparator4" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
-                  <Component id="btnTemporal" min="-2" pref="54" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
-                  <Component id="jScrollPane5" min="-2" pref="130" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="93" pref="93" max="-2" attributes="0"/>
-                  <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -263,28 +260,6 @@
               <Color blue="0" green="6" red="e1" type="rgb"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnTemporal">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="0" red="ff" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="form CU"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTemporalActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTitulo">
           <Properties>

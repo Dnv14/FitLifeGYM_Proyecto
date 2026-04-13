@@ -1,6 +1,11 @@
 
 package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.presentacion;
 
+
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Cliente;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.NuevoClienteDTO;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.negocio.ObjetosBO;
+import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
@@ -10,6 +15,11 @@ import javax.swing.JFrame;
  */
 public class ControlForms {
     private JFrame frameActual;
+    private ObjetosBO objetosBO;
+
+    public ControlForms() {
+        objetosBO = new ObjetosBO();
+    }
     
     private void mostrarPantalla(JFrame nuevoFrame){
         if(this.frameActual != null){
@@ -60,4 +70,20 @@ public class ControlForms {
         mostrarDialogo(new TarjetaFORM(this.frameActual, true,this));
     }
     
+    
+    //logica de botones }
+
+    public void registrarCliente(NuevoClienteDTO cliente){
+        objetosBO.getClientesBO().registrarCliente(cliente);
+    }
+    
+    
+    //utileria
+    public void buscarClientePorId(Long id){
+        objetosBO.getClientesBO().buscarClientePorId(id);
+    }
+    
+    public List<Cliente> consultarClientes(){
+        return objetosBO.getClientesBO().consultarClientes();
+    }
 }

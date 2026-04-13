@@ -4,6 +4,9 @@
  */
 package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.presentacion;
 
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.NuevoClienteDTO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Diego
@@ -45,13 +48,13 @@ public class RegistrarseFORM extends javax.swing.JDialog {
         lblTitulo1 = new javax.swing.JLabel();
         txtApellidos = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
-        txtNombreCompleto2 = new javax.swing.JTextField();
+        txtNombreCompleto = new javax.swing.JTextField();
         txtFechaNacimiento = new javax.swing.JTextField();
         txtPIN = new javax.swing.JTextField();
-        txtContrasenia1 = new javax.swing.JTextField();
+        txtContrasenia = new javax.swing.JTextField();
         btnVolverAtras = new javax.swing.JButton();
         lblApellidos = new javax.swing.JLabel();
-        txtCorreoElectronico1 = new javax.swing.JTextField();
+        txtCorreoElectronico = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -118,14 +121,14 @@ public class RegistrarseFORM extends javax.swing.JDialog {
 
         txtTelefono.addActionListener(this::txtTelefonoActionPerformed);
 
-        txtNombreCompleto2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNombreCompleto2.addActionListener(this::txtNombreCompleto2ActionPerformed);
+        txtNombreCompleto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNombreCompleto.addActionListener(this::txtNombreCompletoActionPerformed);
 
         txtFechaNacimiento.addActionListener(this::txtFechaNacimientoActionPerformed);
 
         txtPIN.addActionListener(this::txtPINActionPerformed);
 
-        txtContrasenia1.addActionListener(this::txtContrasenia1ActionPerformed);
+        txtContrasenia.addActionListener(this::txtContraseniaActionPerformed);
 
         btnVolverAtras.setBackground(new java.awt.Color(255, 0, 51));
         btnVolverAtras.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -139,7 +142,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
         lblApellidos.setForeground(new java.awt.Color(255, 255, 255));
         lblApellidos.setText("Apellidos");
 
-        txtCorreoElectronico1.addActionListener(this::txtCorreoElectronico1ActionPerformed);
+        txtCorreoElectronico.addActionListener(this::txtCorreoElectronicoActionPerformed);
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
@@ -178,9 +181,9 @@ public class RegistrarseFORM extends javax.swing.JDialog {
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreCompleto2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPIN, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtContrasenia1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelLayout.createSequentialGroup()
@@ -209,7 +212,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
             .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelLayout.createSequentialGroup()
                     .addGap(241, 241, 241)
-                    .addComponent(txtCorreoElectronico1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(370, Short.MAX_VALUE)))
         );
         jPanelLayout.setVerticalGroup(
@@ -228,7 +231,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
-                                .addComponent(txtNombreCompleto2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelLayout.createSequentialGroup()
                                 .addGap(36, 36, 36)
                                 .addComponent(lblNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -251,7 +254,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtContrasenia1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPIN, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,7 +271,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
             .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelLayout.createSequentialGroup()
                     .addGap(228, 228, 228)
-                    .addComponent(txtCorreoElectronico1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(270, Short.MAX_VALUE)))
         );
 
@@ -278,6 +281,18 @@ public class RegistrarseFORM extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+        String nombre = txtNombreCompleto.getText();
+        String apellidos = txtApellidos.getText();
+        String correo = txtCorreoElectronico.getText();
+        String telefono = txtTelefono.getText();
+        String pin = txtPIN.getText();
+        
+        NuevoClienteDTO clienteRegistrar = new NuevoClienteDTO(nombre, apellidos, correo, telefono, pin);
+        control.registrarCliente(clienteRegistrar);
+        
+        JOptionPane.showMessageDialog(this,"Cliente creado exitosamente");
+        System.out.println(control.consultarClientes());
+        
         control.navegarBenificios();
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
@@ -293,9 +308,9 @@ public class RegistrarseFORM extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
-    private void txtNombreCompleto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCompleto2ActionPerformed
+    private void txtNombreCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCompletoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreCompleto2ActionPerformed
+    }//GEN-LAST:event_txtNombreCompletoActionPerformed
 
     private void txtFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNacimientoActionPerformed
         // TODO add your handling code here:
@@ -305,17 +320,17 @@ public class RegistrarseFORM extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPINActionPerformed
 
-    private void txtContrasenia1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenia1ActionPerformed
+    private void txtContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseniaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtContrasenia1ActionPerformed
+    }//GEN-LAST:event_txtContraseniaActionPerformed
 
     private void btnVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAtrasActionPerformed
         control.navegarMenuPrincipal();
     }//GEN-LAST:event_btnVolverAtrasActionPerformed
 
-    private void txtCorreoElectronico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoElectronico1ActionPerformed
+    private void txtCorreoElectronicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoElectronicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoElectronico1ActionPerformed
+    }//GEN-LAST:event_txtCorreoElectronicoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -334,10 +349,10 @@ public class RegistrarseFORM extends javax.swing.JDialog {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JTextField txtApellidos;
-    private javax.swing.JTextField txtContrasenia1;
-    private javax.swing.JTextField txtCorreoElectronico1;
+    private javax.swing.JTextField txtContrasenia;
+    private javax.swing.JTextField txtCorreoElectronico;
     private javax.swing.JTextField txtFechaNacimiento;
-    private javax.swing.JTextField txtNombreCompleto2;
+    private javax.swing.JTextField txtNombreCompleto;
     private javax.swing.JTextField txtPIN;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
