@@ -1,11 +1,15 @@
-
-package com.mycompany.fitlifegym_persistencia.entidades;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.fitlifegym_dtos;
 
 /**
  *
- * @author Julian
+ * @author Diego
  */
-public class Cliente {
+public class NuevoClienteDTO {
+
     private Long idCliente;
     private String nombre;
     private String apellidos;
@@ -13,11 +17,10 @@ public class Cliente {
     private String telefono;
     private String pin;
     private String tarjeta;
-    private MembresiaComprada membresíaComprada;
+    private NuevaMembresiaCompradaDTO membresíaComprada;
 
-    public Cliente() {}
-    
-    public Cliente(String nombre, String apellidos, String correo, String telefono, String pin, String tarjeta, MembresiaComprada membresíaComprada) {
+    public NuevoClienteDTO(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin, String tarjeta, NuevaMembresiaCompradaDTO membresíaComprada) {
+        this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
@@ -26,14 +29,15 @@ public class Cliente {
         this.tarjeta = tarjeta;
         this.membresíaComprada = membresíaComprada;
     }
-    
-    public Cliente(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin) {
-        this.idCliente = idCliente;
+
+    public NuevoClienteDTO(String nombre, String apellidos, String correo, String telefono, String pin, String tarjeta, NuevaMembresiaCompradaDTO membresíaComprada) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.telefono = telefono;
         this.pin = pin;
+        this.tarjeta = tarjeta;
+        this.membresíaComprada = membresíaComprada;
     }
 
     public Long getIdCliente() {
@@ -92,18 +96,13 @@ public class Cliente {
         this.tarjeta = tarjeta;
     }
 
-    public MembresiaComprada getMembresíaComprada() {
+    public NuevaMembresiaCompradaDTO getMembresíaComprada() {
         return membresíaComprada;
     }
 
-    public void setMembresíaComprada(MembresiaComprada membresíaComprada) {
+    public void setMembresíaComprada(NuevaMembresiaCompradaDTO membresíaComprada) {
         this.membresíaComprada = membresíaComprada;
     }
-     
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellidos=" + apellidos + ", correo=" + correo + ", telefono=" + telefono + ", pin=" + pin + '}';
-    }
+    
     
 }
