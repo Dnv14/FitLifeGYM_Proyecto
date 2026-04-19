@@ -11,7 +11,9 @@ import javax.swing.JOptionPane;
  * @author Jaime
  */
 public class TarjetaFORM extends javax.swing.JDialog {
+
     private ControlForms control;
+
     /**
      * Creates new form TarjetaFORM
      */
@@ -19,6 +21,7 @@ public class TarjetaFORM extends javax.swing.JDialog {
         super(parent, modal);
         this.control = control;
         initComponents();
+        setearEditablesFalsos();
     }
 
     /**
@@ -36,15 +39,15 @@ public class TarjetaFORM extends javax.swing.JDialog {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane5 = new javax.swing.JScrollPane();
-        textMetodoPago = new javax.swing.JTextArea();
+        txtTItularFALSE = new javax.swing.JTextArea();
         txtNombreTitular = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
-        textMetodoPago1 = new javax.swing.JTextArea();
+        txtLblNumeroTarjetaFalse = new javax.swing.JTextArea();
         txtFechaVencimiento = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
-        textCVV = new javax.swing.JTextArea();
+        textCVVFALSE = new javax.swing.JTextArea();
         jScrollPane9 = new javax.swing.JScrollPane();
-        textMetodoPago4 = new javax.swing.JTextArea();
+        txtvencimientoFALSE = new javax.swing.JTextArea();
         txtNumeroTarjeta = new javax.swing.JTextField();
         txtCVV = new javax.swing.JTextField();
         btnPagarAhora = new javax.swing.JButton();
@@ -67,13 +70,14 @@ public class TarjetaFORM extends javax.swing.JDialog {
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        textMetodoPago.setBackground(new java.awt.Color(18, 18, 18));
-        textMetodoPago.setColumns(20);
-        textMetodoPago.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        textMetodoPago.setForeground(new java.awt.Color(255, 255, 255));
-        textMetodoPago.setRows(5);
-        textMetodoPago.setText("Nombre del titular de la tarjeta:");
-        jScrollPane5.setViewportView(textMetodoPago);
+        txtTItularFALSE.setEditable(false);
+        txtTItularFALSE.setBackground(new java.awt.Color(18, 18, 18));
+        txtTItularFALSE.setColumns(20);
+        txtTItularFALSE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtTItularFALSE.setForeground(new java.awt.Color(255, 255, 255));
+        txtTItularFALSE.setRows(5);
+        txtTItularFALSE.setText("Nombre del titular de la tarjeta:");
+        jScrollPane5.setViewportView(txtTItularFALSE);
 
         txtNombreTitular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNombreTitular.addActionListener(new java.awt.event.ActionListener() {
@@ -86,13 +90,14 @@ public class TarjetaFORM extends javax.swing.JDialog {
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        textMetodoPago1.setBackground(new java.awt.Color(18, 18, 18));
-        textMetodoPago1.setColumns(20);
-        textMetodoPago1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        textMetodoPago1.setForeground(new java.awt.Color(255, 255, 255));
-        textMetodoPago1.setRows(5);
-        textMetodoPago1.setText("Número de Tarjeta:");
-        jScrollPane6.setViewportView(textMetodoPago1);
+        txtLblNumeroTarjetaFalse.setEditable(false);
+        txtLblNumeroTarjetaFalse.setBackground(new java.awt.Color(18, 18, 18));
+        txtLblNumeroTarjetaFalse.setColumns(20);
+        txtLblNumeroTarjetaFalse.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtLblNumeroTarjetaFalse.setForeground(new java.awt.Color(255, 255, 255));
+        txtLblNumeroTarjetaFalse.setRows(5);
+        txtLblNumeroTarjetaFalse.setText("Número de Tarjeta:");
+        jScrollPane6.setViewportView(txtLblNumeroTarjetaFalse);
 
         txtFechaVencimiento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtFechaVencimiento.addActionListener(new java.awt.event.ActionListener() {
@@ -105,25 +110,27 @@ public class TarjetaFORM extends javax.swing.JDialog {
         jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane7.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        textCVV.setBackground(new java.awt.Color(18, 18, 18));
-        textCVV.setColumns(20);
-        textCVV.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        textCVV.setForeground(new java.awt.Color(255, 255, 255));
-        textCVV.setRows(5);
-        textCVV.setText("CVV:");
-        jScrollPane7.setViewportView(textCVV);
+        textCVVFALSE.setEditable(false);
+        textCVVFALSE.setBackground(new java.awt.Color(18, 18, 18));
+        textCVVFALSE.setColumns(20);
+        textCVVFALSE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textCVVFALSE.setForeground(new java.awt.Color(255, 255, 255));
+        textCVVFALSE.setRows(5);
+        textCVVFALSE.setText("CVV:");
+        jScrollPane7.setViewportView(textCVVFALSE);
 
         jScrollPane9.setBorder(null);
         jScrollPane9.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane9.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        textMetodoPago4.setBackground(new java.awt.Color(18, 18, 18));
-        textMetodoPago4.setColumns(20);
-        textMetodoPago4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        textMetodoPago4.setForeground(new java.awt.Color(255, 255, 255));
-        textMetodoPago4.setRows(5);
-        textMetodoPago4.setText("Fecha de Vencimiento:");
-        jScrollPane9.setViewportView(textMetodoPago4);
+        txtvencimientoFALSE.setEditable(false);
+        txtvencimientoFALSE.setBackground(new java.awt.Color(18, 18, 18));
+        txtvencimientoFALSE.setColumns(20);
+        txtvencimientoFALSE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtvencimientoFALSE.setForeground(new java.awt.Color(255, 255, 255));
+        txtvencimientoFALSE.setRows(5);
+        txtvencimientoFALSE.setText("Fecha de Vencimiento:");
+        jScrollPane9.setViewportView(txtvencimientoFALSE);
 
         txtNumeroTarjeta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNumeroTarjeta.addActionListener(new java.awt.event.ActionListener() {
@@ -279,8 +286,8 @@ public class TarjetaFORM extends javax.swing.JDialog {
         String numero = txtNumeroTarjeta.getText().trim();
         String ccv = txtCVV.getText().trim();
         String fecha = txtFechaVencimiento.getText().trim();
-        
-        if(nombre.isEmpty() || numero.isEmpty() || ccv.isEmpty() || fecha.isEmpty()){
+
+        if (nombre.isEmpty() || numero.isEmpty() || ccv.isEmpty() || fecha.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Favor de llenar todos los campos requeridos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -291,6 +298,14 @@ public class TarjetaFORM extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnPagarAhoraActionPerformed
 
+    public void setearEditablesFalsos() {
+        textCVVFALSE.setEditable(false);
+        txtvencimientoFALSE.setEditable(false);
+        txtLblNumeroTarjetaFalse.setEditable(false);
+        txtTItularFALSE.setEditable(false);
+        
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPagarAhora;
     private javax.swing.Box.Filler filler1;
@@ -302,13 +317,13 @@ public class TarjetaFORM extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTextArea textCVV;
-    private javax.swing.JTextArea textMetodoPago;
-    private javax.swing.JTextArea textMetodoPago1;
-    private javax.swing.JTextArea textMetodoPago4;
+    private javax.swing.JTextArea textCVVFALSE;
     private javax.swing.JTextField txtCVV;
     private javax.swing.JTextField txtFechaVencimiento;
+    private javax.swing.JTextArea txtLblNumeroTarjetaFalse;
     private javax.swing.JTextField txtNombreTitular;
     private javax.swing.JTextField txtNumeroTarjeta;
+    private javax.swing.JTextArea txtTItularFALSE;
+    private javax.swing.JTextArea txtvencimientoFALSE;
     // End of variables declaration//GEN-END:variables
 }

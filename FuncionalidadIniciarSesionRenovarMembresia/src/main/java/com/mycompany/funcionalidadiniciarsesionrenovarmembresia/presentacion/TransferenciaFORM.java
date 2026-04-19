@@ -61,6 +61,7 @@ public class TransferenciaFORM extends JDialog {
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textBanco.setEditable(false);
         textBanco.setBackground(new java.awt.Color(18, 18, 18));
         textBanco.setColumns(20);
         textBanco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -73,6 +74,7 @@ public class TransferenciaFORM extends JDialog {
         jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane7.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textCuentaClabe.setEditable(false);
         textCuentaClabe.setBackground(new java.awt.Color(18, 18, 18));
         textCuentaClabe.setColumns(20);
         textCuentaClabe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -85,6 +87,7 @@ public class TransferenciaFORM extends JDialog {
         jScrollPane9.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane9.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textBeneficiario.setEditable(false);
         textBeneficiario.setBackground(new java.awt.Color(18, 18, 18));
         textBeneficiario.setColumns(20);
         textBeneficiario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -108,6 +111,7 @@ public class TransferenciaFORM extends JDialog {
         jScrollPane10.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane10.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textMonto.setEditable(false);
         textMonto.setBackground(new java.awt.Color(18, 18, 18));
         textMonto.setColumns(20);
         textMonto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

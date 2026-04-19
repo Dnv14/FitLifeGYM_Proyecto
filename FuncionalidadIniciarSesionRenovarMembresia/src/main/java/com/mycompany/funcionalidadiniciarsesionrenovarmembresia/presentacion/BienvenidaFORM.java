@@ -100,6 +100,7 @@ public class BienvenidaFORM extends JFrame {
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textAreaInstalaciones.setEditable(false);
         textAreaInstalaciones.setBackground(new java.awt.Color(18, 18, 18));
         textAreaInstalaciones.setColumns(20);
         textAreaInstalaciones.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

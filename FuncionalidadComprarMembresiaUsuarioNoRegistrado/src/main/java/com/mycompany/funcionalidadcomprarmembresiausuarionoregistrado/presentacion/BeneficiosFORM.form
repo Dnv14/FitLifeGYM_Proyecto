@@ -176,6 +176,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="textAreaCursos">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="12" green="12" red="12" type="rgb"/>
                 </Property>
@@ -222,6 +223,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="textAreaMusica">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="12" green="12" red="12" type="rgb"/>
                 </Property>
@@ -284,6 +286,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="txtAreaProgresoFisico">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="12" green="12" red="12" type="rgb"/>
                 </Property>
@@ -347,6 +350,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="textAreaInstalaciones">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="12" green="12" red="12" type="rgb"/>
                 </Property>
@@ -359,6 +363,7 @@
                 </Property>
                 <Property name="rows" type="int" value="5"/>
                 <Property name="text" type="java.lang.String" value="Acceso a nuestras instalaciones:"/>
+                <Property name="dragEnabled" type="boolean" value="true"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -394,6 +399,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="textAreaCentroNutricion">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="12" green="12" red="12" type="rgb"/>
                 </Property>
@@ -460,7 +466,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSuscribirse1">
+        <Component class="javax.swing.JButton" name="btnSuscribirse">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -479,7 +485,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuscribirse1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuscribirseActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

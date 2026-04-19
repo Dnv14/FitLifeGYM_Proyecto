@@ -67,6 +67,7 @@ public class SuscribirseFORM extends javax.swing.JFrame {
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textMetodoPago.setEditable(false);
         textMetodoPago.setBackground(new java.awt.Color(18, 18, 18));
         textMetodoPago.setColumns(20);
         textMetodoPago.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

@@ -10,6 +10,6 @@ import java.util.List;
  * @author Julian
  */
 public interface IMembresiaCompradaBO {
-    public abstract void guardar(MembresiaCompradaDTO compra);
+    public abstract MembresiaComprada guardar(MembresiaCompradaDTO compra);
     public abstract List<MembresiaComprada> obtenerTodas();
 }

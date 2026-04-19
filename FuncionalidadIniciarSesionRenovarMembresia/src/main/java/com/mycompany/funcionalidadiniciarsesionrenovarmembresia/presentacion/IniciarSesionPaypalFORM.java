@@ -65,6 +65,7 @@ public class IniciarSesionPaypalFORM extends JDialog {
         jScrollPane9.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane9.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textBeneficiario.setEditable(false);
         textBeneficiario.setBackground(new java.awt.Color(18, 18, 18));
         textBeneficiario.setColumns(20);
         textBeneficiario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -107,6 +108,7 @@ public class IniciarSesionPaypalFORM extends JDialog {
         jScrollPane12.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane12.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textBeneficiario2.setEditable(false);
         textBeneficiario2.setBackground(new java.awt.Color(18, 18, 18));
         textBeneficiario2.setColumns(20);
         textBeneficiario2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

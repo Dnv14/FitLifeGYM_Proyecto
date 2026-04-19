@@ -69,6 +69,7 @@ public class TarjetaFORM extends JDialog {
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textMetodoPago.setEditable(false);
         textMetodoPago.setBackground(new java.awt.Color(18, 18, 18));
         textMetodoPago.setColumns(20);
         textMetodoPago.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -88,6 +89,7 @@ public class TarjetaFORM extends JDialog {
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textMetodoPago1.setEditable(false);
         textMetodoPago1.setBackground(new java.awt.Color(18, 18, 18));
         textMetodoPago1.setColumns(20);
         textMetodoPago1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -107,6 +109,7 @@ public class TarjetaFORM extends JDialog {
         jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane7.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textCVV.setEditable(false);
         textCVV.setBackground(new java.awt.Color(18, 18, 18));
         textCVV.setColumns(20);
         textCVV.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -119,6 +122,7 @@ public class TarjetaFORM extends JDialog {
         jScrollPane9.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane9.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        textMetodoPago4.setEditable(false);
         textMetodoPago4.setBackground(new java.awt.Color(18, 18, 18));
         textMetodoPago4.setColumns(20);
         textMetodoPago4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

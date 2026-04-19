@@ -221,6 +221,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="textMetodoPago">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="12" green="12" red="12" type="rgb"/>
                     </Property>
@@ -263,6 +264,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="textMetodoPago1">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="12" green="12" red="12" type="rgb"/>
                     </Property>
@@ -305,6 +307,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="textCVV">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="12" green="12" red="12" type="rgb"/>
                     </Property>
@@ -337,6 +340,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="textMetodoPago4">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="12" green="12" red="12" type="rgb"/>
                     </Property>

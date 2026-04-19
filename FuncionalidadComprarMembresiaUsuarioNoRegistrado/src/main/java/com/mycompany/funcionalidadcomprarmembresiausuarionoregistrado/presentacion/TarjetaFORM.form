@@ -219,8 +219,9 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="textMetodoPago">
+                <Component class="javax.swing.JTextArea" name="txtTItularFALSE">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="12" green="12" red="12" type="rgb"/>
                     </Property>
@@ -261,8 +262,9 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="textMetodoPago1">
+                <Component class="javax.swing.JTextArea" name="txtLblNumeroTarjetaFalse">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="12" green="12" red="12" type="rgb"/>
                     </Property>
@@ -303,8 +305,9 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="textCVV">
+                <Component class="javax.swing.JTextArea" name="textCVVFALSE">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="12" green="12" red="12" type="rgb"/>
                     </Property>
@@ -335,8 +338,9 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="textMetodoPago4">
+                <Component class="javax.swing.JTextArea" name="txtvencimientoFALSE">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="12" green="12" red="12" type="rgb"/>
                     </Property>
