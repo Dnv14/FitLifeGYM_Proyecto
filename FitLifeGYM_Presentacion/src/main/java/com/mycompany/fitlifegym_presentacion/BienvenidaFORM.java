@@ -21,7 +21,7 @@ public class BienvenidaFORM extends javax.swing.JFrame {
     public BienvenidaFORM(ControlForms control) {
         this.control = control;
         this.setTitle("Bienvenida");
-        initComponents();
+        initComponents(); 
     }
 
     

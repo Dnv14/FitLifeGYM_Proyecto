@@ -8,6 +8,7 @@ import Adapter.DtosAEntidadesAdapter;
 import com.mycompany.fitlifegym_dtos.NuevaMembresiaDTO;
 import com.mycompany.fitlifegym_persistencia.IMembresiaDAO;
 import com.mycompany.fitlifegym_persistencia.entidades.Membresia;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,9 @@ import java.util.List;
  */
 public class MembresiaBO implements IMembresiaBO {
 
+    private final List<Membresia> membresias = new ArrayList<>();
     private IMembresiaDAO membresiaDAO;
+    private Long contadorID = 1L;
 
     public MembresiaBO(IMembresiaDAO membresiaDAO) {
         this.membresiaDAO = membresiaDAO;
@@ -25,16 +28,17 @@ public class MembresiaBO implements IMembresiaBO {
     @Override
     public void guardar(NuevaMembresiaDTO membresiaDTO) {
         Membresia membresia = DtosAEntidadesAdapter.adaptarMembresia(membresiaDTO);
-        membresiaDAO.guardar(membresia);
+        membresia.setIdMembresia(contadorID++);
+        membresias.add(membresia);
     }
 
     @Override
     public List<Membresia> obtenerTodas() {
-        return membresiaDAO.obtenerTodas();
+        return new ArrayList<>(membresias);
     }
 
     @Override
     public Membresia obtenerPorId(Long id) {
-        return membresiaDAO.obtenerPorId(id);
+        return membresias.stream().filter(m -> m.getIdMembresia().equals(id)).findFirst().orElse(null);
     }
 }
