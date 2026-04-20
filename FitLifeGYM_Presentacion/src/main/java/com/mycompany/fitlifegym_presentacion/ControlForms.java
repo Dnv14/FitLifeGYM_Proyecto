@@ -13,9 +13,11 @@ import com.mycompany.fitlifegym_negocio.ClientesBO;
 import com.mycompany.fitlifegym_negocio.IClientesBO;
 import com.mycompany.fitlifegym_persistencia.ClientesListDAO;
 import com.mycompany.fitlifegym_persistencia.IClientesDAO;
+import com.mycompany.fitlifegym_persistencia.entidades.Cliente;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.ControlRegistroUsuario;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.IFuncionalidadRegistrarUsuario;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -85,7 +87,7 @@ public class ControlForms {
     }
 
     public void navegarTarjetaMetodo() {
-        mostrarDialogo(new TarjetaFORM(this.frameActual, true));
+        mostrarDialogo(new TarjetaFORM(this.frameActual, true, this));
     }
 
     public void navegarIniciarSesionPaypal() {
@@ -128,20 +130,25 @@ public class ControlForms {
         this.cliente = clienteDTO;
     }
 
-    public void procesarPagoTarjeta(String tarjeta, String pin) {
-        this.cliente.setTarjeta(tarjeta);
-        this.cliente.setPin(pin);
-        funcionalidadCU.RegistrarUsuario(this.cliente);
-
-        System.out.println("Membresía asignada a " + cliente.getNombre());
-    }
+    public void procesarPagoTarjeta(String numeroTarjeta, String cvv, String fechaVencimiento) {
+    LocalDate hoy = LocalDate.now();
+    NuevaMembresiaCompradaDTO compraDTO = this.cliente.getMembresíaComprada();
+    
+    compraDTO.setFechaInicio(hoy);
+    compraDTO.setFechaFin(hoy.plusMonths(1));
+    compraDTO.setEstado(EstadoDTO.ACTIVO);
+    
+    this.cliente.setTarjeta(numeroTarjeta);
+    funcionalidadCU.RegistrarUsuario(this.cliente);
+    System.out.println(" Membresía asignada a: " + this.cliente.getNombre());
+}
 
     public NuevoClienteDTO getCliente() {
         return cliente;
     }
 
-    public void consultarClientes() {
-        funcionalidadCU.obtenerTodas();
+    public List<Cliente> consultarClientes() {
+        return funcionalidadCU.obtenerTodas();
     }
 
 }

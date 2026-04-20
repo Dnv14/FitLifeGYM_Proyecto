@@ -302,9 +302,7 @@ public class TarjetaFORM extends javax.swing.JDialog {
         textCVVFALSE.setEditable(false);
         txtvencimientoFALSE.setEditable(false);
         txtLblNumeroTarjetaFalse.setEditable(false);
-        txtTItularFALSE.setEditable(false);
-        
-        
+        txtTItularFALSE.setEditable(false);     
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPagarAhora;
