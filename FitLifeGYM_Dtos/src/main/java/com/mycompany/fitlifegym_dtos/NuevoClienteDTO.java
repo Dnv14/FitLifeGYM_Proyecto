@@ -19,6 +19,11 @@ public class NuevoClienteDTO {
     private String tarjeta;
     private NuevaMembresiaCompradaDTO membresíaComprada;
 
+    public NuevoClienteDTO() {
+    }
+
+    
+    
     public NuevoClienteDTO(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin, String tarjeta, NuevaMembresiaCompradaDTO membresíaComprada) {
         this.idCliente = idCliente;
         this.nombre = nombre;

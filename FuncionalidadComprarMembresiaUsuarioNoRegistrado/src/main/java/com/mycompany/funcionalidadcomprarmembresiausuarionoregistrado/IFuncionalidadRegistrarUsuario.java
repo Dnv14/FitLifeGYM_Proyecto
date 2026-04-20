@@ -10,7 +10,7 @@ import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.Nuevo
  *
  * @author Diego
  */
-public interface FuncionalidadRegistrarUsuario {
+public interface IFuncionalidadRegistrarUsuario {
 
     public abstract void RegistrarUsuario(NuevoClienteDTO clienteDTO);
 }

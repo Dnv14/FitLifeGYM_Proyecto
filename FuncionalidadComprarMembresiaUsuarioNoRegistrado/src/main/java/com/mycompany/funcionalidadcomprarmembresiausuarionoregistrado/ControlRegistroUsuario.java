@@ -11,7 +11,7 @@ import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.negocio.IC
  *
  * @author Diego
  */
-public class ControlRegistroUsuario implements FuncionalidadRegistrarUsuario {
+public class ControlRegistroUsuario implements IFuncionalidadRegistrarUsuario {
 
     private final IClientesBO clientesBO;
 

@@ -14,7 +14,6 @@ import com.mycompany.fitlifegym_persistencia.entidades.Estado;
 import com.mycompany.fitlifegym_persistencia.entidades.Membresia;
 import com.mycompany.fitlifegym_persistencia.entidades.MembresiaComprada;
 import com.mycompany.fitlifegym_persistencia.entidades.TipoMembresia;
-import java.time.LocalDate;
 
 /**
  *
