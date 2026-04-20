@@ -4,6 +4,7 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,6 +14,8 @@ import javax.swing.JOptionPane;
 public class TarjetaFORM extends javax.swing.JDialog {
 
     private ControlForms control;
+    
+    private ClienteLogueadoDTO cliente;
 
     public TarjetaFORM(java.awt.Frame parent, boolean modal, ControlForms control) {
         super(parent, modal);
@@ -283,11 +286,11 @@ public class TarjetaFORM extends javax.swing.JDialog {
         if (nombre.isEmpty() || numero.isEmpty() || ccv.isEmpty() || fecha.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Favor de llenar todos los campos requeridos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
-        }
+        }   
         control.procesarPagoTarjeta(numero, ccv, fecha);
         JOptionPane.showMessageDialog(this, "El pago se ha realizado correctamente.");
        
-        control.navegarBienvenida();
+        control.navegarBienvenida(cliente);
         this.dispose();
 
     }//GEN-LAST:event_btnPagarAhoraActionPerformed

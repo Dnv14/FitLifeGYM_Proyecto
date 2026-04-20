@@ -4,6 +4,7 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
 import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
 import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 
@@ -18,20 +19,33 @@ import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 public class BienvenidaFORM extends javax.swing.JFrame {
 
     private ControlForms control;
+    private ClienteLogueadoDTO cliente;
 
-    public BienvenidaFORM(ControlForms control) {
+    public BienvenidaFORM(ControlForms control, ClienteLogueadoDTO cliente) {
         this.control = control;
+        this.cliente = cliente;
+        
         this.setTitle("Bienvenida");
         initComponents();
 
         configiracionPorMembresia();
 
-        NuevoClienteDTO clienteDTO = control.getCliente();
+        mostrarDatosCliente();
+        
+    }
+    
+    private void mostrarDatosCliente() {
+        if (cliente != null) {
+            String nombre = cliente.getNombreCompleto();
 
-        if (clienteDTO != null && clienteDTO.getMembresíaComprada() != null) {
-            String nombre = clienteDTO.getNombre();
-            String plan = clienteDTO.getMembresíaComprada().getMembresia().getTipoMembresia().name();
-            lblTitulo.setText("Hola " + nombre + ", tu plan actual es: " + plan);
+            if (cliente.getMembresiaActiva()!= null) {
+                String plan = cliente.getMembresiaActiva().name();
+                lblTitulo.setText("Bienvenido: " + nombre + " | Plan: " + plan);
+            } else {
+                lblTitulo.setText("Bienvenido: " + nombre + " | Sin membresía");
+            }
+        } else {
+            lblTitulo.setText("Bienvenido");
         }
     }
 
@@ -48,7 +62,9 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         btnNutricion = new javax.swing.JButton();
         btnAmbienteMusical = new javax.swing.JButton();
         btnProgreso = new javax.swing.JButton();
-        btnQuejasSugerencias = new javax.swing.JButton();
+        btnBeneficios = new javax.swing.JButton();
+        btnQuejasSugerencias1 = new javax.swing.JButton();
+        lblTitulo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,12 +118,23 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         btnProgreso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnProgreso.addActionListener(this::btnProgresoActionPerformed);
 
-        btnQuejasSugerencias.setBackground(new java.awt.Color(51, 51, 51));
-        btnQuejasSugerencias.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnQuejasSugerencias.setForeground(new java.awt.Color(255, 255, 255));
-        btnQuejasSugerencias.setText("Quejas o Sugerencias");
-        btnQuejasSugerencias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnQuejasSugerencias.addActionListener(this::btnQuejasSugerenciasActionPerformed);
+        btnBeneficios.setBackground(new java.awt.Color(51, 51, 51));
+        btnBeneficios.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnBeneficios.setForeground(new java.awt.Color(255, 255, 255));
+        btnBeneficios.setText("Beneficios");
+        btnBeneficios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnBeneficios.addActionListener(this::btnBeneficiosActionPerformed);
+
+        btnQuejasSugerencias1.setBackground(new java.awt.Color(51, 51, 51));
+        btnQuejasSugerencias1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnQuejasSugerencias1.setForeground(new java.awt.Color(255, 255, 255));
+        btnQuejasSugerencias1.setText("Quejas o Sugerencias");
+        btnQuejasSugerencias1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnQuejasSugerencias1.addActionListener(this::btnQuejasSugerencias1ActionPerformed);
+
+        lblTitulo1.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitulo1.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
+        lblTitulo1.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
@@ -130,21 +157,26 @@ public class BienvenidaFORM extends javax.swing.JFrame {
                                 .addComponent(btnNutricion, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(btnAmbienteMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 56, Short.MAX_VALUE)))
+                        .addGap(0, 56, Short.MAX_VALUE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnBeneficios, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnQuejasSugerencias1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lblTitulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTitulo1)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblTitulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,8 +187,11 @@ public class BienvenidaFORM extends javax.swing.JFrame {
                     .addComponent(btnNutricion, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAmbienteMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
-                .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBeneficios, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnQuejasSugerencias1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -193,9 +228,13 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProgresoActionPerformed
 
-    private void btnQuejasSugerenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuejasSugerenciasActionPerformed
+    private void btnBeneficiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeneficiosActionPerformed
+         control.navegarBenificios();
+    }//GEN-LAST:event_btnBeneficiosActionPerformed
+
+    private void btnQuejasSugerencias1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuejasSugerencias1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnQuejasSugerenciasActionPerformed
+    }//GEN-LAST:event_btnQuejasSugerencias1ActionPerformed
 
     private void configiracionPorMembresia() {
         NuevoClienteDTO clienteDTO = control.getCliente();
@@ -225,14 +264,16 @@ public class BienvenidaFORM extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAmbienteMusical;
+    private javax.swing.JButton btnBeneficios;
     private javax.swing.JButton btnCursos;
     private javax.swing.JButton btnNutricion;
     private javax.swing.JButton btnProgreso;
-    private javax.swing.JButton btnQuejasSugerencias;
+    private javax.swing.JButton btnQuejasSugerencias1;
     private javax.swing.JPanel jPanel;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblTitulo1;
     private javax.swing.JTextArea textAreaInstalaciones;
     // End of variables declaration//GEN-END:variables
 }

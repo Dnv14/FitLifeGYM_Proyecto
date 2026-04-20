@@ -11,8 +11,14 @@ import java.util.List;
  */
 public interface IClientesDAO {
     public abstract Cliente registrarCliente(Cliente cliente);
+    
     public abstract Cliente consultarClientePorId(Long id);
+    
     public abstract List<Cliente> consultarClientes();
+    
     public abstract Cliente buscarPorPin(String pin);
-    public abstract Cliente actualizarMembresia(Long idCliente, TipoMembresia nuevaMembresia);
+    
+    public abstract void actualizarMembresia(Long idCliente, TipoMembresia nuevaMembresia);
+    
+    
 }

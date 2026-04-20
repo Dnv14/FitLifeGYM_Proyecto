@@ -34,12 +34,14 @@ public class LoginBO implements ILoginBO {
         }
 
         String nombreCompleto = cliente.getNombre() + " " + cliente.getApellidos();
+        
+        TipoMembresiaDTO tipoDTO = null;
+        TipoMembresia tipo = cliente.getMembresiaActiva(); 
 
-        MembresiaComprada mc = cliente.getMembresíaComprada(); 
-        TipoMembresia tipo = mc.getMembresia().getTipoMembresia();
-
-        TipoMembresiaDTO tipoDTO = DtosAEntidadesAdapter.adaptarTipoMembresiaDTO(tipo);
-
+        if (tipo != null) {
+            tipoDTO = DtosAEntidadesAdapter.adaptarTipoMembresiaDTO(tipo);
+        }
+       
         return new ClienteLogueadoDTO(cliente.getIdCliente(), nombreCompleto, tipoDTO);
     }
     

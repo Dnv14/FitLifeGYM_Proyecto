@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class ClientesListDAO implements IClientesDAO {
 
-    private List<Cliente> clientes = new ArrayList<>();
+    private static List<Cliente> clientes = new ArrayList<>();
     private static Long contadorID = 1L;
 
     @Override
@@ -36,12 +36,30 @@ public class ClientesListDAO implements IClientesDAO {
 
     @Override
     public Cliente buscarPorPin(String pin) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       for(Cliente c: clientes){
+            if(c.getPin().equals(pin)){
+                return c;
+            }
+        }
+        return null;
     }
 
     @Override
-    public Cliente actualizarMembresia(Long idCliente, TipoMembresia nuevaMembresia) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void actualizarMembresia(Long idCliente, TipoMembresia nuevaMembresia) {
+        Cliente cliente = consultarClientePorId(idCliente);
+        if(cliente != null){
+            cliente.setMembresiaActiva(nuevaMembresia);
+        }
     }
-
+    
+    static {
+        clientes.add(new Cliente(1L, "Jorge", "Gonzalez", "jorge@gmail.com",
+                "6441234567", "1234", TipoMembresia.ORO));
+        clientes.add(new Cliente(2L, "Maria", "Lopez", "maria@gmail.com",
+                "6449876543", "5678", TipoMembresia.PLATA));
+        clientes.add(new Cliente(3L, "Carlos", "Ramirez", "carlos@gmail.com",
+                "6441112233", "9999", TipoMembresia.BRONCE));
+        clientes.add(new Cliente(4L, "Ana", "Torres", "ana@gmail.com",
+                "6445554433", "1111", null));
+    }
 }

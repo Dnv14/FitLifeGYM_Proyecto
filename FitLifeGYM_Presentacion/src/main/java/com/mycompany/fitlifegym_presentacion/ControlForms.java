@@ -4,13 +4,17 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
 import com.mycompany.fitlifegym_dtos.EstadoDTO;
+import com.mycompany.fitlifegym_dtos.LoginDTO;
 import com.mycompany.fitlifegym_dtos.NuevaMembresiaCompradaDTO;
 import com.mycompany.fitlifegym_dtos.NuevaMembresiaDTO;
 import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
 import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_negocio.ClientesBO;
 import com.mycompany.fitlifegym_negocio.IClientesBO;
+import com.mycompany.fitlifegym_negocio.ILoginBO;
+import com.mycompany.fitlifegym_negocio.LoginBO;
 import com.mycompany.fitlifegym_persistencia.ClientesListDAO;
 import com.mycompany.fitlifegym_persistencia.IClientesDAO;
 import com.mycompany.fitlifegym_persistencia.entidades.Cliente;
@@ -31,11 +35,14 @@ public class ControlForms {
     private JFrame frameActual;
     private NuevoClienteDTO cliente;
     private IFuncionalidadRegistrarUsuario funcionalidadCU;
+    private ClienteLogueadoDTO clienteActual;
+    private ILoginBO loginBO;
 
     public ControlForms() {
         this.cliente = new NuevoClienteDTO();
         IClientesDAO dao = new ClientesListDAO();
         IClientesBO negocio = new ClientesBO(dao);
+        this.loginBO = new LoginBO(dao);
         this.funcionalidadCU = new ControlRegistroUsuario(negocio);
     }
 
@@ -65,8 +72,9 @@ public class ControlForms {
         mostrarPantalla(new BeneficiosFORM(this));
     }
 
-    public void navegarBienvenida() {
-        mostrarPantalla(new BienvenidaFORM(this));
+    public void navegarBienvenida(ClienteLogueadoDTO cliente) {
+        BienvenidaFORM form = new BienvenidaFORM(this, cliente);
+        form.setVisible(true);
     }
 
     public void navegarMetodosPago() {
@@ -83,7 +91,7 @@ public class ControlForms {
     }
 
     public void navegarTransferenciaMetodo() {
-        mostrarDialogo(new TransferenciaFORM(this.frameActual, true));
+        mostrarDialogo(new TransferenciaFORM(this.frameActual, true, this));
     }
 
     public void navegarTarjetaMetodo() {
@@ -91,7 +99,7 @@ public class ControlForms {
     }
 
     public void navegarIniciarSesionPaypal() {
-        mostrarDialogo(new IniciarSesionPaypalFORM(this.frameActual, true));
+        mostrarDialogo(new IniciarSesionPaypalFORM(this.frameActual, true, this));
     }
 
     //control
@@ -125,6 +133,8 @@ public class ControlForms {
         );
         this.cliente.setMembresíaComprada(membresiaCompradaDTO);
     }
+    
+
 
     public void registrarCliente(NuevoClienteDTO clienteDTO) {
         this.cliente = clienteDTO;
@@ -149,6 +159,12 @@ public class ControlForms {
 
     public List<Cliente> consultarClientes() {
         return funcionalidadCU.obtenerTodas();
+    }
+    
+     public ClienteLogueadoDTO iniciarSesion(String pin) {
+        LoginDTO loginDTO = new LoginDTO(pin);
+        this.clienteActual = loginBO.iniciarSesion(loginDTO);
+        return this.clienteActual;
     }
 
 }
