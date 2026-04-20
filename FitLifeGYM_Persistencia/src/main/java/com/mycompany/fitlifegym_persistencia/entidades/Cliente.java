@@ -18,6 +18,7 @@ public class Cliente {
     private String pin;
     private String tarjeta;
     private MembresiaComprada membresíaComprada;
+    private TipoMembresia membresiaActiva;
 
     public Cliente() {
     }
@@ -56,6 +57,16 @@ public class Cliente {
         this.fechaNacimiento = fechaNacimiento;
         this.pin = pin;
     }
+    
+    public Cliente(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin, TipoMembresia membresiaActiva) {
+        this.idCliente = idCliente;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.pin = pin;
+        this.membresiaActiva = membresiaActiva;
+    }
 
     public String getContrasenia() {
         return contrasenia;
@@ -65,9 +76,6 @@ public class Cliente {
         return fechaNacimiento;
     }
 
-   
-    
-    
     public Long getIdCliente() {
         return idCliente;
     }
@@ -130,6 +138,14 @@ public class Cliente {
 
     public void setMembresíaComprada(MembresiaComprada membresíaComprada) {
         this.membresíaComprada = membresíaComprada;
+    }
+
+    public TipoMembresia getMembresiaActiva() {
+        return membresiaActiva;
+    }
+
+    public void setMembresiaActiva(TipoMembresia membresiaActiva) {
+        this.membresiaActiva = membresiaActiva;
     }
 
     @Override
