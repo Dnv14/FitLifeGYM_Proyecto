@@ -4,8 +4,15 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
+import com.mycompany.fitlifegym_negocio.ClientesBO;
+import com.mycompany.fitlifegym_negocio.IClientesBO;
+import com.mycompany.fitlifegym_persistencia.ClientesListDAO;
+import com.mycompany.fitlifegym_persistencia.IClientesDAO;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.ControlRegistroUsuario;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.IFuncionalidadRegistrarUsuario;
-import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.NuevoClienteDTO;
+
+
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
@@ -19,7 +26,12 @@ public class ControlForms {
     private NuevoClienteDTO cliente;
     private IFuncionalidadRegistrarUsuario funcionalidadCU;
 
-    
+    public ControlForms() {
+        this.cliente = new NuevoClienteDTO();
+        IClientesDAO dao = new ClientesListDAO();
+        IClientesBO negocio = new ClientesBO(dao);
+        this.funcionalidadCU = new ControlRegistroUsuario(negocio);
+    }
 
     private void mostrarPantalla(JFrame nuevoFrame) {
         if (this.frameActual != null) {

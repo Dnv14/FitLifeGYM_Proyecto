@@ -4,7 +4,8 @@
  */
 package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado;
 
-import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.NuevoClienteDTO;
+import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
+
 
 /**
  *
