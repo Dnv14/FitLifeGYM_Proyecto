@@ -1,0 +1,36 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.fitlifegym_dtos;
+
+/**
+ *
+ * @author PC GAMER MASTER RACE
+ */
+public class ClienteLogueadoDTO {
+    private final Long idCliente;
+    
+    private final String nombreCompleto;
+    
+    private final TipoMembresiaDTO membresiaActiva;
+
+    public ClienteLogueadoDTO(Long idCliente, String nombreCompleto, TipoMembresiaDTO membresiaActiva) {
+        this.idCliente = idCliente;
+        this.nombreCompleto = nombreCompleto;
+        this.membresiaActiva = membresiaActiva;
+    }
+
+    public Long getIdCliente() {
+        return idCliente;
+    }
+
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public TipoMembresiaDTO getMembresiaActiva() {
+        return membresiaActiva;
+    }
+    
+}

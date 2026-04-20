@@ -4,9 +4,7 @@
  */
 package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.presentacion;
 
-import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Cliente;
-import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.Membresia;
-import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dominio.TipoMembresia;
+
 
 /**
  *
@@ -26,36 +24,36 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         initComponents();
         configiracionPorMembresia();
         
-        Cliente cliente = control.getClienteActual();
-        if (cliente != null && cliente.getMembresíaComprada() != null) {
-            String plan = cliente.getMembresíaComprada().getMembresia().getTipoMembresia().toString();
-            lblTitulo.setText("Hola " + cliente.getNombre() + ", tu plan actual es: " + plan);
-        }
+//        Cliente cliente = control.getClienteActual();
+//        if (cliente != null && cliente.getMembresíaComprada() != null) {
+//            String plan = cliente.getMembresíaComprada().getMembresia().getTipoMembresia().toString();
+//            lblTitulo.setText("Hola " + cliente.getNombre() + ", tu plan actual es: " + plan);
+//        }
     }
 
     private void configiracionPorMembresia() {
-        Membresia membresia = control.getMembresiaSeleccionada();
-        if (membresia == null) {
-            return;
-        }
+//        Membresia membresia = control.getMembresiaSeleccionada();
+//        if (membresia == null) {
+//            return;
+//        }
 
-        TipoMembresia tipoMembresia = membresia.getTipoMembresia();
-
-        btnCursos.setEnabled(false);
-        btnNutricion.setEnabled(false);
-        btnAmbienteMusical.setEnabled(false);
-        btnProgreso.setEnabled(false);
-
-        switch (tipoMembresia) {
-            case ORO:
-                btnCursos.setEnabled(true);
-                btnProgreso.setEnabled(true);
-            case PLATA:
-                btnNutricion.setEnabled(true);
-                btnAmbienteMusical.setEnabled(true);
-            case BRONCE:
-                break;
-        }
+//        TipoMembresia tipoMembresia = membresia.getTipoMembresia();
+//
+//        btnCursos.setEnabled(false);
+//        btnNutricion.setEnabled(false);
+//        btnAmbienteMusical.setEnabled(false);
+//        btnProgreso.setEnabled(false);
+//
+//        switch (tipoMembresia) {
+//            case ORO:
+//                btnCursos.setEnabled(true);
+//                btnProgreso.setEnabled(true);
+//            case PLATA:
+//                btnNutricion.setEnabled(true);
+//                btnAmbienteMusical.setEnabled(true);
+//            case BRONCE:
+//                break;
+//        }
 
     }
 

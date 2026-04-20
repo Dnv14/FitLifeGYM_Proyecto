@@ -56,14 +56,17 @@ public class ClientesBO implements IClientesBO {
         }
       
         return clientesDAO.registrarCliente(cliente);
-
     }
 
     @Override
     public Cliente buscarClientePorId(Long id) {
+
         if(id == null){
             throw new IllegalArgumentException("Se debe de colocar un ID.");
         }
+
+
+
         return clientesDAO.consultarClientePorId(id);
     }
 

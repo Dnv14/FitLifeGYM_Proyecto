@@ -1,12 +1,12 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Exception.java to edit this template
  */
-package com.mycompany.funcionalidadiniciarsesionrenovarmembresia.persistencia;
+package com.mycompany.fitlifegym_persistencia;
 
 /**
  *
- * @author Luis
+ * @author Jaime
  */
 public class PersistenciaException extends Exception {
 
@@ -28,7 +28,4 @@ public class PersistenciaException extends Exception {
     public PersistenciaException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
-    
-    
 }

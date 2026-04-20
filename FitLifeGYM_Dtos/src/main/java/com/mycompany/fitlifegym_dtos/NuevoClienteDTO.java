@@ -4,6 +4,8 @@
  */
 package com.mycompany.fitlifegym_dtos;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Diego
@@ -15,6 +17,8 @@ public class NuevoClienteDTO {
     private String apellidos;
     private String correo;
     private String telefono;
+    private String contrasenia;
+    private LocalDate fechaNacimiento;
     private String pin;
     private String tarjeta;
     private NuevaMembresiaCompradaDTO membresíaComprada;
@@ -22,29 +26,57 @@ public class NuevoClienteDTO {
     public NuevoClienteDTO() {
     }
 
-    
-    
-    public NuevoClienteDTO(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin, String tarjeta, NuevaMembresiaCompradaDTO membresíaComprada) {
+    public NuevoClienteDTO(Long idCliente, String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, String tarjeta, NuevaMembresiaCompradaDTO membresíaComprada) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.telefono = telefono;
+        this.contrasenia = contrasenia;
+        this.fechaNacimiento = fechaNacimiento;
         this.pin = pin;
         this.tarjeta = tarjeta;
         this.membresíaComprada = membresíaComprada;
     }
 
-    public NuevoClienteDTO(String nombre, String apellidos, String correo, String telefono, String pin, String tarjeta, NuevaMembresiaCompradaDTO membresíaComprada) {
+    public NuevoClienteDTO(String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, String tarjeta, NuevaMembresiaCompradaDTO membresíaComprada) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.telefono = telefono;
+        this.contrasenia = contrasenia;
+        this.fechaNacimiento = fechaNacimiento;
         this.pin = pin;
         this.tarjeta = tarjeta;
         this.membresíaComprada = membresíaComprada;
     }
 
+    public NuevoClienteDTO(String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.contrasenia = contrasenia;
+        this.fechaNacimiento = fechaNacimiento;
+        this.pin = pin;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+    
     public Long getIdCliente() {
         return idCliente;
     }

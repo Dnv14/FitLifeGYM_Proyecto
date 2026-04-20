@@ -4,41 +4,67 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
+import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
+
 /**
  *
  * @author Diego
  */
-
 //aqui el plan es que si no se lleno el textfiel con la membresia
 //el boton no se pueda utilizar y si le da click ahi ponga
 //esta funcion solo esta en el plan oro, actualizalo
 //o algo asi
 public class BienvenidaFORM extends javax.swing.JFrame {
-    
-   
+
     private ControlForms control;
-    
-    public BienvenidaFORM(ControlForms control) {
+    private ClienteLogueadoDTO cliente;
+
+    public BienvenidaFORM(ControlForms control, ClienteLogueadoDTO cliente) {
         this.control = control;
+        this.cliente = cliente;
+        
         this.setTitle("Bienvenida");
-        initComponents(); 
+        initComponents();
+
+        configiracionPorMembresia();
+
+        mostrarDatosCliente();
+        
+    }
+    
+    private void mostrarDatosCliente() {
+        if (cliente != null) {
+            String nombre = cliente.getNombreCompleto();
+
+            if (cliente.getMembresiaActiva()!= null) {
+                String plan = cliente.getMembresiaActiva().name();
+                lblTitulo.setText("Bienvenido: " + nombre + " | Plan: " + plan);
+            } else {
+                lblTitulo.setText("Bienvenido: " + nombre + " | Sin membresía");
+            }
+        } else {
+            lblTitulo.setText("Bienvenido");
+        }
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
-        lblTitulo4 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         textAreaInstalaciones = new javax.swing.JTextArea();
         btnCursos = new javax.swing.JButton();
         btnNutricion = new javax.swing.JButton();
         btnAmbienteMusical = new javax.swing.JButton();
         btnProgreso = new javax.swing.JButton();
-        btnQuejasSugerencias = new javax.swing.JButton();
+        btnBeneficios = new javax.swing.JButton();
+        btnQuejasSugerencias1 = new javax.swing.JButton();
+        lblTitulo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,10 +73,10 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(225, 6, 0));
         jSeparator1.setForeground(new java.awt.Color(225, 6, 0));
 
-        lblTitulo4.setBackground(new java.awt.Color(255, 255, 255));
-        lblTitulo4.setFont(new java.awt.Font("Arial", 3, 50)); // NOI18N
-        lblTitulo4.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo4.setText("Bienvenido: \"Nombre\"");
+        lblTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Bienvenido: \"Nombre\"");
 
         jScrollPane5.setBorder(null);
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -92,12 +118,23 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         btnProgreso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnProgreso.addActionListener(this::btnProgresoActionPerformed);
 
-        btnQuejasSugerencias.setBackground(new java.awt.Color(51, 51, 51));
-        btnQuejasSugerencias.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnQuejasSugerencias.setForeground(new java.awt.Color(255, 255, 255));
-        btnQuejasSugerencias.setText("Quejas o Sugerencias");
-        btnQuejasSugerencias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnQuejasSugerencias.addActionListener(this::btnQuejasSugerenciasActionPerformed);
+        btnBeneficios.setBackground(new java.awt.Color(51, 51, 51));
+        btnBeneficios.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnBeneficios.setForeground(new java.awt.Color(255, 255, 255));
+        btnBeneficios.setText("Beneficios");
+        btnBeneficios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnBeneficios.addActionListener(this::btnBeneficiosActionPerformed);
+
+        btnQuejasSugerencias1.setBackground(new java.awt.Color(51, 51, 51));
+        btnQuejasSugerencias1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnQuejasSugerencias1.setForeground(new java.awt.Color(255, 255, 255));
+        btnQuejasSugerencias1.setText("Quejas o Sugerencias");
+        btnQuejasSugerencias1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnQuejasSugerencias1.addActionListener(this::btnQuejasSugerencias1ActionPerformed);
+
+        lblTitulo1.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitulo1.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
+        lblTitulo1.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
@@ -112,29 +149,35 @@ public class BienvenidaFORM extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelLayout.createSequentialGroup()
-                                .addGap(61, 61, 61)
+                                .addGap(41, 41, 41)
                                 .addComponent(btnProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(43, 43, 43)
                                 .addComponent(btnCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
+                                .addGap(43, 43, 43)
                                 .addComponent(btnNutricion, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
+                                .addGap(29, 29, 29)
                                 .addComponent(btnAmbienteMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 49, Short.MAX_VALUE)))
+                        .addGap(0, 56, Short.MAX_VALUE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnBeneficios, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnQuejasSugerencias1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lblTitulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTitulo1)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                    .addContainerGap(172, Short.MAX_VALUE)
-                    .addComponent(lblTitulo4)
-                    .addGap(148, 148, 148)))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(17, 17, 17)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,34 +187,26 @@ public class BienvenidaFORM extends javax.swing.JFrame {
                     .addComponent(btnNutricion, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAmbienteMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelLayout.createSequentialGroup()
-                    .addGap(27, 27, 27)
-                    .addComponent(lblTitulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(368, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBeneficios, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnQuejasSugerencias1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 860, Short.MAX_VALUE)
+            .addGap(0, 850, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 466, Short.MAX_VALUE)
+            .addGap(0, 546, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -193,22 +228,52 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProgresoActionPerformed
 
-    private void btnQuejasSugerenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuejasSugerenciasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnQuejasSugerenciasActionPerformed
+    private void btnBeneficiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeneficiosActionPerformed
+         control.navegarBenificios();
+    }//GEN-LAST:event_btnBeneficiosActionPerformed
 
-    
+    private void btnQuejasSugerencias1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuejasSugerencias1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnQuejasSugerencias1ActionPerformed
+
+    private void configiracionPorMembresia() {
+        NuevoClienteDTO clienteDTO = control.getCliente();
+
+        if (clienteDTO == null || clienteDTO.getMembresíaComprada() == null) {
+            return;
+        }
+
+        TipoMembresiaDTO tipo = clienteDTO.getMembresíaComprada().getMembresia().getTipoMembresia();
+
+        btnCursos.setEnabled(false);
+        btnNutricion.setEnabled(false);
+        btnAmbienteMusical.setEnabled(false);
+        btnProgreso.setEnabled(false);
+
+        switch (tipo) {
+            case ORO:
+                btnCursos.setEnabled(true);
+                btnProgreso.setEnabled(true);
+            case PLATA:
+                btnNutricion.setEnabled(true);
+                btnAmbienteMusical.setEnabled(true);
+            case BRONCE:
+                break;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAmbienteMusical;
+    private javax.swing.JButton btnBeneficios;
     private javax.swing.JButton btnCursos;
     private javax.swing.JButton btnNutricion;
     private javax.swing.JButton btnProgreso;
-    private javax.swing.JButton btnQuejasSugerencias;
+    private javax.swing.JButton btnQuejasSugerencias1;
     private javax.swing.JPanel jPanel;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblTitulo4;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblTitulo1;
     private javax.swing.JTextArea textAreaInstalaciones;
     // End of variables declaration//GEN-END:variables
 }

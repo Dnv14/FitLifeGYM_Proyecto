@@ -76,6 +76,7 @@ public class BienvenidaFORM extends JFrame {
         btnProgreso = new javax.swing.JButton();
         btnBeneficios = new javax.swing.JButton();
         btnQuejasSugerencias2 = new javax.swing.JButton();
+        lblTitulo5 = new javax.swing.JLabel();
 
         btnQuejasSugerencias1.setBackground(new java.awt.Color(51, 51, 51));
         btnQuejasSugerencias1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -151,13 +152,17 @@ public class BienvenidaFORM extends JFrame {
         btnQuejasSugerencias2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnQuejasSugerencias2.addActionListener(this::btnQuejasSugerencias2ActionPerformed);
 
+        lblTitulo5.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitulo5.setFont(new java.awt.Font("Arial", 3, 50)); // NOI18N
+        lblTitulo5.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelLayout.createSequentialGroup()
@@ -171,18 +176,17 @@ public class BienvenidaFORM extends JFrame {
                                 .addGap(37, 37, 37)
                                 .addComponent(btnNutricion, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
-                                .addComponent(btnAmbienteMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 49, Short.MAX_VALUE)))
+                                .addComponent(btnAmbienteMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBeneficios, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelLayout.createSequentialGroup()
+                                        .addComponent(lblTitulo4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblTitulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(30, 30, 30)))
                 .addContainerGap())
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBeneficios, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                    .addContainerGap(172, Short.MAX_VALUE)
-                    .addComponent(lblTitulo4)
-                    .addGap(148, 148, 148)))
             .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
                     .addContainerGap(658, Short.MAX_VALUE)
@@ -192,7 +196,11 @@ public class BienvenidaFORM extends JFrame {
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(17, 17, 17)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,11 +213,6 @@ public class BienvenidaFORM extends JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(btnBeneficios, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelLayout.createSequentialGroup()
-                    .addGap(27, 27, 27)
-                    .addComponent(lblTitulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(368, Short.MAX_VALUE)))
             .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
                     .addContainerGap(415, Short.MAX_VALUE)
@@ -230,7 +233,7 @@ public class BienvenidaFORM extends JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 466, Short.MAX_VALUE)
+            .addGap(0, 472, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -283,6 +286,7 @@ public class BienvenidaFORM extends JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitulo4;
+    private javax.swing.JLabel lblTitulo5;
     private javax.swing.JTextArea textAreaInstalaciones;
     // End of variables declaration//GEN-END:variables
 }

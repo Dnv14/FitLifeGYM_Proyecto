@@ -4,17 +4,20 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Diego
  */
 public class IniciarSesionFORM extends javax.swing.JDialog {
+
+    private static final Logger LOGGER = Logger.getLogger(IniciarSesionFORM.class.getName());
     
     private ControlForms control;
 
-    /**
-     * Creates new form RegistrarseFORM
-     */
     public IniciarSesionFORM(java.awt.Frame parent, boolean modal, ControlForms control) {
         super(parent, modal);
         this.control = control;
@@ -165,7 +168,21 @@ public class IniciarSesionFORM extends javax.swing.JDialog {
     }//GEN-LAST:event_btnQuejasSugerenciasActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        control.navegarBenificios();
+        String pin = txtNIP.getText().trim();
+
+        if (pin.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar su NIP.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        ClienteLogueadoDTO cliente = control.iniciarSesion(pin);
+
+        if (cliente == null) {  
+            JOptionPane.showMessageDialog(this, "Atención, el dato ingresado es incorrecto, ya que no se encuentra en nuestros registros, verifique la información por favor.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            dispose();
+            control.navegarBienvenida(cliente);
+        }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     

@@ -1,39 +1,79 @@
-
 package com.mycompany.fitlifegym_persistencia.entidades;
+
+import java.time.LocalDate;
 
 /**
  *
  * @author Julian
  */
 public class Cliente {
+
     private Long idCliente;
     private String nombre;
     private String apellidos;
     private String correo;
     private String telefono;
+    private String contrasenia;
+    private LocalDate fechaNacimiento;
     private String pin;
     private String tarjeta;
     private MembresiaComprada membresíaComprada;
+    private TipoMembresia membresiaActiva;
 
-    public Cliente() {}
-    
-    public Cliente(String nombre, String apellidos, String correo, String telefono, String pin, String tarjeta, MembresiaComprada membresíaComprada) {
+    public Cliente() {
+    }
+
+    public Cliente(Long idCliente, String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, String tarjeta, MembresiaComprada membresíaComprada) {
+        this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.telefono = telefono;
+        this.contrasenia = contrasenia;
+        this.fechaNacimiento = fechaNacimiento;
         this.pin = pin;
         this.tarjeta = tarjeta;
         this.membresíaComprada = membresíaComprada;
     }
+
+    public Cliente(String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, String tarjeta, MembresiaComprada membresíaComprada) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.contrasenia = contrasenia;
+        this.fechaNacimiento = fechaNacimiento;
+        this.pin = pin;
+        this.tarjeta = tarjeta;
+        this.membresíaComprada = membresíaComprada;
+    }
+
+    public Cliente(String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.contrasenia = contrasenia;
+        this.fechaNacimiento = fechaNacimiento;
+        this.pin = pin;
+    }
     
-    public Cliente(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin) {
+    public Cliente(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin, TipoMembresia membresiaActiva) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.telefono = telefono;
         this.pin = pin;
+        this.membresiaActiva = membresiaActiva;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
     public Long getIdCliente() {
@@ -99,11 +139,18 @@ public class Cliente {
     public void setMembresíaComprada(MembresiaComprada membresíaComprada) {
         this.membresíaComprada = membresíaComprada;
     }
-     
+
+    public TipoMembresia getMembresiaActiva() {
+        return membresiaActiva;
+    }
+
+    public void setMembresiaActiva(TipoMembresia membresiaActiva) {
+        this.membresiaActiva = membresiaActiva;
+    }
 
     @Override
     public String toString() {
         return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellidos=" + apellidos + ", correo=" + correo + ", telefono=" + telefono + ", pin=" + pin + '}';
     }
-    
+
 }

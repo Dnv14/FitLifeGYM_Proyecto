@@ -200,11 +200,11 @@ public class SuscribirseFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPaypalActionPerformed
 
     private void btnTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTarjetaActionPerformed
-        control.navegarTarjetaMetodo();
+//        control.navegarTarjetaMetodo();
     }//GEN-LAST:event_btnTarjetaActionPerformed
 
     private void btnVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAtrasActionPerformed
-       control.navegarBenificios();
+//       control.navegarBenificios();
     }//GEN-LAST:event_btnVolverAtrasActionPerformed
 
     

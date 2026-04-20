@@ -18,9 +18,8 @@ import java.util.List;
  */
 public class MembresiaBO implements IMembresiaBO {
 
-    private final List<Membresia> membresias = new ArrayList<>();
     private IMembresiaDAO membresiaDAO;
-    private Long contadorID = 1L;
+   
 
     public MembresiaBO(IMembresiaDAO membresiaDAO) {
         this.membresiaDAO = membresiaDAO;
@@ -46,6 +45,7 @@ public class MembresiaBO implements IMembresiaBO {
         }
         Membresia membresia = DtosAEntidadesAdapter.adaptarMembresia(membresiaDTO);
         membresiaDAO.guardar(membresia);
+
         
     }
 
@@ -56,9 +56,11 @@ public class MembresiaBO implements IMembresiaBO {
 
     @Override
     public Membresia obtenerPorId(Long id) {
+
         if(id == null){
             throw new IllegalArgumentException("El ID no puede ser nulo.");
         }
+
         return membresiaDAO.obtenerPorId(id);
     }
 }

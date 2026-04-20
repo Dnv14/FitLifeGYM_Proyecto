@@ -16,10 +16,13 @@ import java.util.List;
  */
 public class MembresiaCompradaBO implements IMembresiaCompradaBO {
 
+
     private IMembresiaCompradaDAO membresiaComprada;
 
-    public MembresiaCompradaBO(IMembresiaCompradaDAO membresiaComprada) {
-        this.membresiaComprada = membresiaComprada;
+    private IMembresiaCompradaDAO membresiaCompradaDAO;
+
+    public MembresiaCompradaBO(IMembresiaCompradaDAO membresiaCompradaDAO) {
+        this.membresiaCompradaDAO = membresiaCompradaDAO;
     }
 
     @Override
@@ -48,11 +51,14 @@ public class MembresiaCompradaBO implements IMembresiaCompradaBO {
             throw new IllegalArgumentException("El estado de la membresía no puede ser nula.");
         }
         MembresiaComprada mebresiaComprada = DtosAEntidadesAdapter.adaptarMembresiaCompradaDTO(membresiaCompradaDTO);
+
         return membresiaComprada.guardar(mebresiaComprada);
     }
 
     @Override
     public List<MembresiaComprada> obtenerTodas() {
+
         return membresiaComprada.obtenerTodas();
+
     }
 }
