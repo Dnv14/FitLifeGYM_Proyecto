@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.fitlifegym_negocio;
 
 import Adapter.DtosAEntidadesAdapter;
 import com.mycompany.fitlifegym_dtos.RenovarMembresiaDTO;
 import com.mycompany.fitlifegym_persistencia.IClientesDAO;
+import com.mycompany.fitlifegym_persistencia.PersistenciaException;
 import com.mycompany.fitlifegym_persistencia.entidades.TipoMembresia;
 
 /**
@@ -21,9 +19,13 @@ public class RenovarMembresiaBO implements IRenovarMembresiaBO {
     }
 
     @Override
-    public void renovarMembresia(RenovarMembresiaDTO dto) {
+    public void renovarMembresia(RenovarMembresiaDTO dto) throws NegocioException{
         TipoMembresia tipo = DtosAEntidadesAdapter.adaptarTipoMembresia(dto.getTipoMembresia());
-        clientesDAO.actualizarMembresia(dto.getIdCliente(), tipo);
+        try {
+            clientesDAO.actualizarMembresia(dto.getIdCliente(), tipo);
+        } catch (PersistenciaException ex) {
+            throw new NegocioException("Error al renovar la membresia.",ex);
+        }
     }
     
 }

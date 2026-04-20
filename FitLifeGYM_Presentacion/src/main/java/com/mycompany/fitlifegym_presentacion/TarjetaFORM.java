@@ -5,6 +5,7 @@
 package com.mycompany.fitlifegym_presentacion;
 
 import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import com.mycompany.fitlifegym_negocio.NegocioException;
 import javax.swing.JOptionPane;
 
 /**
@@ -284,12 +285,16 @@ public class TarjetaFORM extends javax.swing.JDialog {
         String fecha = txtFechaVencimiento.getText().trim();
 
         if (nombre.isEmpty() || numero.isEmpty() || ccv.isEmpty() || fecha.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Favor de llenar todos los campos requeridos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Favor de llenar todos los campos requeridos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
             return;
         }   
-        control.procesarPagoTarjeta(numero, ccv, fecha);
-        JOptionPane.showMessageDialog(this, "El pago se ha realizado correctamente.");
-       
+        try {
+            control.procesarPagoTarjeta(numero, ccv, fecha);
+            JOptionPane.showMessageDialog(this, "El pago se ha realizado correctamente.","Pago Correctamente",JOptionPane.INFORMATION_MESSAGE);
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, "Error al procesar el pago con tarjeta."+ex,"Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
         control.navegarBienvenida(cliente);
         this.dispose();
 

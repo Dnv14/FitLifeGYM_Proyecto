@@ -5,6 +5,7 @@
 package com.mycompany.fitlifegym_presentacion;
 
 import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import com.mycompany.fitlifegym_negocio.NegocioException;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
@@ -42,6 +43,8 @@ public class IniciarSesionFORM extends javax.swing.JDialog {
         lblNIP = new javax.swing.JLabel();
         btnQuejasSugerencias = new javax.swing.JButton();
         btnIniciarSesion = new javax.swing.JButton();
+        lblContrasenia = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -84,6 +87,13 @@ public class IniciarSesionFORM extends javax.swing.JDialog {
         btnIniciarSesion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnIniciarSesion.addActionListener(this::btnIniciarSesionActionPerformed);
 
+        lblContrasenia.setBackground(new java.awt.Color(255, 255, 255));
+        lblContrasenia.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        lblContrasenia.setForeground(new java.awt.Color(255, 255, 255));
+        lblContrasenia.setText("CONTRASEÑA");
+
+        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
@@ -101,19 +111,24 @@ public class IniciarSesionFORM extends javax.swing.JDialog {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblContrasenia)
+                .addGap(265, 265, 265))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
-                        .addComponent(txtNIP, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(211, 211, 211))
+                    .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
                         .addComponent(lblNIP)
-                        .addGap(358, 358, 358))
-                    .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelLayout.createSequentialGroup()
-                    .addGap(299, 299, 299)
-                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(305, Short.MAX_VALUE)))
+                        .addGap(365, 365, 365))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNIP, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(215, 215, 215))))
+            .addGroup(jPanelLayout.createSequentialGroup()
+                .addGap(296, 296, 296)
+                .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,18 +138,19 @@ public class IniciarSesionFORM extends javax.swing.JDialog {
                     .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112)
+                .addGap(45, 45, 45)
                 .addComponent(lblNIP)
                 .addGap(18, 18, 18)
                 .addComponent(txtNIP, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148)
+                .addGap(18, 18, 18)
+                .addComponent(lblContrasenia)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107)
                 .addComponent(btnQuejasSugerencias, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(291, 291, 291))
-            .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelLayout.createSequentialGroup()
-                    .addGap(363, 363, 363)
-                    .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(363, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,20 +184,24 @@ public class IniciarSesionFORM extends javax.swing.JDialog {
     }//GEN-LAST:event_btnQuejasSugerenciasActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        String pin = txtNIP.getText().trim();
-
-        if (pin.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Debe ingresar su NIP.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        ClienteLogueadoDTO cliente = control.iniciarSesion(pin);
-
-        if (cliente == null) {  
-            JOptionPane.showMessageDialog(this, "Atención, el dato ingresado es incorrecto, ya que no se encuentra en nuestros registros, verifique la información por favor.", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            dispose();
-            control.navegarBienvenida(cliente);
+        try {
+            String pin = txtNIP.getText().trim();
+            
+            if (pin.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar su NIP.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            ClienteLogueadoDTO cliente = control.iniciarSesion(pin);
+            
+            if (cliente == null) {
+                JOptionPane.showMessageDialog(this, "Atención, el dato ingresado es incorrecto, ya que no se encuentra en nuestros registros, verifique la información por favor.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                dispose();
+                control.navegarBienvenida(cliente);
+            }
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, "Error al iniciar sesion."+ex,"Error",JOptionPane.ERROR_MESSAGE);;
         }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
@@ -192,7 +212,9 @@ public class IniciarSesionFORM extends javax.swing.JDialog {
     private javax.swing.JButton btnQuejasSugerencias;
     private javax.swing.JButton btnVolverAtras;
     private javax.swing.JPanel jPanel;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblContrasenia;
     private javax.swing.JLabel lblNIP;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtNIP;

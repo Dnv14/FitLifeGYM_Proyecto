@@ -10,15 +10,15 @@ import java.util.List;
  * @author Julian
  */
 public interface IClientesDAO {
-    public abstract Cliente registrarCliente(Cliente cliente);
+    public abstract Cliente registrarCliente(Cliente cliente) throws PersistenciaException;
     
-    public abstract Cliente consultarClientePorId(Long id);
+    public abstract Cliente consultarClientePorId(Long id)throws PersistenciaException;
     
-    public abstract List<Cliente> consultarClientes();
+    public abstract List<Cliente> consultarClientes()throws PersistenciaException;
     
-    public abstract Cliente buscarPorPin(String pin);
+    public abstract Cliente buscarPorPin(String pin)throws PersistenciaException;
     
-    public abstract void actualizarMembresia(Long idCliente, TipoMembresia nuevaMembresia);
+    public abstract void actualizarMembresia(Long idCliente, TipoMembresia nuevaMembresia)throws PersistenciaException;
     
     
 }

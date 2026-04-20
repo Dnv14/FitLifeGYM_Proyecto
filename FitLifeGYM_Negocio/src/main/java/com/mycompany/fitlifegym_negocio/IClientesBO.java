@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface IClientesBO {
 
-    public abstract Cliente registrarCliente(NuevoClienteDTO cliente);
+    public abstract Cliente registrarCliente(NuevoClienteDTO cliente)throws NegocioException;
 
-    public abstract Cliente buscarClientePorId(Long id);
+    public abstract Cliente buscarClientePorId(Long id)throws NegocioException;
 
-    public abstract List<Cliente> consultarClientes();
+    public abstract List<Cliente> consultarClientes() throws NegocioException;
 }

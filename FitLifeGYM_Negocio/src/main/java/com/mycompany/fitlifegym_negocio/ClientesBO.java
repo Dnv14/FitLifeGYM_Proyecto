@@ -7,6 +7,7 @@ package com.mycompany.fitlifegym_negocio;
 import Adapter.DtosAEntidadesAdapter;
 import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
 import com.mycompany.fitlifegym_persistencia.IClientesDAO;
+import com.mycompany.fitlifegym_persistencia.PersistenciaException;
 import com.mycompany.fitlifegym_persistencia.entidades.Cliente;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,55 +25,36 @@ public class ClientesBO implements IClientesBO {
     }
 
     @Override
-    public Cliente registrarCliente(NuevoClienteDTO clienteDTO) {
-        Cliente cliente = DtosAEntidadesAdapter.adaptarClienteDTO(clienteDTO);
-        
-        if(clienteDTO.getNombre().isEmpty() || clienteDTO.getNombre() == null){
-            throw new IllegalArgumentException("El nombre del cliente no puede ser nulo.");
+    public Cliente registrarCliente(NuevoClienteDTO clienteDTO) throws NegocioException{
+        Cliente cliente = DtosAEntidadesAdapter.adaptarClienteDTO(clienteDTO);      
+        try {
+            return clientesDAO.registrarCliente(cliente);
+        } catch (PersistenciaException ex) {
+            throw new NegocioException("Error al registrar el cliente",ex);
         }
-        
-        if(clienteDTO.getApellidos().isEmpty() || clienteDTO.getApellidos() == null){
-            throw new IllegalArgumentException("El appelido del cliente no puede ser nulo.");
-        }
-        
-        if(clienteDTO.getCorreo() == null || clienteDTO.getCorreo().contains("@")){
-            throw new IllegalArgumentException("El formato del correo no es válido.");
-        }
-        
-        if(clienteDTO.getTelefono().isEmpty() || !clienteDTO.getTelefono().matches("\\d{10}")){
-            throw new IllegalArgumentException("Ingrese el formato válido del teléfono.");
-        }
-        
-        if(clienteDTO.getPin() == null || !clienteDTO.getPin().matches("\\d{5}")){
-            throw new IllegalArgumentException("Ingrese un PIN con al menos 5 números.");
-        }
-        
-        if(clienteDTO.getTarjeta() == null || clienteDTO.getTarjeta().isBlank()){
-            throw new IllegalArgumentException("La tarjeta no puede estar vacía.");
-        }
-        
-        if(clienteDTO.getMembresíaComprada() == null){
-            throw new IllegalArgumentException("Se debe de elegir una membresia.");
-        }
-      
-        return clientesDAO.registrarCliente(cliente);
     }
 
     @Override
-    public Cliente buscarClientePorId(Long id) {
+    public Cliente buscarClientePorId(Long id) throws NegocioException{
 
         if(id == null){
-            throw new IllegalArgumentException("Se debe de colocar un ID.");
+            throw new NegocioException("Se debe de colocar un ID.");
         }
-
-
-
-        return clientesDAO.consultarClientePorId(id);
+        
+        try {
+            return clientesDAO.consultarClientePorId(id);
+        } catch (PersistenciaException ex) {
+            throw new NegocioException("Error al registrar el cliente",ex);
+        }
     }
 
     @Override
-    public List<Cliente> consultarClientes() {
-        return clientesDAO.consultarClientes();
+    public List<Cliente> consultarClientes() throws NegocioException{
+        try {
+            return clientesDAO.consultarClientes();
+        } catch (PersistenciaException ex) {
+            throw new NegocioException("Error al registrar el cliente",ex);
+        }
     }
 
 }

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface IMembresiaCompradaBO {
 
-    public abstract MembresiaComprada guardar(NuevaMembresiaCompradaDTO compra);
+    public abstract MembresiaComprada guardar(NuevaMembresiaCompradaDTO compra) throws NegocioException;
 
-    public abstract List<MembresiaComprada> obtenerTodas();
+    public abstract List<MembresiaComprada> obtenerTodas() throws NegocioException;
 }

@@ -4,25 +4,27 @@ import com.mycompany.fitlifegym_persistencia.entidades.Cliente;
 import com.mycompany.fitlifegym_persistencia.entidades.TipoMembresia;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Julian
  */
 public class ClientesListDAO implements IClientesDAO {
-
+    
+    private static final Logger LOGGER = Logger.getLogger(ClientesListDAO.class.getName());
     private static List<Cliente> clientes = new ArrayList<>();
     private static Long contadorID = 1L;
 
     @Override
-    public Cliente registrarCliente(Cliente cliente) {
+    public Cliente registrarCliente(Cliente cliente) throws PersistenciaException{
         contadorID++;
         this.clientes.add(cliente);
         return cliente;
     }
 
     @Override
-    public Cliente consultarClientePorId(Long id) {
+    public Cliente consultarClientePorId(Long id) throws PersistenciaException{
         return this.clientes.stream()
                 .filter(m -> m.getIdCliente().equals(id))
                 .findFirst()
@@ -30,13 +32,13 @@ public class ClientesListDAO implements IClientesDAO {
     }
 
     @Override
-    public List<Cliente> consultarClientes() {
+    public List<Cliente> consultarClientes() throws PersistenciaException{
         return this.clientes;
     }
 
     @Override
-    public Cliente buscarPorPin(String pin) {
-       for(Cliente c: clientes){
+    public Cliente buscarPorPin(String pin) throws PersistenciaException{
+        for(Cliente c: clientes){
             if(c.getPin().equals(pin)){
                 return c;
             }
@@ -45,10 +47,15 @@ public class ClientesListDAO implements IClientesDAO {
     }
 
     @Override
-    public void actualizarMembresia(Long idCliente, TipoMembresia nuevaMembresia) {
+    public void actualizarMembresia(Long idCliente, TipoMembresia nuevaMembresia) throws PersistenciaException{
+        try{
         Cliente cliente = consultarClientePorId(idCliente);
         if(cliente != null){
             cliente.setMembresiaActiva(nuevaMembresia);
+        }
+        }catch(PersistenciaException ex){
+            LOGGER.severe(ex.getMessage());
+            throw new PersistenciaException("Error al actualizar membresia",ex);  
         }
     }
     

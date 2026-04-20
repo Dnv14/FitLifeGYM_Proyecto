@@ -9,6 +9,7 @@ import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
 import com.mycompany.fitlifegym_dtos.LoginDTO;
 import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_persistencia.IClientesDAO;
+import com.mycompany.fitlifegym_persistencia.PersistenciaException;
 import com.mycompany.fitlifegym_persistencia.entidades.Cliente;
 import com.mycompany.fitlifegym_persistencia.entidades.MembresiaComprada;
 import com.mycompany.fitlifegym_persistencia.entidades.TipoMembresia;
@@ -26,23 +27,27 @@ public class LoginBO implements ILoginBO {
     }
 
     @Override
-    public ClienteLogueadoDTO iniciarSesion(LoginDTO login) {
-        Cliente cliente = clientesDAO.buscarPorPin(login.getPin());
-
-        if (cliente == null) {
-            return null;
+    public ClienteLogueadoDTO iniciarSesion(LoginDTO login) throws NegocioException {
+        try {
+            Cliente cliente = clientesDAO.buscarPorPin(login.getPin());
+            
+            if (cliente == null) {
+                return null;
+            }
+            
+            String nombreCompleto = cliente.getNombre() + " " + cliente.getApellidos();
+            
+            TipoMembresiaDTO tipoDTO = null;
+            TipoMembresia tipo = cliente.getMembresiaActiva();
+            
+            if (tipo != null) {
+                tipoDTO = DtosAEntidadesAdapter.adaptarTipoMembresiaDTO(tipo);
+            }
+            
+            return new ClienteLogueadoDTO(cliente.getIdCliente(), nombreCompleto, tipoDTO);
+        } catch (PersistenciaException ex) {
+            throw new NegocioException("Error al iniciar sesion",ex);
         }
-
-        String nombreCompleto = cliente.getNombre() + " " + cliente.getApellidos();
-        
-        TipoMembresiaDTO tipoDTO = null;
-        TipoMembresia tipo = cliente.getMembresiaActiva(); 
-
-        if (tipo != null) {
-            tipoDTO = DtosAEntidadesAdapter.adaptarTipoMembresiaDTO(tipo);
-        }
-       
-        return new ClienteLogueadoDTO(cliente.getIdCliente(), nombreCompleto, tipoDTO);
     }
     
 }

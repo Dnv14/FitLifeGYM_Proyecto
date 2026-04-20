@@ -15,16 +15,18 @@ import com.mycompany.fitlifegym_negocio.ClientesBO;
 import com.mycompany.fitlifegym_negocio.IClientesBO;
 import com.mycompany.fitlifegym_negocio.ILoginBO;
 import com.mycompany.fitlifegym_negocio.LoginBO;
+import com.mycompany.fitlifegym_negocio.NegocioException;
 import com.mycompany.fitlifegym_persistencia.ClientesListDAO;
 import com.mycompany.fitlifegym_persistencia.IClientesDAO;
 import com.mycompany.fitlifegym_persistencia.entidades.Cliente;
-import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.ControlRegistroUsuario;
+import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.FuncionalidadRegistroUsuario;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.IFuncionalidadRegistrarUsuario;
 import java.time.LocalDate;
 import java.util.List;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,7 +45,7 @@ public class ControlForms {
         IClientesDAO dao = new ClientesListDAO();
         IClientesBO negocio = new ClientesBO(dao);
         this.loginBO = new LoginBO(dao);
-        this.funcionalidadCU = new ControlRegistroUsuario(negocio);
+        this.funcionalidadCU = new FuncionalidadRegistroUsuario(negocio);
     }
 
     private void mostrarPantalla(JFrame nuevoFrame) {
@@ -140,28 +142,28 @@ public class ControlForms {
         this.cliente = clienteDTO;
     }
 
-    public void procesarPagoTarjeta(String numeroTarjeta, String cvv, String fechaVencimiento) {
-    LocalDate hoy = LocalDate.now();
-    NuevaMembresiaCompradaDTO compraDTO = this.cliente.getMembresíaComprada();
-    
-    compraDTO.setFechaInicio(hoy);
-    compraDTO.setFechaFin(hoy.plusMonths(1));
-    compraDTO.setEstado(EstadoDTO.ACTIVO);
-    
-    this.cliente.setTarjeta(numeroTarjeta);
-    funcionalidadCU.RegistrarUsuario(this.cliente);
-    System.out.println(" Membresía asignada a: " + this.cliente.getNombre());
-}
+    public void procesarPagoTarjeta(String numeroTarjeta, String cvv, String fechaVencimiento) throws NegocioException {
+            LocalDate hoy = LocalDate.now();
+            NuevaMembresiaCompradaDTO compraDTO = this.cliente.getMembresíaComprada();
+            
+            compraDTO.setFechaInicio(hoy);
+            compraDTO.setFechaFin(hoy.plusMonths(1));
+            compraDTO.setEstado(EstadoDTO.ACTIVO);
+            
+            this.cliente.setTarjeta(numeroTarjeta);
+            funcionalidadCU.RegistrarUsuario(this.cliente);
+            //System.out.println(" Membresía asignada a: " + this.cliente.getNombre());
+    }
 
     public NuevoClienteDTO getCliente() {
         return cliente;
     }
 
-    public List<Cliente> consultarClientes() {
+    public List<Cliente> consultarClientes() throws NegocioException {
         return funcionalidadCU.obtenerTodas();
     }
     
-     public ClienteLogueadoDTO iniciarSesion(String pin) {
+     public ClienteLogueadoDTO iniciarSesion(String pin) throws NegocioException {
         LoginDTO loginDTO = new LoginDTO(pin);
         this.clienteActual = loginBO.iniciarSesion(loginDTO);
         return this.clienteActual;
