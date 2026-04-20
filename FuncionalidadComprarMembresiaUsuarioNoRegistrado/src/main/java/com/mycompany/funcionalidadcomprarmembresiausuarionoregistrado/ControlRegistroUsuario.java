@@ -6,6 +6,8 @@ package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado;
 
 import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
 import com.mycompany.fitlifegym_negocio.IClientesBO;
+import com.mycompany.fitlifegym_persistencia.entidades.Cliente;
+import java.util.List;
 
 
 /**
@@ -23,5 +25,10 @@ public class ControlRegistroUsuario implements IFuncionalidadRegistrarUsuario {
     @Override
     public void RegistrarUsuario(NuevoClienteDTO clienteDTO) {
         clientesBO.registrarCliente(clienteDTO);
+    }
+
+    @Override
+    public List<Cliente> obtenerTodas() {
+        return clientesBO.consultarClientes();
     }
 }

@@ -1,4 +1,3 @@
-
 package com.mycompany.fitlifegym_persistencia;
 
 import com.mycompany.fitlifegym_persistencia.entidades.Membresia;
@@ -9,10 +8,14 @@ import java.util.List;
  *
  * @author Julian
  */
-public class MembresiaListDAO implements IMembresiaDAO{
+public class MembresiaListDAO implements IMembresiaDAO {
+
     private List<Membresia> membresias = new ArrayList<>();
+    private static Long contadorID = 1L;
+
     @Override
     public Membresia guardar(Membresia membresia) {
+        contadorID++;
         this.membresias.add(membresia);
         return membresia;
     }
@@ -25,9 +28,9 @@ public class MembresiaListDAO implements IMembresiaDAO{
     @Override
     public Membresia obtenerPorId(Long id) {
         return this.membresias.stream()
-            .filter(m -> m.getIdMembresia().equals(id))
-            .findFirst()
-            .orElse(null);
+                .filter(m -> m.getIdMembresia().equals(id))
+                .findFirst()
+                .orElse(null);
     }
-    
+
 }

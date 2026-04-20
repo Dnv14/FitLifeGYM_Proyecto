@@ -5,6 +5,8 @@
 package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado;
 
 import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
+import com.mycompany.fitlifegym_persistencia.entidades.Cliente;
+import java.util.List;
 
 
 /**
@@ -14,4 +16,6 @@ import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
 public interface IFuncionalidadRegistrarUsuario {
 
     public abstract void RegistrarUsuario(NuevoClienteDTO clienteDTO);
+    
+    public abstract List<Cliente> obtenerTodas();
 }

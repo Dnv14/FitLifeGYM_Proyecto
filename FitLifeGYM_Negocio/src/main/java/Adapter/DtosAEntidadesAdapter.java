@@ -57,13 +57,12 @@ public class DtosAEntidadesAdapter {
     public static Cliente adaptarClienteDTO(NuevoClienteDTO clienteDTO) {
         MembresiaComprada membresiaComprada = adaptarMembresiaCompradaDTO(clienteDTO.getMembresíaComprada());
 
-        Cliente clienteNuevo = new Cliente(clienteDTO.getNombre(),
-                clienteDTO.getApellidos(),
-                clienteDTO.getCorreo(),
-                clienteDTO.getTelefono(),
-                clienteDTO.getPin(),
-                clienteDTO.getTarjeta(),
-                membresiaComprada);
+        Cliente clienteNuevo = new Cliente(clienteDTO.getNombre(), clienteDTO.getApellidos(),
+                clienteDTO.getCorreo(), clienteDTO.getTelefono(),
+                clienteDTO.getContrasenia(),
+                clienteDTO.getFechaNacimiento(),
+                clienteDTO.getPin(), 
+                clienteDTO.getTarjeta(), membresiaComprada);
 
         return clienteNuevo;
     }

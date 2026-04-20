@@ -17,9 +17,8 @@ import java.util.List;
  */
 public class MembresiaBO implements IMembresiaBO {
 
-    private final List<Membresia> membresias = new ArrayList<>();
     private IMembresiaDAO membresiaDAO;
-    private Long contadorID = 1L;
+   
 
     public MembresiaBO(IMembresiaDAO membresiaDAO) {
         this.membresiaDAO = membresiaDAO;
@@ -28,17 +27,16 @@ public class MembresiaBO implements IMembresiaBO {
     @Override
     public void guardar(NuevaMembresiaDTO membresiaDTO) {
         Membresia membresia = DtosAEntidadesAdapter.adaptarMembresia(membresiaDTO);
-        membresia.setIdMembresia(contadorID++);
-        membresias.add(membresia);
+        membresiaDAO.guardar(membresia);
     }
 
     @Override
     public List<Membresia> obtenerTodas() {
-        return new ArrayList<>(membresias);
+        return membresiaDAO.obtenerTodas();
     }
 
     @Override
     public Membresia obtenerPorId(Long id) {
-        return membresias.stream().filter(m -> m.getIdMembresia().equals(id)).findFirst().orElse(null);
+        return membresiaDAO.obtenerPorId(id);
     }
 }

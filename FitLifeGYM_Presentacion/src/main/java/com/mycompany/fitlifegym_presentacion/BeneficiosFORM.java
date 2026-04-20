@@ -35,7 +35,6 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        btnTemporal = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         checkBoxCursos = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -78,13 +77,6 @@ public class BeneficiosFORM extends javax.swing.JFrame {
 
         jSeparator4.setBackground(new java.awt.Color(225, 6, 0));
         jSeparator4.setForeground(new java.awt.Color(225, 6, 0));
-
-        btnTemporal.setBackground(new java.awt.Color(255, 0, 51));
-        btnTemporal.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnTemporal.setForeground(new java.awt.Color(255, 255, 255));
-        btnTemporal.setText("form CU");
-        btnTemporal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnTemporal.addActionListener(this::btnTemporalActionPerformed);
 
         lblTitulo.setBackground(new java.awt.Color(255, 255, 255));
         lblTitulo.setFont(new java.awt.Font("Arial", 3, 70)); // NOI18N
@@ -240,9 +232,6 @@ public class BeneficiosFORM extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(720, 720, 720)
-                .addComponent(btnTemporal, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,64 +239,64 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(checkBoxInstalaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkBoxCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(390, 390, 390)
-                .addComponent(btnSuscribirse1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(checkBoxFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(checkBoxNutricion))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(390, 390, 390)
-                .addComponent(btnPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(340, 340, 340)
-                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(ComboBoxMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(checkBoxMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(380, 380, 380)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(460, 460, 460)
-                .addComponent(btnTemporal, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(checkBoxInstalaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(121, 121, 121)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkBoxCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(390, 390, 390)
+                        .addComponent(btnSuscribirse1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(checkBoxFisico, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(checkBoxNutricion))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(390, 390, 390)
+                        .addComponent(btnPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(ComboBoxMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(checkBoxMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(380, 380, 380)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(4, 4, 4))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -334,11 +323,6 @@ public class BeneficiosFORM extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnPrecioActionPerformed
 
-    private void btnTemporalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemporalActionPerformed
-        //temporal
-        control.navegarBienvenida();
-    }//GEN-LAST:event_btnTemporalActionPerformed
-
     private void checkBoxNutricionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxNutricionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkBoxNutricionActionPerformed
@@ -360,11 +344,13 @@ public class BeneficiosFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_checkBoxCursosActionPerformed
 
     private void ComboBoxMembresiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxMembresiaActionPerformed
-        control.navegarMetodosPago();
+        this.actualizarBeneficios();
     }//GEN-LAST:event_ComboBoxMembresiaActionPerformed
 
     private void btnSuscribirse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuscribirse1ActionPerformed
-        // TODO add your handling code here:
+        String membresiaSeleccionado = (String) ComboBoxMembresia.getSelectedItem();
+        control.seleccionarMembresia(membresiaSeleccionado);
+        control.navegarMetodosPago();
     }//GEN-LAST:event_btnSuscribirse1ActionPerformed
 
     private void actualizarBeneficios() {
@@ -398,8 +384,8 @@ public class BeneficiosFORM extends javax.swing.JFrame {
             btnPrecio.setText("$300");
         }
     }
-    
-    private void setearEditablesFalsosCheckBox(){
+
+    private void setearEditablesFalsosCheckBox() {
         checkBoxCursos.setEnabled(false);
         checkBoxFisico.setEnabled(false);
         checkBoxInstalaciones.setEnabled(false);
@@ -411,7 +397,6 @@ public class BeneficiosFORM extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComboBoxMembresia;
     private javax.swing.JButton btnPrecio;
     private javax.swing.JButton btnSuscribirse1;
-    private javax.swing.JButton btnTemporal;
     private javax.swing.JCheckBox checkBoxCursos;
     private javax.swing.JCheckBox checkBoxFisico;
     private javax.swing.JCheckBox checkBoxInstalaciones;

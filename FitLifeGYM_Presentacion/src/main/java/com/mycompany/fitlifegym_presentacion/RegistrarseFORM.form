@@ -83,9 +83,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtNombreCompleto2" min="-2" pref="265" max="-2" attributes="0"/>
+                              <Component id="txtNombreCompleto" min="-2" pref="265" max="-2" attributes="0"/>
                               <Component id="txtPIN" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
-                              <Component id="txtContrasenia1" min="-2" pref="265" max="-2" attributes="0"/>
+                              <Component id="txtContrasenia" min="-2" pref="265" max="-2" attributes="0"/>
                               <Component id="txtApellidos" min="-2" pref="265" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -128,7 +128,7 @@
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                      <Component id="txtCorreoElectronico1" min="-2" pref="265" max="-2" attributes="0"/>
+                      <Component id="txtCorreoElectronico" min="-2" pref="265" max="-2" attributes="0"/>
                       <EmptySpace pref="370" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -151,7 +151,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="txtNombreCompleto2" min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Component id="txtNombreCompleto" min="-2" pref="46" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
@@ -182,7 +182,7 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblContrasenia" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="txtContrasenia1" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="txtContrasenia" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -207,7 +207,7 @@
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
-                      <Component id="txtCorreoElectronico1" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="txtCorreoElectronico" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace pref="270" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -391,14 +391,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelefonoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNombreCompleto2">
+        <Component class="javax.swing.JTextField" name="txtNombreCompleto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreCompleto2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreCompletoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFechaNacimiento">
@@ -411,9 +411,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPINActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtContrasenia1">
+        <Component class="javax.swing.JTextField" name="txtContrasenia">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtContrasenia1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtContraseniaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVolverAtras">
@@ -452,9 +452,9 @@
             <Property name="text" type="java.lang.String" value="Apellidos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCorreoElectronico1">
+        <Component class="javax.swing.JTextField" name="txtCorreoElectronico">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCorreoElectronico1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCorreoElectronicoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

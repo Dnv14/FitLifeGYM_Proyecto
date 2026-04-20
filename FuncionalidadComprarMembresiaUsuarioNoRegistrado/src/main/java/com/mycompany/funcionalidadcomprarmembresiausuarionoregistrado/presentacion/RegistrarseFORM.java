@@ -4,7 +4,7 @@
  */
 package com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.presentacion;
 
-import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.dtos.NuevoClienteDTO;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -287,19 +287,19 @@ public class RegistrarseFORM extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        String nombre = txtNombreCompleto.getText();
-        String apellidos = txtApellidos.getText();
-        String correo = txtCorreoElectronico.getText();
-        String telefono = txtTelefono.getText();
-        String pin = txtPIN.getText();
-        
-        NuevoClienteDTO clienteRegistrar = new NuevoClienteDTO(nombre, apellidos, correo, telefono, pin);
-        control.registrarCliente(clienteRegistrar);
-        
-        JOptionPane.showMessageDialog(this,"Cliente creado exitosamente");
-        System.out.println(control.consultarClientes());
-        
-        control.navegarBenificios();
+//        String nombre = txtNombreCompleto.getText();
+//        String apellidos = txtApellidos.getText();
+//        String correo = txtCorreoElectronico.getText();
+//        String telefono = txtTelefono.getText();
+//        String pin = txtPIN.getText();
+//        
+//        NuevoClienteDTO clienteRegistrar = new NuevoClienteDTO(nombre, apellidos, correo, telefono, pin);
+//        control.registrarCliente(clienteRegistrar);
+//        
+//        JOptionPane.showMessageDialog(this,"Cliente creado exitosamente");
+//        System.out.println(control.consultarClientes());
+//        
+//        control.navegarBenificios();
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
@@ -331,7 +331,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
     }//GEN-LAST:event_txtContraseniaActionPerformed
 
     private void btnVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAtrasActionPerformed
-        control.navegarMenuPrincipal();
+//        control.navegarMenuPrincipal();
     }//GEN-LAST:event_btnVolverAtrasActionPerformed
 
     private void txtCorreoElectronicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoElectronicoActionPerformed

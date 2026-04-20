@@ -4,14 +4,18 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.EstadoDTO;
+import com.mycompany.fitlifegym_dtos.NuevaMembresiaCompradaDTO;
+import com.mycompany.fitlifegym_dtos.NuevaMembresiaDTO;
 import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
+import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_negocio.ClientesBO;
 import com.mycompany.fitlifegym_negocio.IClientesBO;
 import com.mycompany.fitlifegym_persistencia.ClientesListDAO;
 import com.mycompany.fitlifegym_persistencia.IClientesDAO;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.ControlRegistroUsuario;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.IFuncionalidadRegistrarUsuario;
-
+import java.time.LocalDate;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -86,6 +90,58 @@ public class ControlForms {
 
     public void navegarIniciarSesionPaypal() {
         mostrarDialogo(new IniciarSesionPaypalFORM(this.frameActual, true));
+    }
+
+    //control
+    public void seleccionarMembresia(String tipo) {
+        double precio;
+
+        TipoMembresiaDTO tipoMembresiaDTO;
+        switch (tipo) {
+            case "Oro":
+                tipoMembresiaDTO = TipoMembresiaDTO.ORO;
+                precio = 750.0;
+                break;
+            case "Plata":
+                tipoMembresiaDTO = TipoMembresiaDTO.PLATA;
+                precio = 500.0;
+                break;
+            default:
+                tipoMembresiaDTO = TipoMembresiaDTO.BRONCE;
+                precio = 300.0;
+        }
+
+        NuevaMembresiaDTO membresiaDTO = new NuevaMembresiaDTO(tipoMembresiaDTO,
+                precio, LocalDate.now().plusMonths(1));
+
+        NuevaMembresiaCompradaDTO membresiaCompradaDTO = new NuevaMembresiaCompradaDTO(
+                membresiaDTO,
+                LocalDate.now(),
+                LocalDate.now().plusMonths(1),
+                precio,
+                EstadoDTO.ACTIVO
+        );
+        this.cliente.setMembresíaComprada(membresiaCompradaDTO);
+    }
+
+    public void registrarCliente(NuevoClienteDTO clienteDTO) {
+        this.cliente = clienteDTO;
+    }
+
+    public void procesarPagoTarjeta(String tarjeta, String pin) {
+        this.cliente.setTarjeta(tarjeta);
+        this.cliente.setPin(pin);
+        funcionalidadCU.RegistrarUsuario(this.cliente);
+
+        System.out.println("Membresía asignada a " + cliente.getNombre());
+    }
+
+    public NuevoClienteDTO getCliente() {
+        return cliente;
+    }
+
+    public void consultarClientes() {
+        funcionalidadCU.obtenerTodas();
     }
 
 }

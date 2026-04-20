@@ -17,24 +17,21 @@ import java.util.List;
  */
 public class MembresiaCompradaBO implements IMembresiaCompradaBO {
 
-    private IMembresiaCompradaDAO membresiaComprada;
-    private final List<MembresiaComprada> compras = new ArrayList<>();
-    private Long contadorID = 1L;
+    private IMembresiaCompradaDAO membresiaCompradaDAO;
 
-    public MembresiaCompradaBO(IMembresiaCompradaDAO membresiaComprada) {
-        this.membresiaComprada = membresiaComprada;
+    public MembresiaCompradaBO(IMembresiaCompradaDAO membresiaCompradaDAO) {
+        this.membresiaCompradaDAO = membresiaCompradaDAO;
     }
 
     @Override
     public MembresiaComprada guardar(NuevaMembresiaCompradaDTO membresiaCompradaDTO) {
         MembresiaComprada mebresiaComprada = DtosAEntidadesAdapter.adaptarMembresiaCompradaDTO(membresiaCompradaDTO);
-        mebresiaComprada.setIdMembresiaComprada(contadorID++);
-        compras.add(mebresiaComprada);
-        return mebresiaComprada;
+
+        return membresiaCompradaDAO.guardar(mebresiaComprada);
     }
 
     @Override
     public List<MembresiaComprada> obtenerTodas() {
-        return new ArrayList<>(compras);
+        return membresiaCompradaDAO.obtenerTodas();
     }
 }

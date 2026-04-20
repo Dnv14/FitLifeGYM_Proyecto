@@ -4,34 +4,44 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
+import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
+
 /**
  *
  * @author Diego
  */
-
 //aqui el plan es que si no se lleno el textfiel con la membresia
 //el boton no se pueda utilizar y si le da click ahi ponga
 //esta funcion solo esta en el plan oro, actualizalo
 //o algo asi
 public class BienvenidaFORM extends javax.swing.JFrame {
-    
-   
+
     private ControlForms control;
-    
+
     public BienvenidaFORM(ControlForms control) {
         this.control = control;
         this.setTitle("Bienvenida");
-        initComponents(); 
+        initComponents();
+
+        configiracionPorMembresia();
+
+        NuevoClienteDTO clienteDTO = control.getCliente();
+
+        if (clienteDTO != null && clienteDTO.getMembresíaComprada() != null) {
+            String nombre = clienteDTO.getNombre();
+            String plan = clienteDTO.getMembresíaComprada().getMembresia().getTipoMembresia().name();
+            lblTitulo.setText("Hola " + nombre + ", tu plan actual es: " + plan);
+        }
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
-        lblTitulo4 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         textAreaInstalaciones = new javax.swing.JTextArea();
         btnCursos = new javax.swing.JButton();
@@ -47,10 +57,10 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(225, 6, 0));
         jSeparator1.setForeground(new java.awt.Color(225, 6, 0));
 
-        lblTitulo4.setBackground(new java.awt.Color(255, 255, 255));
-        lblTitulo4.setFont(new java.awt.Font("Arial", 3, 50)); // NOI18N
-        lblTitulo4.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitulo4.setText("Bienvenido: \"Nombre\"");
+        lblTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setFont(new java.awt.Font("Arial", 3, 50)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Bienvenido: \"Nombre\"");
 
         jScrollPane5.setBorder(null);
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -128,7 +138,7 @@ public class BienvenidaFORM extends javax.swing.JFrame {
             .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
                     .addContainerGap(172, Short.MAX_VALUE)
-                    .addComponent(lblTitulo4)
+                    .addComponent(lblTitulo)
                     .addGap(148, 148, 148)))
         );
         jPanelLayout.setVerticalGroup(
@@ -149,7 +159,7 @@ public class BienvenidaFORM extends javax.swing.JFrame {
             .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelLayout.createSequentialGroup()
                     .addGap(27, 27, 27)
-                    .addComponent(lblTitulo4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(368, Short.MAX_VALUE)))
         );
 
@@ -197,7 +207,31 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnQuejasSugerenciasActionPerformed
 
-    
+    private void configiracionPorMembresia() {
+        NuevoClienteDTO clienteDTO = control.getCliente();
+
+        if (clienteDTO == null || clienteDTO.getMembresíaComprada() == null) {
+            return;
+        }
+
+        TipoMembresiaDTO tipo = clienteDTO.getMembresíaComprada().getMembresia().getTipoMembresia();
+
+        btnCursos.setEnabled(false);
+        btnNutricion.setEnabled(false);
+        btnAmbienteMusical.setEnabled(false);
+        btnProgreso.setEnabled(false);
+
+        switch (tipo) {
+            case ORO:
+                btnCursos.setEnabled(true);
+                btnProgreso.setEnabled(true);
+            case PLATA:
+                btnNutricion.setEnabled(true);
+                btnAmbienteMusical.setEnabled(true);
+            case BRONCE:
+                break;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAmbienteMusical;
@@ -208,7 +242,7 @@ public class BienvenidaFORM extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblTitulo4;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextArea textAreaInstalaciones;
     // End of variables declaration//GEN-END:variables
 }

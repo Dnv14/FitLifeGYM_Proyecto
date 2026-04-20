@@ -282,20 +282,20 @@ public class TarjetaFORM extends javax.swing.JDialog {
     }//GEN-LAST:event_txtCVVActionPerformed
 
     private void btnPagarAhoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarAhoraActionPerformed
-        String nombre = txtNombreTitular.getText().trim();
-        String numero = txtNumeroTarjeta.getText().trim();
-        String ccv = txtCVV.getText().trim();
-        String fecha = txtFechaVencimiento.getText().trim();
-
-        if (nombre.isEmpty() || numero.isEmpty() || ccv.isEmpty() || fecha.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Favor de llenar todos los campos requeridos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        control.procesarPagoTarjeta();
-        JOptionPane.showMessageDialog(this, "El pago se ha realizado correctamente.");
-        System.out.println(control.getMembresiaSeleccionada());
-        control.navegarBienvenida();
-        this.dispose();
+//        String nombre = txtNombreTitular.getText().trim();
+//        String numero = txtNumeroTarjeta.getText().trim();
+//        String ccv = txtCVV.getText().trim();
+//        String fecha = txtFechaVencimiento.getText().trim();
+//
+//        if (nombre.isEmpty() || numero.isEmpty() || ccv.isEmpty() || fecha.isEmpty()) {
+//            javax.swing.JOptionPane.showMessageDialog(this, "Favor de llenar todos los campos requeridos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        control.procesarPagoTarjeta();
+//        JOptionPane.showMessageDialog(this, "El pago se ha realizado correctamente.");
+//        System.out.println(control.getMembresiaSeleccionada());
+//        control.navegarBienvenida();
+//        this.dispose();
     }//GEN-LAST:event_btnPagarAhoraActionPerformed
 
     public void setearEditablesFalsos() {

@@ -15,6 +15,6 @@ public class FuncionalidadComprarMembresiaUsuarioNoRegistrado {
     public static void main(String[] args) {
         ControlForms control = new ControlForms();
         
-        control.navegarMenuPrincipal();
+//        control.navegarMenuPrincipal();
     }
 }

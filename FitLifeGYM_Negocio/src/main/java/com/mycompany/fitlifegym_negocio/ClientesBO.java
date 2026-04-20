@@ -18,8 +18,6 @@ import java.util.List;
 public class ClientesBO implements IClientesBO {
 
     private final IClientesDAO clientesDAO;
-    private final List<Cliente> clientes = new ArrayList<>();
-    private Long contadorID = 1L;
 
     public ClientesBO(IClientesDAO clientesDAO) {
         this.clientesDAO = clientesDAO;
@@ -28,20 +26,20 @@ public class ClientesBO implements IClientesBO {
     @Override
     public Cliente registrarCliente(NuevoClienteDTO clienteDTO) {
         Cliente cliente = DtosAEntidadesAdapter.adaptarClienteDTO(clienteDTO);
-        cliente.setIdCliente(contadorID++);
-        clientes.add(cliente);
+        clientesDAO.registrarCliente(cliente);
         return cliente;
 
     }
 
     @Override
     public Cliente buscarClientePorId(Long id) {
-        return clientes.stream().filter(c -> c.getIdCliente().equals(id)).findFirst().orElse(null);
+
+        return clientesDAO.consultarClientePorId(id);
     }
 
     @Override
     public List<Cliente> consultarClientes() {
-        return new ArrayList<>(clientes);
+        return clientesDAO.consultarClientes();
     }
 
 }
