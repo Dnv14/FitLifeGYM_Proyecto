@@ -18,8 +18,6 @@ import java.util.List;
 public class ClientesBO implements IClientesBO {
 
     private final IClientesDAO clientesDAO;
-    private final List<Cliente> clientes = new ArrayList<>();
-    private Long contadorID = 1L;
 
     public ClientesBO(IClientesDAO clientesDAO) {
         this.clientesDAO = clientesDAO;
@@ -28,20 +26,50 @@ public class ClientesBO implements IClientesBO {
     @Override
     public Cliente registrarCliente(NuevoClienteDTO clienteDTO) {
         Cliente cliente = DtosAEntidadesAdapter.adaptarClienteDTO(clienteDTO);
-        cliente.setIdCliente(contadorID++);
-        clientes.add(cliente);
-        return cliente;
+        
+        if(clienteDTO.getNombre().isEmpty() || clienteDTO.getNombre() == null){
+            throw new IllegalArgumentException("El nombre del cliente no puede ser nulo.");
+        }
+        
+        if(clienteDTO.getApellidos().isEmpty() || clienteDTO.getApellidos() == null){
+            throw new IllegalArgumentException("El appelido del cliente no puede ser nulo.");
+        }
+        
+        if(clienteDTO.getCorreo() == null || clienteDTO.getCorreo().contains("@")){
+            throw new IllegalArgumentException("El formato del correo no es válido.");
+        }
+        
+        if(clienteDTO.getTelefono().isEmpty() || !clienteDTO.getTelefono().matches("\\d{10}")){
+            throw new IllegalArgumentException("Ingrese el formato válido del teléfono.");
+        }
+        
+        if(clienteDTO.getPin() == null || !clienteDTO.getPin().matches("\\d{5}")){
+            throw new IllegalArgumentException("Ingrese un PIN con al menos 5 números.");
+        }
+        
+        if(clienteDTO.getTarjeta() == null || clienteDTO.getTarjeta().isBlank()){
+            throw new IllegalArgumentException("La tarjeta no puede estar vacía.");
+        }
+        
+        if(clienteDTO.getMembresíaComprada() == null){
+            throw new IllegalArgumentException("Se debe de elegir una membresia.");
+        }
+      
+        return clientesDAO.registrarCliente(cliente);
 
     }
 
     @Override
     public Cliente buscarClientePorId(Long id) {
-        return clientes.stream().filter(c -> c.getIdCliente().equals(id)).findFirst().orElse(null);
+        if(id == null){
+            throw new IllegalArgumentException("Se debe de colocar un ID.");
+        }
+        return clientesDAO.consultarClientePorId(id);
     }
 
     @Override
     public List<Cliente> consultarClientes() {
-        return new ArrayList<>(clientes);
+        return clientesDAO.consultarClientes();
     }
 
 }

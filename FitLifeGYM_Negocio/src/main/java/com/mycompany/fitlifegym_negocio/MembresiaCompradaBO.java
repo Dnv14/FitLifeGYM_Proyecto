@@ -8,7 +8,6 @@ import Adapter.DtosAEntidadesAdapter;
 import com.mycompany.fitlifegym_dtos.NuevaMembresiaCompradaDTO;
 import com.mycompany.fitlifegym_persistencia.IMembresiaCompradaDAO;
 import com.mycompany.fitlifegym_persistencia.entidades.MembresiaComprada;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,8 +17,6 @@ import java.util.List;
 public class MembresiaCompradaBO implements IMembresiaCompradaBO {
 
     private IMembresiaCompradaDAO membresiaComprada;
-    private final List<MembresiaComprada> compras = new ArrayList<>();
-    private Long contadorID = 1L;
 
     public MembresiaCompradaBO(IMembresiaCompradaDAO membresiaComprada) {
         this.membresiaComprada = membresiaComprada;
@@ -27,14 +24,35 @@ public class MembresiaCompradaBO implements IMembresiaCompradaBO {
 
     @Override
     public MembresiaComprada guardar(NuevaMembresiaCompradaDTO membresiaCompradaDTO) {
+        if(membresiaCompradaDTO.getMembresia() == null){
+            throw new IllegalArgumentException("La membresia no puede ser nula.");
+        }
+        
+        if(membresiaCompradaDTO.getFechaInicio() == null){
+            throw new IllegalArgumentException("La fecha de incio no puede ser nula.");
+        }
+        
+        if(membresiaCompradaDTO.getFechaFin() == null){
+            throw new IllegalArgumentException("La fecha final no puede ser nula.");
+        }
+        
+        if(membresiaCompradaDTO.getFechaFin().isBefore(membresiaCompradaDTO.getFechaInicio())){
+            throw new IllegalArgumentException("La fecha fianl no puede ser anterior a la fecha de inicio.");
+        }
+        
+        if(membresiaCompradaDTO.getPrecioPagado() == null || membresiaCompradaDTO.getPrecioPagado()<= 0){
+            throw new IllegalArgumentException("El precio que se va a pagar debe ser mayor a 0.");
+        }
+        
+        if(membresiaCompradaDTO.getEstado() == null){
+            throw new IllegalArgumentException("El estado de la membresía no puede ser nula.");
+        }
         MembresiaComprada mebresiaComprada = DtosAEntidadesAdapter.adaptarMembresiaCompradaDTO(membresiaCompradaDTO);
-        mebresiaComprada.setIdMembresiaComprada(contadorID++);
-        compras.add(mebresiaComprada);
-        return mebresiaComprada;
+        return membresiaComprada.guardar(mebresiaComprada);
     }
 
     @Override
     public List<MembresiaComprada> obtenerTodas() {
-        return new ArrayList<>(compras);
+        return membresiaComprada.obtenerTodas();
     }
 }
