@@ -24,22 +24,20 @@ public class BienvenidaFORM extends javax.swing.JFrame {
     public BienvenidaFORM(ControlForms control, ClienteLogueadoDTO cliente) {
         this.control = control;
         this.cliente = cliente;
-        
+
         this.setTitle("Bienvenida");
-        this.setLocationRelativeTo(null);
         initComponents();
-
+        this.setLocationRelativeTo(null);
         configiracionPorMembresia();
-
         mostrarDatosCliente();
-        
+
     }
-    
+
     private void mostrarDatosCliente() {
         if (cliente != null) {
             String nombre = cliente.getNombreCompleto();
 
-            if (cliente.getMembresiaActiva()!= null) {
+            if (cliente.getMembresiaActiva() != null) {
                 String plan = cliente.getMembresiaActiva().name();
                 lblTitulo.setText("Bienvenido: " + nombre + " | Plan: " + plan);
             } else {
@@ -230,7 +228,7 @@ public class BienvenidaFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProgresoActionPerformed
 
     private void btnBeneficiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeneficiosActionPerformed
-         control.navegarBenificios();
+        control.navegarBenificios();
     }//GEN-LAST:event_btnBeneficiosActionPerformed
 
     private void btnQuejasSugerencias1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuejasSugerencias1ActionPerformed

@@ -78,7 +78,6 @@ public class ControlForms {
 
         this.frameActual = nuevoFrame;
         this.frameActual.setResizable(false);
-        frameActual.setLocationRelativeTo(null);
         frameActual.setVisible(true);
     }
 
@@ -98,8 +97,7 @@ public class ControlForms {
     }
 
     public void navegarBienvenida(ClienteLogueadoDTO cliente) {
-        BienvenidaFORM form = new BienvenidaFORM(this, cliente);
-        form.setVisible(true);
+        mostrarPantalla(new BienvenidaFORM(this, cliente));
     }
 
     public void navegarMetodosPago() {
@@ -158,8 +156,6 @@ public class ControlForms {
         );
         this.cliente.setMembresíaComprada(membresiaCompradaDTO);
     }
-    
-
 
     public void registrarCliente(NuevoClienteDTO clienteDTO) {
         this.cliente = clienteDTO;
@@ -175,13 +171,13 @@ public class ControlForms {
 //            
 //            this.cliente.setTarjeta(numeroTarjeta);
 //            funcionalidadCU.RegistrarUsuario(this.cliente);
-            //System.out.println(" Membresía asignada a: " + this.cliente.getNombre());
+        //System.out.println(" Membresía asignada a: " + this.cliente.getNombre());
     }
 
     public NuevoClienteDTO getCliente() {
         return cliente;
     }
-    
+
     public ClienteLogueadoDTO getClienteActual() {
         return clienteActual;
     }
@@ -189,17 +185,19 @@ public class ControlForms {
     public List<Cliente> consultarClientes() throws NegocioException {
         return funcionalidadCU.obtenerTodas();
     }
+
     //Modificado
     public ClienteLogueadoDTO iniciarSesion(String pin, String contrasenia) throws NegocioException {
         LoginDTO loginDTO = new LoginDTO(pin, contrasenia);
         this.clienteActual = funcionalidadLogin.iniciarSesion(loginDTO);
         return this.clienteActual;
     }
+
     //Nuevo Para consultar las Membresia o Los Tipos Mas bien
     public List<Membresia> consultarMembresias() throws NegocioException {
         return funcionalidadConsultar.consultarMembresias();
     }
-    
+
     //Nuevo(lo agregrege para la renovacion)
     public void renovarMembresia(String tipoMembresia) throws NegocioException {
         if (this.clienteActual == null) {
@@ -220,7 +218,7 @@ public class ControlForms {
         }
 
         RenovarMembresiaDTO dto = new RenovarMembresiaDTO(clienteActual.getIdCliente(), tipoDTO);
-        funcionalidadRenovar.renovarMembresia(dto);   
+        funcionalidadRenovar.renovarMembresia(dto);
     }
 
 }

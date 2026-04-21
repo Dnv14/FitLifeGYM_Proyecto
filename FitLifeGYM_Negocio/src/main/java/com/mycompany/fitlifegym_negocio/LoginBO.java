@@ -19,9 +19,9 @@ import com.mycompany.fitlifegym_persistencia.entidades.TipoMembresia;
  * @author PC GAMER MASTER RACE
  */
 public class LoginBO implements ILoginBO {
-    
+
     private final IClientesDAO clientesDAO;
-     
+
     public LoginBO(IClientesDAO clientesDAO) {
         this.clientesDAO = clientesDAO;
     }
@@ -30,24 +30,25 @@ public class LoginBO implements ILoginBO {
     public ClienteLogueadoDTO iniciarSesion(LoginDTO login) throws NegocioException {
         try {
             Cliente cliente = clientesDAO.buscarPorPin(login.getPin());
-            
+
             if (cliente == null) {
                 return null;
             }
-            
             String nombreCompleto = cliente.getNombre() + " " + cliente.getApellidos();
-            
             TipoMembresiaDTO tipoDTO = null;
-            TipoMembresia tipo = cliente.getMembresíaComprada().getMembresia().getTipoMembresia();
-            
-            if (tipo != null) {
-                tipoDTO = DtosAEntidadesAdapter.adaptarTipoMembresiaDTO(tipo);
+
+            if (cliente.getMembresíaComprada() != null) {
+                if (cliente.getMembresíaComprada().getMembresia() != null) {
+                    TipoMembresia tipo = cliente.getMembresíaComprada().getMembresia().getTipoMembresia();
+                    if (tipo != null) {
+                        tipoDTO = DtosAEntidadesAdapter.adaptarTipoMembresiaDTO(tipo);
+                    }
+                }
             }
-            
             return new ClienteLogueadoDTO(cliente.getIdCliente(), nombreCompleto, tipoDTO);
         } catch (PersistenciaException ex) {
-            throw new NegocioException("Error al iniciar sesion",ex);
+            throw new NegocioException("Error al iniciar sesion", ex);
         }
     }
-    
+
 }
