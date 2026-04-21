@@ -155,9 +155,12 @@ public class ControlForms {
                 EstadoDTO.ACTIVO
         );
         this.cliente.setMembresíaComprada(membresiaCompradaDTO);
+
+        System.out.println("Membresia asignada antes del pago");
     }
 
-    public void registrarCliente(NuevoClienteDTO clienteDTO) {
+    public void registrarCliente(NuevoClienteDTO clienteDTO) throws NegocioException {
+        funcionalidadCU.validarDatosUsuario(clienteDTO);
         this.cliente = clienteDTO;
     }
 

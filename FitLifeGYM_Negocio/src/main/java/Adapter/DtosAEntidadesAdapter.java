@@ -55,18 +55,21 @@ public class DtosAEntidadesAdapter {
     }
 
     public static Cliente adaptarClienteDTO(NuevoClienteDTO clienteDTO) {
-        MembresiaComprada membresiaComprada = adaptarMembresiaCompradaDTO(clienteDTO.getMembresíaComprada());
+        MembresiaComprada membresiaComprada = null;
 
+        if (clienteDTO.getMembresíaComprada() != null) {
+            membresiaComprada = adaptarMembresiaCompradaDTO(clienteDTO.getMembresíaComprada());
+        }
         Cliente clienteNuevo = new Cliente(clienteDTO.getNombre(), clienteDTO.getApellidos(),
                 clienteDTO.getCorreo(), clienteDTO.getTelefono(),
                 clienteDTO.getContrasenia(),
                 clienteDTO.getFechaNacimiento(),
-                clienteDTO.getPin(), 
+                clienteDTO.getPin(),
                 membresiaComprada);
 
         return clienteNuevo;
     }
-    
+
     public static TipoMembresia adaptarTipoMembresia(TipoMembresiaDTO tipoDTO) {
         if (tipoDTO == TipoMembresiaDTO.PLATA) {
             return TipoMembresia.PLATA;
@@ -75,7 +78,7 @@ public class DtosAEntidadesAdapter {
         }
         return TipoMembresia.BRONCE;
     }
-    
+
     public static TipoMembresiaDTO adaptarTipoMembresiaDTO(TipoMembresia tipo) {
         if (tipo == TipoMembresia.PLATA) {
             return TipoMembresiaDTO.PLATA;
@@ -84,8 +87,5 @@ public class DtosAEntidadesAdapter {
         }
         return TipoMembresiaDTO.BRONCE;
     }
-    
-    
-    
-    
+
 }

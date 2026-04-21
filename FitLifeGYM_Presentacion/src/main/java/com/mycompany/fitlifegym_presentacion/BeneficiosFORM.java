@@ -26,7 +26,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         initComponents();
         ComboBoxMembresia.setFocusable(false);
         this.setLocationRelativeTo(null);
-        cargarMembresias(); 
+        cargarMembresias();
         setearEditablesFalsosCheckBox();
         actualizarBeneficios();
     }
@@ -275,7 +275,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
 
     private void actualizarBeneficios() {
         String membresia = (String) ComboBoxMembresia.getSelectedItem();
-        if (membresia == null){
+        if (membresia == null) {
             return;
         }
 
@@ -304,7 +304,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
             btnPrecio.setText("$" + seleccionada.getPrecio());
         }
     }
-    
+
     private void cargarMembresias() {
         try {
             membresiasDisponibles = control.consultarMembresias();
@@ -323,9 +323,11 @@ public class BeneficiosFORM extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error al cargar membresías", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-     private Membresia buscarMembresiaPorNombre(String nombre) {
-        if (membresiasDisponibles == null) return null;
+
+    private Membresia buscarMembresiaPorNombre(String nombre) {
+        if (membresiasDisponibles == null) {
+            return null;
+        }
         for (Membresia m : membresiasDisponibles) {
             // ORO = "Oro"
             String nombreTipo = m.getTipoMembresia().name();
@@ -336,8 +338,8 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         }
         return null;
     }
-    
-    private void setearEditablesFalsosCheckBox(){
+
+    private void setearEditablesFalsosCheckBox() {
         checkBoxCursos.setEnabled(false);
         checkBoxFisico.setEnabled(false);
         checkBoxInstalaciones.setEnabled(false);

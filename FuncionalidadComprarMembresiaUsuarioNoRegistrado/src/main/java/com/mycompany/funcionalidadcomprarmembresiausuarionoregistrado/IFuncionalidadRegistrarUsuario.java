@@ -19,4 +19,6 @@ public interface IFuncionalidadRegistrarUsuario {
     public abstract void RegistrarUsuario(NuevoClienteDTO clienteDTO) throws NegocioException;
     
     public abstract List<Cliente> obtenerTodas() throws NegocioException;
+    
+    public abstract void validarDatosUsuario(NuevoClienteDTO clienteDTO)throws NegocioException;
 }
