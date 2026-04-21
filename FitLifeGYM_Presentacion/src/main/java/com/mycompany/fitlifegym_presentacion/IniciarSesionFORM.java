@@ -185,24 +185,15 @@ public class IniciarSesionFORM extends javax.swing.JDialog {
     }//GEN-LAST:event_btnQuejasSugerenciasActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        String pin = txtNIP.getText().trim();
+        String contrasenia = new String(jPasswordField1.getPassword()).trim();
+
         try {
-            String pin = txtNIP.getText().trim();
-            
-            if (pin.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Debe ingresar su NIP.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            
-            ClienteLogueadoDTO cliente = control.iniciarSesion(pin);
-            
-            if (cliente == null) {
-                JOptionPane.showMessageDialog(this, "Atención, el dato ingresado es incorrecto, ya que no se encuentra en nuestros registros, verifique la información por favor.", "Error", JOptionPane.ERROR_MESSAGE);
-            } else {
-                dispose();
-                control.navegarBienvenida(cliente);
-            }
+            ClienteLogueadoDTO cliente = control.iniciarSesion(pin, contrasenia);
+            dispose();
+            control.navegarBienvenida(cliente);
         } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(this, "Error al iniciar sesion."+ex,"Error",JOptionPane.ERROR_MESSAGE);;
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 

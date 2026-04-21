@@ -4,6 +4,13 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_negocio.NegocioException;
+import com.mycompany.fitlifegym_persistencia.entidades.Membresia;
+import com.mycompany.fitlifegym_persistencia.entidades.TipoMembresia;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Diego
@@ -11,6 +18,7 @@ package com.mycompany.fitlifegym_presentacion;
 public class BeneficiosFORM extends javax.swing.JFrame {
 
     private ControlForms control;
+    private List<Membresia> membresiasDisponibles;
 
     public BeneficiosFORM(ControlForms control) {
         this.control = control;
@@ -18,6 +26,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         initComponents();
         ComboBoxMembresia.setFocusable(false);
         this.setLocationRelativeTo(null);
+        cargarMembresias(); 
         setearEditablesFalsosCheckBox();
         actualizarBeneficios();
     }
@@ -259,13 +268,16 @@ public class BeneficiosFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboBoxMembresiaActionPerformed
 
     private void btnSuscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuscribirseActionPerformed
-                String membresiaSeleccionado = (String) ComboBoxMembresia.getSelectedItem();
-                control.seleccionarMembresia(membresiaSeleccionado);
-                control.navegarMetodosPago();
+        String membresiaSeleccionado = (String) ComboBoxMembresia.getSelectedItem();
+        control.seleccionarMembresia(membresiaSeleccionado);
+        control.navegarMetodosPago();
     }//GEN-LAST:event_btnSuscribirseActionPerformed
 
     private void actualizarBeneficios() {
         String membresia = (String) ComboBoxMembresia.getSelectedItem();
+        if (membresia == null){
+            return;
+        }
 
         checkBoxInstalaciones.setSelected(true);
         checkBoxNutricion.setSelected(false);
@@ -287,13 +299,42 @@ public class BeneficiosFORM extends javax.swing.JFrame {
                 break;
         }
 
-        if (membresia.equals("Oro")) {
-            btnPrecio.setText("$750");
-        } else if (membresia.equals("Plata")) {
-            btnPrecio.setText("$500");
-        } else {
-            btnPrecio.setText("$300");
+        Membresia seleccionada = buscarMembresiaPorNombre(membresia);
+        if (seleccionada != null && seleccionada.getPrecio() != null) {
+            btnPrecio.setText("$" + seleccionada.getPrecio());
         }
+    }
+    
+    private void cargarMembresias() {
+        try {
+            membresiasDisponibles = control.consultarMembresias();
+            String[] nombres = new String[membresiasDisponibles.size()];
+
+            for (int i = 0; i < membresiasDisponibles.size(); i++) {
+                TipoMembresia tipo = membresiasDisponibles.get(i).getTipoMembresia();
+                // ORO = "Oro" primera letra mayuscula y el resto minúsculas
+                // Esto es para que coincida con los case del switch y con seleccionarMembresia
+                String nombre = tipo.name();
+                nombres[i] = nombre.charAt(0) + nombre.substring(1).toLowerCase();
+            }
+
+            ComboBoxMembresia.setModel(new DefaultComboBoxModel<>(nombres));
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, "Error al cargar membresías", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+     private Membresia buscarMembresiaPorNombre(String nombre) {
+        if (membresiasDisponibles == null) return null;
+        for (Membresia m : membresiasDisponibles) {
+            // ORO = "Oro"
+            String nombreTipo = m.getTipoMembresia().name();
+            String capitalizado = nombreTipo.charAt(0) + nombreTipo.substring(1).toLowerCase();
+            if (capitalizado.equals(nombre)) {
+                return m;
+            }
+        }
+        return null;
     }
     
     private void setearEditablesFalsosCheckBox(){

@@ -1,6 +1,8 @@
 package com.mycompany.fitlifegym_persistencia;
 
 import com.mycompany.fitlifegym_persistencia.entidades.Membresia;
+import com.mycompany.fitlifegym_persistencia.entidades.TipoMembresia;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +12,18 @@ import java.util.List;
  */
 public class MembresiaListDAO implements IMembresiaDAO {
 
-    private List<Membresia> membresias = new ArrayList<>();
-    private static Long contadorID = 1L;
+    private static List<Membresia> membresias = new ArrayList<>();
+    private static Long contadorID = 4L;
+    
+    static {
+        membresias.add(new Membresia(1L, TipoMembresia.BRONCE, 300.0, LocalDate.now().plusMonths(1)));
+        membresias.add(new Membresia(2L, TipoMembresia.PLATA,  500.0, LocalDate.now().plusMonths(1)));
+        membresias.add(new Membresia(3L, TipoMembresia.ORO,    750.0, LocalDate.now().plusMonths(1)));
+    }
 
     @Override
     public Membresia guardar(Membresia membresia) {
+        membresia.setIdMembresia(contadorID);
         contadorID++;
         this.membresias.add(membresia);
         return membresia;

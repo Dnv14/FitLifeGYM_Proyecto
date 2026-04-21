@@ -10,17 +10,31 @@ import com.mycompany.fitlifegym_dtos.LoginDTO;
 import com.mycompany.fitlifegym_dtos.NuevaMembresiaCompradaDTO;
 import com.mycompany.fitlifegym_dtos.NuevaMembresiaDTO;
 import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
+import com.mycompany.fitlifegym_dtos.RenovarMembresiaDTO;
 import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_negocio.ClientesBO;
 import com.mycompany.fitlifegym_negocio.IClientesBO;
 import com.mycompany.fitlifegym_negocio.ILoginBO;
+import com.mycompany.fitlifegym_negocio.IMembresiaBO;
+import com.mycompany.fitlifegym_negocio.IRenovarMembresiaBO;
 import com.mycompany.fitlifegym_negocio.LoginBO;
+import com.mycompany.fitlifegym_negocio.MembresiaBO;
 import com.mycompany.fitlifegym_negocio.NegocioException;
+import com.mycompany.fitlifegym_negocio.RenovarMembresiaBO;
 import com.mycompany.fitlifegym_persistencia.ClientesListDAO;
 import com.mycompany.fitlifegym_persistencia.IClientesDAO;
+import com.mycompany.fitlifegym_persistencia.IMembresiaDAO;
+import com.mycompany.fitlifegym_persistencia.MembresiaListDAO;
 import com.mycompany.fitlifegym_persistencia.entidades.Cliente;
+import com.mycompany.fitlifegym_persistencia.entidades.Membresia;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.FuncionalidadRegistroUsuario;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.IFuncionalidadRegistrarUsuario;
+import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.FuncionalidadConsultarMembresias;
+import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.FuncionalidadIniciarSesion;
+import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.FuncionalidadRenovarMembresia;
+import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.IFuncionalidadConsultarMembresias;
+import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.IFuncionalidadIniciarSesion;
+import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.IFuncionalidadRenovarMembresia;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -36,16 +50,25 @@ public class ControlForms {
 
     private JFrame frameActual;
     private NuevoClienteDTO cliente;
-    private IFuncionalidadRegistrarUsuario funcionalidadCU;
     private ClienteLogueadoDTO clienteActual;
-    private ILoginBO loginBO;
+    private IFuncionalidadRegistrarUsuario funcionalidadCU;
+    private IFuncionalidadIniciarSesion funcionalidadLogin;
+    private IFuncionalidadRenovarMembresia funcionalidadRenovar;
+    private IFuncionalidadConsultarMembresias funcionalidadConsultar;
 
     public ControlForms() {
         this.cliente = new NuevoClienteDTO();
         IClientesDAO dao = new ClientesListDAO();
         IClientesBO negocio = new ClientesBO(dao);
-        this.loginBO = new LoginBO(dao);
+        IMembresiaDAO membresiaDAO = new MembresiaListDAO();
+        IMembresiaBO membresiaBO = new MembresiaBO(membresiaDAO);
+        ILoginBO loginBO = new LoginBO(dao);
+        IRenovarMembresiaBO renovarBO = new RenovarMembresiaBO(dao);
         this.funcionalidadCU = new FuncionalidadRegistroUsuario(negocio);
+        this.funcionalidadCU = new FuncionalidadRegistroUsuario(negocio);
+        this.funcionalidadLogin = new FuncionalidadIniciarSesion(loginBO);
+        this.funcionalidadRenovar = new FuncionalidadRenovarMembresia(renovarBO);
+        this.funcionalidadConsultar = new FuncionalidadConsultarMembresias(membresiaBO);
     }
 
     private void mostrarPantalla(JFrame nuevoFrame) {
@@ -158,15 +181,46 @@ public class ControlForms {
     public NuevoClienteDTO getCliente() {
         return cliente;
     }
+    
+    public ClienteLogueadoDTO getClienteActual() {
+        return clienteActual;
+    }
 
     public List<Cliente> consultarClientes() throws NegocioException {
         return funcionalidadCU.obtenerTodas();
     }
-    
-     public ClienteLogueadoDTO iniciarSesion(String pin) throws NegocioException {
-        LoginDTO loginDTO = new LoginDTO(pin);
-        this.clienteActual = loginBO.iniciarSesion(loginDTO);
+    //Modificado
+    public ClienteLogueadoDTO iniciarSesion(String pin, String contrasenia) throws NegocioException {
+        LoginDTO loginDTO = new LoginDTO(pin, contrasenia);
+        this.clienteActual = funcionalidadLogin.iniciarSesion(loginDTO);
         return this.clienteActual;
+    }
+    //Nuevo Para consultar las Membresia o Los Tipos Mas bien
+    public List<Membresia> consultarMembresias() throws NegocioException {
+        return funcionalidadConsultar.consultarMembresias();
+    }
+    
+    //Nuevo(lo agregrege para la renovacion)
+    public void renovarMembresia(String tipoMembresia) throws NegocioException {
+        if (this.clienteActual == null) {
+            throw new NegocioException("No hay un cliente logueado para renovar membresía.");
+        }
+
+        TipoMembresiaDTO tipoDTO;
+        switch (tipoMembresia) {
+            case "Oro":
+                tipoDTO = TipoMembresiaDTO.ORO;
+                break;
+            case "Plata":
+                tipoDTO = TipoMembresiaDTO.PLATA;
+                break;
+            default:
+                tipoDTO = TipoMembresiaDTO.BRONCE;
+                break;
+        }
+
+        RenovarMembresiaDTO dto = new RenovarMembresiaDTO(clienteActual.getIdCliente(), tipoDTO);
+        funcionalidadRenovar.renovarMembresia(dto);   
     }
 
 }
