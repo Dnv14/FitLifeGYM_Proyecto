@@ -29,6 +29,13 @@ public class Membresia {
         this.vigencia = vigencia;
     }
 
+    public Membresia(TipoMembresia tipoMembresia, Double precio) {
+        this.tipoMembresia = tipoMembresia;
+        this.precio = precio;
+    }
+    
+    
+
     public Long getIdMembresia() {
         return idMembresia;
     }

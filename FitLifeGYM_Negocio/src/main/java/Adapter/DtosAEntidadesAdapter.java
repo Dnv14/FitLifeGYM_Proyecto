@@ -62,7 +62,7 @@ public class DtosAEntidadesAdapter {
                 clienteDTO.getContrasenia(),
                 clienteDTO.getFechaNacimiento(),
                 clienteDTO.getPin(), 
-                clienteDTO.getTarjeta(), membresiaComprada);
+                membresiaComprada);
 
         return clienteNuevo;
     }

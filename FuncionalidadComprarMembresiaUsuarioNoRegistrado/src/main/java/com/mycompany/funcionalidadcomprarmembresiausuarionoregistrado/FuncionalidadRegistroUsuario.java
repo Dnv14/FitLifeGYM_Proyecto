@@ -33,7 +33,7 @@ public class FuncionalidadRegistroUsuario implements IFuncionalidadRegistrarUsua
             throw new NegocioException("El appelido del cliente no puede ser nulo.");
         }
         
-        if(clienteDTO.getCorreo() == null || clienteDTO.getCorreo().contains("@")){
+        if(clienteDTO.getCorreo() == null || !clienteDTO.getCorreo().contains("@")){
             throw new NegocioException("El formato del correo no es válido.");
         }
         
@@ -43,10 +43,6 @@ public class FuncionalidadRegistroUsuario implements IFuncionalidadRegistrarUsua
         
         if(clienteDTO.getPin() == null || !clienteDTO.getPin().matches("\\d{5}")){
             throw new NegocioException("Ingrese un PIN con al menos 5 números.");
-        }
-        
-        if(clienteDTO.getTarjeta() == null || clienteDTO.getTarjeta().isBlank()){
-            throw new NegocioException("La tarjeta no puede estar vacía.");
         }
         
         if(clienteDTO.getMembresíaComprada() == null){

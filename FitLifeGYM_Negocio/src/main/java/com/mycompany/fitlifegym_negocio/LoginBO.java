@@ -38,7 +38,7 @@ public class LoginBO implements ILoginBO {
             String nombreCompleto = cliente.getNombre() + " " + cliente.getApellidos();
             
             TipoMembresiaDTO tipoDTO = null;
-            TipoMembresia tipo = cliente.getMembresiaActiva();
+            TipoMembresia tipo = cliente.getMembresíaComprada().getMembresia().getTipoMembresia();
             
             if (tipo != null) {
                 tipoDTO = DtosAEntidadesAdapter.adaptarTipoMembresiaDTO(tipo);

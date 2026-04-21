@@ -20,13 +20,12 @@ public class NuevoClienteDTO {
     private String contrasenia;
     private LocalDate fechaNacimiento;
     private String pin;
-    private String tarjeta;
     private NuevaMembresiaCompradaDTO membresíaComprada;
 
     public NuevoClienteDTO() {
     }
 
-    public NuevoClienteDTO(Long idCliente, String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, String tarjeta, NuevaMembresiaCompradaDTO membresíaComprada) {
+    public NuevoClienteDTO(Long idCliente, String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, NuevaMembresiaCompradaDTO membresíaComprada) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -35,19 +34,6 @@ public class NuevoClienteDTO {
         this.contrasenia = contrasenia;
         this.fechaNacimiento = fechaNacimiento;
         this.pin = pin;
-        this.tarjeta = tarjeta;
-        this.membresíaComprada = membresíaComprada;
-    }
-
-    public NuevoClienteDTO(String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, String tarjeta, NuevaMembresiaCompradaDTO membresíaComprada) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.contrasenia = contrasenia;
-        this.fechaNacimiento = fechaNacimiento;
-        this.pin = pin;
-        this.tarjeta = tarjeta;
         this.membresíaComprada = membresíaComprada;
     }
 
@@ -61,22 +47,17 @@ public class NuevoClienteDTO {
         this.pin = pin;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
+    public NuevoClienteDTO(String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, NuevaMembresiaCompradaDTO membresíaComprada) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
         this.contrasenia = contrasenia;
-    }
-
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+        this.pin = pin;
+        this.membresíaComprada = membresíaComprada;
     }
-    
+
     public Long getIdCliente() {
         return idCliente;
     }
@@ -117,20 +98,28 @@ public class NuevoClienteDTO {
         this.telefono = telefono;
     }
 
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     public String getPin() {
         return pin;
     }
 
     public void setPin(String pin) {
         this.pin = pin;
-    }
-
-    public String getTarjeta() {
-        return tarjeta;
-    }
-
-    public void setTarjeta(String tarjeta) {
-        this.tarjeta = tarjeta;
     }
 
     public NuevaMembresiaCompradaDTO getMembresíaComprada() {
@@ -140,6 +129,6 @@ public class NuevoClienteDTO {
     public void setMembresíaComprada(NuevaMembresiaCompradaDTO membresíaComprada) {
         this.membresíaComprada = membresíaComprada;
     }
-    
+
     
 }

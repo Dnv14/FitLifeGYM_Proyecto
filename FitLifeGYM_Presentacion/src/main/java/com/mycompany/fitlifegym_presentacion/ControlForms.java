@@ -143,15 +143,15 @@ public class ControlForms {
     }
 
     public void procesarPagoTarjeta(String numeroTarjeta, String cvv, String fechaVencimiento) throws NegocioException {
-            LocalDate hoy = LocalDate.now();
-            NuevaMembresiaCompradaDTO compraDTO = this.cliente.getMembresíaComprada();
-            
-            compraDTO.setFechaInicio(hoy);
-            compraDTO.setFechaFin(hoy.plusMonths(1));
-            compraDTO.setEstado(EstadoDTO.ACTIVO);
-            
-            this.cliente.setTarjeta(numeroTarjeta);
-            funcionalidadCU.RegistrarUsuario(this.cliente);
+//            LocalDate hoy = LocalDate.now();
+//            NuevaMembresiaCompradaDTO compraDTO = this.cliente.getMembresíaComprada();
+//            
+//            compraDTO.setFechaInicio(hoy);
+//            compraDTO.setFechaFin(hoy.plusMonths(1));
+//            compraDTO.setEstado(EstadoDTO.ACTIVO);
+//            
+//            this.cliente.setTarjeta(numeroTarjeta);
+//            funcionalidadCU.RegistrarUsuario(this.cliente);
             //System.out.println(" Membresía asignada a: " + this.cliente.getNombre());
     }
 

@@ -16,14 +16,13 @@ public class Cliente {
     private String contrasenia;
     private LocalDate fechaNacimiento;
     private String pin;
-    private String tarjeta;
     private MembresiaComprada membresíaComprada;
-    private TipoMembresia membresiaActiva;
+    
 
     public Cliente() {
     }
 
-    public Cliente(Long idCliente, String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, String tarjeta, MembresiaComprada membresíaComprada) {
+    public Cliente(Long idCliente, String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, MembresiaComprada membresíaComprada) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -32,48 +31,29 @@ public class Cliente {
         this.contrasenia = contrasenia;
         this.fechaNacimiento = fechaNacimiento;
         this.pin = pin;
-        this.tarjeta = tarjeta;
         this.membresíaComprada = membresíaComprada;
     }
 
-    public Cliente(String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, String tarjeta, MembresiaComprada membresíaComprada) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.contrasenia = contrasenia;
-        this.fechaNacimiento = fechaNacimiento;
-        this.pin = pin;
-        this.tarjeta = tarjeta;
-        this.membresíaComprada = membresíaComprada;
-    }
-
-    public Cliente(String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.contrasenia = contrasenia;
-        this.fechaNacimiento = fechaNacimiento;
-        this.pin = pin;
-    }
-    
-    public Cliente(Long idCliente, String nombre, String apellidos, String correo, String telefono, String pin, TipoMembresia membresiaActiva) {
+    public Cliente(Long idCliente, String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.telefono = telefono;
+        this.contrasenia = contrasenia;
+        this.fechaNacimiento = fechaNacimiento;
         this.pin = pin;
-        this.membresiaActiva = membresiaActiva;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
+    public Cliente(String nombre, String apellidos, String correo, String telefono, String contrasenia, LocalDate fechaNacimiento, String pin, MembresiaComprada membresíaComprada) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.contrasenia = contrasenia;
+        this.fechaNacimiento = fechaNacimiento;
+        this.pin = pin;
+        this.membresíaComprada = membresíaComprada;
     }
 
     public Long getIdCliente() {
@@ -116,20 +96,28 @@ public class Cliente {
         this.telefono = telefono;
     }
 
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     public String getPin() {
         return pin;
     }
 
     public void setPin(String pin) {
         this.pin = pin;
-    }
-
-    public String getTarjeta() {
-        return tarjeta;
-    }
-
-    public void setTarjeta(String tarjeta) {
-        this.tarjeta = tarjeta;
     }
 
     public MembresiaComprada getMembresíaComprada() {
@@ -140,17 +128,7 @@ public class Cliente {
         this.membresíaComprada = membresíaComprada;
     }
 
-    public TipoMembresia getMembresiaActiva() {
-        return membresiaActiva;
-    }
+    
 
-    public void setMembresiaActiva(TipoMembresia membresiaActiva) {
-        this.membresiaActiva = membresiaActiva;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellidos=" + apellidos + ", correo=" + correo + ", telefono=" + telefono + ", pin=" + pin + '}';
-    }
-
+    
 }
