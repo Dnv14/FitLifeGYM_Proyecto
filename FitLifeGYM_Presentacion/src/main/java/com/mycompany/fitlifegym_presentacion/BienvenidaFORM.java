@@ -26,6 +26,7 @@ public class BienvenidaFORM extends javax.swing.JFrame {
         this.cliente = cliente;
         
         this.setTitle("Bienvenida");
+        this.setLocationRelativeTo(null);
         initComponents();
 
         configiracionPorMembresia();

@@ -23,6 +23,7 @@ public class TarjetaFORM extends javax.swing.JDialog {
         this.control = control;
         initComponents();
         setearEditablesFalsos();
+        this.setLocationRelativeTo(null);
     }
 
     /**

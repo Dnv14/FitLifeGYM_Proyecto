@@ -20,6 +20,7 @@ public class TransferenciaFORM extends javax.swing.JDialog {
     public TransferenciaFORM(java.awt.Frame parent, boolean modal, ControlForms control) {
         super(parent, modal);
         this.control = control;
+        this.setLocationRelativeTo(null);
         initComponents();
 
         cargarMonto();

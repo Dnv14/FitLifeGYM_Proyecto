@@ -15,6 +15,7 @@ public class MainFitLifeFORM extends javax.swing.JFrame {
     public MainFitLifeFORM(ControlForms control) {
         this.control = control;
         this.setTitle("Main Fit Life");
+        this.setLocationRelativeTo(null);
         initComponents();
     }
 

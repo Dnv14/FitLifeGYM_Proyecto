@@ -17,6 +17,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         this.setTitle("Beneficios");
         initComponents();
         ComboBoxMembresia.setFocusable(false);
+        this.setLocationRelativeTo(null);
         setearEditablesFalsosCheckBox();
         actualizarBeneficios();
     }

@@ -23,6 +23,7 @@ public class IniciarSesionFORM extends javax.swing.JDialog {
         super(parent, modal);
         this.control = control;
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
         initComponents();
     }
 

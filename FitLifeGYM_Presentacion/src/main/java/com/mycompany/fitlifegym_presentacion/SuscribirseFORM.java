@@ -16,6 +16,7 @@ public class SuscribirseFORM extends javax.swing.JFrame {
     public SuscribirseFORM(ControlForms control) {
         this.control = control;
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
