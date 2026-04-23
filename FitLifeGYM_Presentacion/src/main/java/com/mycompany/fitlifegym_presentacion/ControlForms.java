@@ -29,12 +29,8 @@ import com.mycompany.fitlifegym_persistencia.entidades.Cliente;
 import com.mycompany.fitlifegym_persistencia.entidades.Membresia;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.FuncionalidadRegistroUsuario;
 import com.mycompany.funcionalidadcomprarmembresiausuarionoregistrado.IFuncionalidadRegistrarUsuario;
-import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.FuncionalidadConsultarMembresias;
-import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.FuncionalidadIniciarSesion;
-import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.FuncionalidadRenovarMembresia;
-import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.IFuncionalidadConsultarMembresias;
-import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.IFuncionalidadIniciarSesion;
-import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.IFuncionalidadRenovarMembresia;
+import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.FuncionalidadIniciarSesionRenovarMembresia;
+import com.mycompany.funcionalidadiniciarsesionrenovarmembresia.IFuncionalidadIniciarSesionRenovarMembresia;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -52,9 +48,7 @@ public class ControlForms {
     private NuevoClienteDTO cliente;
     private ClienteLogueadoDTO clienteActual;
     private IFuncionalidadRegistrarUsuario funcionalidadCU;
-    private IFuncionalidadIniciarSesion funcionalidadLogin;
-    private IFuncionalidadRenovarMembresia funcionalidadRenovar;
-    private IFuncionalidadConsultarMembresias funcionalidadConsultar;
+    private IFuncionalidadIniciarSesionRenovarMembresia funcionalidad;
 
     public ControlForms() {
         this.cliente = new NuevoClienteDTO();
@@ -66,9 +60,7 @@ public class ControlForms {
         IRenovarMembresiaBO renovarBO = new RenovarMembresiaBO(dao);
         this.funcionalidadCU = new FuncionalidadRegistroUsuario(negocio);
         this.funcionalidadCU = new FuncionalidadRegistroUsuario(negocio);
-        this.funcionalidadLogin = new FuncionalidadIniciarSesion(loginBO);
-        this.funcionalidadRenovar = new FuncionalidadRenovarMembresia(renovarBO);
-        this.funcionalidadConsultar = new FuncionalidadConsultarMembresias(membresiaBO);
+        this.funcionalidad = new FuncionalidadIniciarSesionRenovarMembresia(loginBO, membresiaBO, renovarBO);
     }
 
     private void mostrarPantalla(JFrame nuevoFrame) {
@@ -202,13 +194,13 @@ public class ControlForms {
     //Modificado
     public ClienteLogueadoDTO iniciarSesion(String pin, String contrasenia) throws NegocioException {
         LoginDTO loginDTO = new LoginDTO(pin, contrasenia);
-        this.clienteActual = funcionalidadLogin.iniciarSesion(loginDTO);
+        this.clienteActual = funcionalidad.iniciarSesion(loginDTO);
         return this.clienteActual;
     }
 
     //Nuevo Para consultar las Membresia o Los Tipos Mas bien
     public List<Membresia> consultarMembresias() throws NegocioException {
-        return funcionalidadConsultar.consultarMembresias();
+        return funcionalidad.consultarMembresias();
     }
 
     //Nuevo(lo agregrege para la renovacion)
@@ -231,7 +223,7 @@ public class ControlForms {
         }
 
         RenovarMembresiaDTO dto = new RenovarMembresiaDTO(clienteActual.getIdCliente(), tipoDTO);
-        funcionalidadRenovar.renovarMembresia(dto);
+        funcionalidad.renovarMembresia(dto);
     }
 
 }
