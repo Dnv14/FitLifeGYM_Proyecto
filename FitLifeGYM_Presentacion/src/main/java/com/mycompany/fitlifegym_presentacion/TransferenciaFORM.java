@@ -5,6 +5,7 @@
 package com.mycompany.fitlifegym_presentacion;
 
 import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_persistencia.entidades.TipoMembresia;
 import javax.swing.JOptionPane;
 
@@ -16,10 +17,12 @@ public class TransferenciaFORM extends javax.swing.JDialog {
 
     private ControlForms control;
     private ClienteLogueadoDTO cliente;
+    private TipoMembresiaDTO membresia;
     
-    public TransferenciaFORM(java.awt.Frame parent, boolean modal, ControlForms control) {
+    public TransferenciaFORM(java.awt.Frame parent, boolean modal, ControlForms control, TipoMembresiaDTO membresia) {
         super(parent, modal);
         this.control = control;
+        this.membresia = membresia;
         this.setLocationRelativeTo(null);
         initComponents();
 
@@ -205,6 +208,7 @@ public class TransferenciaFORM extends javax.swing.JDialog {
 
     private void btnTransferenciaRealizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaRealizadaActionPerformed
         JOptionPane.showMessageDialog(this, "¡Transferencia recibida! Membresía renovada.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        control.asignarMembresiaCliente(membresia);
         dispose();
         control.navegarBienvenida(cliente);
     }//GEN-LAST:event_btnTransferenciaRealizadaActionPerformed

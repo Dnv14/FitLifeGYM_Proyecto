@@ -100,8 +100,8 @@ public class ControlForms {
         mostrarPantalla(new BienvenidaFORM(this, cliente));
     }
 
-    public void navegarMetodosPago() {
-        mostrarPantalla(new SuscribirseFORM(this));
+    public void navegarMetodosPago(TipoMembresiaDTO membresia) {
+        mostrarPantalla(new SuscribirseFORM(this,membresia));
     }
 
     //Dialogs
@@ -113,38 +113,50 @@ public class ControlForms {
         mostrarDialogo(new IniciarSesionFORM(this.frameActual, true, this));
     }
 
-    public void navegarTransferenciaMetodo() {
-        mostrarDialogo(new TransferenciaFORM(this.frameActual, true, this));
+    public void navegarTransferenciaMetodo(TipoMembresiaDTO membresia) {
+        mostrarDialogo(new TransferenciaFORM(this.frameActual, true, this,membresia));
     }
 
-    public void navegarTarjetaMetodo() {
-        mostrarDialogo(new TarjetaFORM(this.frameActual, true, this));
+    public void navegarTarjetaMetodo(TipoMembresiaDTO membresia) {
+        mostrarDialogo(new TarjetaFORM(this.frameActual, true, this,membresia));
     }
 
-    public void navegarIniciarSesionPaypal() {
-        mostrarDialogo(new IniciarSesionPaypalFORM(this.frameActual, true, this));
+    public void navegarIniciarSesionPaypal(TipoMembresiaDTO membresia) {
+        mostrarDialogo(new IniciarSesionPaypalFORM(this.frameActual, true, this,membresia));
     }
 
     //control
-    public void seleccionarMembresia(String tipo) {
-        double precio;
-
+    public TipoMembresiaDTO seleccionarMembresia(String tipo) {
         TipoMembresiaDTO tipoMembresiaDTO;
         switch (tipo) {
             case "Oro":
                 tipoMembresiaDTO = TipoMembresiaDTO.ORO;
-                precio = 750.0;
                 break;
             case "Plata":
                 tipoMembresiaDTO = TipoMembresiaDTO.PLATA;
-                precio = 500.0;
                 break;
             default:
                 tipoMembresiaDTO = TipoMembresiaDTO.BRONCE;
+        }
+        
+        
+        return tipoMembresiaDTO;
+        //System.out.println("Membresia asignada antes del pago");
+    }
+    
+    public void asignarMembresiaCliente(TipoMembresiaDTO membresia){
+        double precio;
+        switch (membresia.toString()) {
+            case "Oro":
+                precio = 750.0;
+                break;
+            case "Plata":
+                precio = 500.0;
+                break;
+            default:
                 precio = 300.0;
         }
-
-        NuevaMembresiaDTO membresiaDTO = new NuevaMembresiaDTO(tipoMembresiaDTO,
+        NuevaMembresiaDTO membresiaDTO = new NuevaMembresiaDTO(membresia,
                 precio, LocalDate.now().plusMonths(1));
 
         NuevaMembresiaCompradaDTO membresiaCompradaDTO = new NuevaMembresiaCompradaDTO(
@@ -155,12 +167,10 @@ public class ControlForms {
                 EstadoDTO.ACTIVO
         );
         this.cliente.setMembresíaComprada(membresiaCompradaDTO);
-
-        System.out.println("Membresia asignada antes del pago");
     }
 
     public void registrarCliente(NuevoClienteDTO clienteDTO) throws NegocioException {
-        funcionalidadCU.validarDatosUsuario(clienteDTO);
+        funcionalidadCU.RegistrarUsuario(clienteDTO);
         this.cliente = clienteDTO;
     }
 

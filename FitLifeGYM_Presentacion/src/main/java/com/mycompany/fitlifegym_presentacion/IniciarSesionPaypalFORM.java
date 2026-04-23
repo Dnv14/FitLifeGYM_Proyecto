@@ -5,6 +5,7 @@
 package com.mycompany.fitlifegym_presentacion;
 
 import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,10 +16,12 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
 
     private ControlForms control;
     private ClienteLogueadoDTO cliente;
+    private TipoMembresiaDTO membresia;
        
-    public IniciarSesionPaypalFORM(java.awt.Frame parent, boolean modal, ControlForms control) {
+    public IniciarSesionPaypalFORM(java.awt.Frame parent, boolean modal, ControlForms control, TipoMembresiaDTO membresia) {
         super(parent, modal);
         this.control = control;
+        this.membresia = membresia;
         initComponents();
     }
 
@@ -222,6 +225,7 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
         }
 
         JOptionPane.showMessageDialog(this, "Pago con PayPal exitoso Membresía renovada.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        control.asignarMembresiaCliente(membresia);
         dispose();
         control.navegarBienvenida(cliente);
         

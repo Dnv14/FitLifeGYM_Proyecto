@@ -4,6 +4,8 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
+
 /**
  *
  * @author Jaime
@@ -11,10 +13,11 @@ package com.mycompany.fitlifegym_presentacion;
 public class SuscribirseFORM extends javax.swing.JFrame {
     
     private ControlForms control;
-
+    private TipoMembresiaDTO membresia;
    
-    public SuscribirseFORM(ControlForms control) {
+    public SuscribirseFORM(ControlForms control, TipoMembresiaDTO membresia) {
         this.control = control;
+        this.membresia = membresia;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -192,15 +195,15 @@ public class SuscribirseFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProgresoActionPerformed
 
     private void btnTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaActionPerformed
-        control.navegarTransferenciaMetodo();
+        control.navegarTransferenciaMetodo(membresia);
     }//GEN-LAST:event_btnTransferenciaActionPerformed
 
     private void btnPaypalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaypalActionPerformed
-        control.navegarIniciarSesionPaypal();
+        control.navegarIniciarSesionPaypal(membresia);
     }//GEN-LAST:event_btnPaypalActionPerformed
 
     private void btnTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTarjetaActionPerformed
-        control.navegarTarjetaMetodo();
+        control.navegarTarjetaMetodo(membresia);
     }//GEN-LAST:event_btnTarjetaActionPerformed
 
     private void btnVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAtrasActionPerformed

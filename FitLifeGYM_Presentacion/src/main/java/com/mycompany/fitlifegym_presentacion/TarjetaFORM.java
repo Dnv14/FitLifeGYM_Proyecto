@@ -5,6 +5,7 @@
 package com.mycompany.fitlifegym_presentacion;
 
 import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_negocio.NegocioException;
 import javax.swing.JOptionPane;
 
@@ -15,12 +16,13 @@ import javax.swing.JOptionPane;
 public class TarjetaFORM extends javax.swing.JDialog {
 
     private ControlForms control;
-    
+    private TipoMembresiaDTO membresia;
     private ClienteLogueadoDTO cliente;
 
-    public TarjetaFORM(java.awt.Frame parent, boolean modal, ControlForms control) {
+    public TarjetaFORM(java.awt.Frame parent, boolean modal, ControlForms control, TipoMembresiaDTO membresia) {
         super(parent, modal);
         this.control = control;
+        this.membresia = membresia;
         initComponents();
         setearEditablesFalsos();
         this.setLocationRelativeTo(null);
@@ -295,8 +297,10 @@ public class TarjetaFORM extends javax.swing.JDialog {
         } catch (NegocioException ex) {
             JOptionPane.showMessageDialog(this, "Error al procesar el pago con tarjeta."+ex,"Error",JOptionPane.ERROR_MESSAGE);
         }
+        control.asignarMembresiaCliente(membresia);
         
         control.navegarBienvenida(cliente);
+        System.out.println("membresia asignada despues del pago: "+membresia.toString());
         this.dispose();
 
     }//GEN-LAST:event_btnPagarAhoraActionPerformed

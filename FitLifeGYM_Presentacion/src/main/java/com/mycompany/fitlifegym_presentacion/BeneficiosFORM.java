@@ -4,6 +4,7 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_negocio.NegocioException;
 import com.mycompany.fitlifegym_persistencia.entidades.Membresia;
 import com.mycompany.fitlifegym_persistencia.entidades.TipoMembresia;
@@ -269,8 +270,8 @@ public class BeneficiosFORM extends javax.swing.JFrame {
 
     private void btnSuscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuscribirseActionPerformed
         String membresiaSeleccionado = (String) ComboBoxMembresia.getSelectedItem();
-        control.seleccionarMembresia(membresiaSeleccionado);
-        control.navegarMetodosPago();
+        TipoMembresiaDTO membresia = control.seleccionarMembresia(membresiaSeleccionado);
+        control.navegarMetodosPago(membresia);
     }//GEN-LAST:event_btnSuscribirseActionPerformed
 
     private void actualizarBeneficios() {
