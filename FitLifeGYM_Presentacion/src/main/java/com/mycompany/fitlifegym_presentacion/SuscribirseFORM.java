@@ -4,6 +4,7 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
 import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 
 /**
@@ -14,10 +15,12 @@ public class SuscribirseFORM extends javax.swing.JFrame {
     
     private ControlForms control;
     private TipoMembresiaDTO membresia;
+    private NuevoClienteDTO cliente;
    
-    public SuscribirseFORM(ControlForms control, TipoMembresiaDTO membresia) {
+    public SuscribirseFORM(ControlForms control, TipoMembresiaDTO membresia, NuevoClienteDTO cliente) {
         this.control = control;
         this.membresia = membresia;
+        this.cliente = cliente;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -195,19 +198,19 @@ public class SuscribirseFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProgresoActionPerformed
 
     private void btnTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaActionPerformed
-        control.navegarTransferenciaMetodo(membresia);
+        control.navegarTransferenciaMetodo(membresia, this.cliente);
     }//GEN-LAST:event_btnTransferenciaActionPerformed
 
     private void btnPaypalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaypalActionPerformed
-        control.navegarIniciarSesionPaypal(membresia);
+        control.navegarIniciarSesionPaypal(membresia, this.cliente);
     }//GEN-LAST:event_btnPaypalActionPerformed
 
     private void btnTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTarjetaActionPerformed
-        control.navegarTarjetaMetodo(membresia);
+        control.navegarTarjetaMetodo(membresia, this.cliente);
     }//GEN-LAST:event_btnTarjetaActionPerformed
 
     private void btnVolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAtrasActionPerformed
-       control.navegarBenificios();
+       control.navegarBenificios(this.cliente);   
     }//GEN-LAST:event_btnVolverAtrasActionPerformed
 
     

@@ -18,10 +18,11 @@ public class ClientesListDAO implements IClientesDAO {
 
     private static final Logger LOGGER = Logger.getLogger(ClientesListDAO.class.getName());
     private static List<Cliente> clientes = new ArrayList<>();
-    private static Long contadorID = 1L;
+    private static Long contadorID = 5L;
 
     @Override
     public Cliente registrarCliente(Cliente cliente) throws PersistenciaException {
+        cliente.setIdCliente(contadorID);
         contadorID++;
         this.clientes.add(cliente);
         return cliente;

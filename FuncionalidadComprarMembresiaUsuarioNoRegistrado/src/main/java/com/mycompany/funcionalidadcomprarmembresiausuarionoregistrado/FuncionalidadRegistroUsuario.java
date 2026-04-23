@@ -59,9 +59,23 @@ public class FuncionalidadRegistroUsuario implements IFuncionalidadRegistrarUsua
             throw new NegocioException("Ingrese el formato válido del teléfono.");
         }
 
-        if (clienteDTO.getPin() == null || !clienteDTO.getPin().matches("\\d{5}")) {
-            throw new NegocioException("Ingrese un PIN con al menos 5 números.");
+        if (clienteDTO.getPin() == null || !clienteDTO.getPin().matches("\\d{4}")) {
+            throw new NegocioException("Ingrese un PIN con al menos 4 números.");
         }
+        
+        // Validar que el PIN y el correo no esten duplicados Dieguin
+        List<Cliente> clientesExistentes = clientesBO.consultarClientes();
+        if (clientesExistentes != null) {
+            for (Cliente c : clientesExistentes) {
+                if (c.getPin() != null && c.getPin().equals(clienteDTO.getPin())) {
+                    throw new NegocioException("El PIN ya esta en uso por favor elige otro.");
+                }
+                if (c.getCorreo() != null && c.getCorreo().equalsIgnoreCase(clienteDTO.getCorreo())) {
+                    throw new NegocioException("El correo ya está registrado por favor usa otro.");
+                }
+            }
+        }
+    
 
     }
 }

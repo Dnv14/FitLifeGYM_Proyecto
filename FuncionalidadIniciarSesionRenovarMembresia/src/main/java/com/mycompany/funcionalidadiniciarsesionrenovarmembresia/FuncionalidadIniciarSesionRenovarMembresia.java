@@ -7,6 +7,7 @@ package com.mycompany.funcionalidadiniciarsesionrenovarmembresia;
 import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
 import com.mycompany.fitlifegym_dtos.LoginDTO;
 import com.mycompany.fitlifegym_dtos.RenovarMembresiaDTO;
+import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_negocio.ILoginBO;
 import com.mycompany.fitlifegym_negocio.IMembresiaBO;
 import com.mycompany.fitlifegym_negocio.IRenovarMembresiaBO;
@@ -32,19 +33,19 @@ public class FuncionalidadIniciarSesionRenovarMembresia implements IFuncionalida
     @Override
     public ClienteLogueadoDTO iniciarSesion(LoginDTO login) throws NegocioException {
         if (login == null) {
-            throw new NegocioException("Los datos de inicio de sesión no pueden ser nulos.");
+            throw new NegocioException("Los datos de inicio de sesion no pueden ser nulos.");
         }
 
         if (login.getPin() == null || login.getPin().isBlank()) {
-            throw new NegocioException("El PIN no puede estar vacío.");
+            throw new NegocioException("El PIN no puede estar vacio.");
         }
 
         if (!login.getPin().matches("\\d{4}")) {
-            throw new NegocioException("El PIN debe ser de 4 dígitos numéricos.");
+            throw new NegocioException("El PIN debe ser de 4 digitos numericos.");
         }
 
         if (login.getContrasenia() == null || login.getContrasenia().isBlank()) {
-            throw new NegocioException("La contraseña no puede estar vacía.");
+            throw new NegocioException("La contraseña no puede estar vacia.");
         }
 
         return loginBO.iniciarSesion(login);
@@ -55,7 +56,7 @@ public class FuncionalidadIniciarSesionRenovarMembresia implements IFuncionalida
         List<Membresia> membresias = membresiaBO.obtenerTodas();
 
         if (membresias == null || membresias.isEmpty()) {
-            throw new NegocioException("No hay tipos de membresía disponibles.");
+            throw new NegocioException("No hay tipos de membresia disponibles.");
         }
 
         return membresias;
@@ -64,7 +65,7 @@ public class FuncionalidadIniciarSesionRenovarMembresia implements IFuncionalida
     @Override
     public void renovarMembresia(RenovarMembresiaDTO dto) throws NegocioException {
         if (dto == null) {
-            throw new NegocioException("Los datos de la renovación no pueden ser nulos.");
+            throw new NegocioException("Los datos de la renovacion no pueden ser nulos.");
         }
 
         if (dto.getIdCliente() == null) {
@@ -76,10 +77,30 @@ public class FuncionalidadIniciarSesionRenovarMembresia implements IFuncionalida
         }
 
         if (dto.getTipoMembresia() == null) {
-            throw new NegocioException("Se debe de elegir un tipo de membresía.");
+            throw new NegocioException("Se debe de elegir un tipo de membresia.");
         }
 
         renovarMembresiaBO.renovarMembresia(dto);
+    }
+
+    @Override
+    public Membresia buscarMembresiaPorTipo(TipoMembresiaDTO tipo) throws NegocioException {
+        if (tipo == null) {
+            throw new NegocioException("El tipo de membresia no puede ser nulo.");
+        }
+
+        List<Membresia> membresias = membresiaBO.obtenerTodas();
+        if (membresias == null || membresias.isEmpty()) {
+            throw new NegocioException("No hay membresias disponibles.");
+        }
+
+        for (Membresia m : membresias) {
+            if (m.getTipoMembresia().name().equals(tipo.name())) {
+                return m;
+            }
+        }
+
+        throw new NegocioException("No se encontro la membresia '" + tipo + "' en la BD.");
     }
     
 }

@@ -125,7 +125,6 @@ public class RegistrarseFORM extends javax.swing.JDialog {
 
         txtTelefono.addActionListener(this::txtTelefonoActionPerformed);
 
-        txtNombreCompleto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNombreCompleto.addActionListener(this::txtNombreCompletoActionPerformed);
 
         txtFechaNacimiento.addActionListener(this::txtFechaNacimientoActionPerformed);
@@ -301,7 +300,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
             
             JOptionPane.showMessageDialog(this, "Datos personales guardados");
            
-            control.navegarBenificios();
+            control.navegarBenificios(clienteRegistrar);
              
 
         } catch (DateTimeParseException ex) {
@@ -312,7 +311,7 @@ public class RegistrarseFORM extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        control.navegarBenificios();
+        control.navegarIniciarSesion();
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed

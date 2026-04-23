@@ -5,7 +5,9 @@
 package com.mycompany.fitlifegym_presentacion;
 
 import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
 import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
+import com.mycompany.fitlifegym_negocio.NegocioException;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,13 +17,14 @@ import javax.swing.JOptionPane;
 public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
 
     private ControlForms control;
-    private ClienteLogueadoDTO cliente;
+    private NuevoClienteDTO cliente;
     private TipoMembresiaDTO membresia;
        
-    public IniciarSesionPaypalFORM(java.awt.Frame parent, boolean modal, ControlForms control, TipoMembresiaDTO membresia) {
+    public IniciarSesionPaypalFORM(java.awt.Frame parent, boolean modal, ControlForms control, TipoMembresiaDTO membresia, NuevoClienteDTO cliente) {
         super(parent, modal);
         this.control = control;
         this.membresia = membresia;
+        this.cliente = cliente;
         initComponents();
     }
 
@@ -224,10 +227,21 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
             return;
         }
 
-        JOptionPane.showMessageDialog(this, "Pago con PayPal exitoso Membresía renovada.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        control.asignarMembresiaCliente(membresia);
-        dispose();
-        control.navegarBienvenida(cliente);
+        try {
+            // Asignar la membresia al cliente en memoria
+            control.asignarMembresiaCliente(this.cliente, this.membresia);
+
+            // Procesar el pago registra en "BD"
+            control.procesarPagoTarjeta(this.cliente, "PAYPAL", "N/A", "N/A");
+
+            JOptionPane.showMessageDialog(this, "Pago con PayPal exitoso. Membresía activada.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+            this.dispose();
+            control.navegarMenuPrincipal();
+
+        } catch (NegocioException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
     }//GEN-LAST:event_btnTransferenciaRealizadaActionPerformed
 

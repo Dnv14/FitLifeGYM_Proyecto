@@ -5,6 +5,7 @@
 package com.mycompany.fitlifegym_presentacion;
 
 import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
 import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_negocio.NegocioException;
 import javax.swing.JOptionPane;
@@ -17,12 +18,13 @@ public class TarjetaFORM extends javax.swing.JDialog {
 
     private ControlForms control;
     private TipoMembresiaDTO membresia;
-    private ClienteLogueadoDTO cliente;
+    private NuevoClienteDTO cliente;
 
-    public TarjetaFORM(java.awt.Frame parent, boolean modal, ControlForms control, TipoMembresiaDTO membresia) {
+    public TarjetaFORM(java.awt.Frame parent, boolean modal, ControlForms control, TipoMembresiaDTO membresia, NuevoClienteDTO cliente) {
         super(parent, modal);
         this.control = control;
         this.membresia = membresia;
+        this.cliente = cliente; 
         initComponents();
         setearEditablesFalsos();
         this.setLocationRelativeTo(null);
@@ -292,16 +294,21 @@ public class TarjetaFORM extends javax.swing.JDialog {
             return;
         }   
         try {
-            control.procesarPagoTarjeta(numero, ccv, fecha);
-            JOptionPane.showMessageDialog(this, "El pago se ha realizado correctamente.","Pago Correctamente",JOptionPane.INFORMATION_MESSAGE);
+            // Asignar la membresia al cliente (en memoria por lo pronto)
+            control.asignarMembresiaCliente(this.cliente, this.membresia);
+
+            // Procesar pago registra cliente + membresía en BD
+            control.procesarPagoTarjeta(this.cliente, numero, ccv, fecha);
+
+            JOptionPane.showMessageDialog(this, "El pago se ha realizado correctamente.", "Pago Correctamente", JOptionPane.INFORMATION_MESSAGE);
+
+            //Solo navegar si todo salio bien
+            this.dispose();
+            control.navegarMenuPrincipal();
+
         } catch (NegocioException ex) {
-            JOptionPane.showMessageDialog(this, "Error al procesar el pago con tarjeta."+ex,"Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        control.asignarMembresiaCliente(membresia);
-        
-        control.navegarBienvenida(cliente);
-        System.out.println("membresia asignada despues del pago: "+membresia.toString());
-        this.dispose();
 
     }//GEN-LAST:event_btnPagarAhoraActionPerformed
 

@@ -4,6 +4,7 @@
  */
 package com.mycompany.fitlifegym_presentacion;
 
+import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
 import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_negocio.NegocioException;
 import com.mycompany.fitlifegym_persistencia.entidades.Membresia;
@@ -19,10 +20,12 @@ import javax.swing.JOptionPane;
 public class BeneficiosFORM extends javax.swing.JFrame {
 
     private ControlForms control;
+    private NuevoClienteDTO cliente; 
     private List<Membresia> membresiasDisponibles;
 
-    public BeneficiosFORM(ControlForms control) {
+    public BeneficiosFORM(ControlForms control, NuevoClienteDTO cliente) {
         this.control = control;
+        this.cliente = cliente; 
         this.setTitle("Beneficios");
         initComponents();
         ComboBoxMembresia.setFocusable(false);
@@ -271,7 +274,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
     private void btnSuscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuscribirseActionPerformed
         String membresiaSeleccionado = (String) ComboBoxMembresia.getSelectedItem();
         TipoMembresiaDTO membresia = control.seleccionarMembresia(membresiaSeleccionado);
-        control.navegarMetodosPago(membresia);
+        control.navegarMetodosPago(membresia, this.cliente);
     }//GEN-LAST:event_btnSuscribirseActionPerformed
 
     private void actualizarBeneficios() {
@@ -287,16 +290,16 @@ public class BeneficiosFORM extends javax.swing.JFrame {
         checkBoxCursos.setSelected(false);
 
         switch (membresia) {
-            case "Oro":
+            case "ORO":
                 checkBoxCursos.setSelected(true);
                 checkBoxFisico.setSelected(true);
 
-            case "Plata":
+            case "PLATA":
                 checkBoxNutricion.setSelected(true);
                 checkBoxMusica.setSelected(true);
 
                 break;
-            case "Bronce":
+            case "BRONCE":
                 break;
         }
 
@@ -312,11 +315,7 @@ public class BeneficiosFORM extends javax.swing.JFrame {
             String[] nombres = new String[membresiasDisponibles.size()];
 
             for (int i = 0; i < membresiasDisponibles.size(); i++) {
-                TipoMembresia tipo = membresiasDisponibles.get(i).getTipoMembresia();
-                // ORO = "Oro" primera letra mayuscula y el resto minúsculas
-                // Esto es para que coincida con los case del switch y con seleccionarMembresia
-                String nombre = tipo.name();
-                nombres[i] = nombre.charAt(0) + nombre.substring(1).toLowerCase();
+                nombres[i] = membresiasDisponibles.get(i).getTipoMembresia().name();
             }
 
             ComboBoxMembresia.setModel(new DefaultComboBoxModel<>(nombres));
@@ -326,18 +325,12 @@ public class BeneficiosFORM extends javax.swing.JFrame {
     }
 
     private Membresia buscarMembresiaPorNombre(String nombre) {
-        if (membresiasDisponibles == null) {
+        try {
+            TipoMembresiaDTO tipo = control.seleccionarMembresia(nombre);
+            return control.buscarMembresiaPorTipo(tipo);
+        } catch (NegocioException ex) {
             return null;
         }
-        for (Membresia m : membresiasDisponibles) {
-            // ORO = "Oro"
-            String nombreTipo = m.getTipoMembresia().name();
-            String capitalizado = nombreTipo.charAt(0) + nombreTipo.substring(1).toLowerCase();
-            if (capitalizado.equals(nombre)) {
-                return m;
-            }
-        }
-        return null;
     }
 
     private void setearEditablesFalsosCheckBox() {

@@ -228,7 +228,7 @@ public class BienvenidaFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProgresoActionPerformed
 
     private void btnBeneficiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeneficiosActionPerformed
-        control.navegarBenificios();
+        control.navegarBenificios(new NuevoClienteDTO());
     }//GEN-LAST:event_btnBeneficiosActionPerformed
 
     private void btnQuejasSugerencias1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuejasSugerencias1ActionPerformed
@@ -236,13 +236,11 @@ public class BienvenidaFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuejasSugerencias1ActionPerformed
 
     private void configiracionPorMembresia() {
-        NuevoClienteDTO clienteDTO = control.getCliente();
-
-        if (clienteDTO == null || clienteDTO.getMembresíaComprada() == null) {
+        if (cliente == null || cliente.getMembresiaActiva() == null) {
             return;
         }
 
-        TipoMembresiaDTO tipo = clienteDTO.getMembresíaComprada().getMembresia().getTipoMembresia();
+        TipoMembresiaDTO tipo = cliente.getMembresiaActiva();
 
         btnCursos.setEnabled(false);
         btnNutricion.setEnabled(false);
