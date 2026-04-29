@@ -88,4 +88,13 @@ public class DtosAEntidadesAdapter {
         return TipoMembresiaDTO.BRONCE;
     }
 
+    
+
+    public static EstadoDTO adaptarEstadoDTO(Estado estado) {
+        if (estado == Estado.ACTIVO) {
+            return EstadoDTO.ACTIVO;
+        }
+        return EstadoDTO.INACTIVO;
+    }
+
 }

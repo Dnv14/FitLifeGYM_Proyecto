@@ -6,6 +6,7 @@ package com.mycompany.fitlifegym_negocio;
 
 import Adapter.DtosAEntidadesAdapter;
 import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import com.mycompany.fitlifegym_dtos.EstadoDTO;
 import com.mycompany.fitlifegym_dtos.LoginDTO;
 import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
 import com.mycompany.fitlifegym_persistencia.IClientesDAO;
@@ -37,8 +38,10 @@ public class LoginBO implements ILoginBO {
 
             String nombreCompleto = cliente.getNombre() + " " + cliente.getApellidos();
             TipoMembresiaDTO tipoDTO = null;
+            EstadoDTO estadoDTO = EstadoDTO.INACTIVO;
 
             if (cliente.getMembresíaComprada() != null) {
+                estadoDTO = DtosAEntidadesAdapter.adaptarEstadoDTO(cliente.getMembresíaComprada().getEstado());
                 if (cliente.getMembresíaComprada().getMembresia() != null) {
                     TipoMembresia tipo = cliente.getMembresíaComprada().getMembresia().getTipoMembresia();
                     if (tipo != null) {
@@ -47,7 +50,7 @@ public class LoginBO implements ILoginBO {
                 }
             }
 
-            return new ClienteLogueadoDTO(cliente.getIdCliente(), nombreCompleto, tipoDTO);
+            return new ClienteLogueadoDTO(cliente.getIdCliente(), nombreCompleto, tipoDTO,estadoDTO);
         } catch (PersistenciaException ex) {
             throw new NegocioException("Error al iniciar sesion", ex);
         }

@@ -5,8 +5,10 @@
 package com.mycompany.fitlifegym_presentacion;
 
 import com.mycompany.fitlifegym_dtos.ClienteLogueadoDTO;
+import com.mycompany.fitlifegym_dtos.EstadoDTO;
 import com.mycompany.fitlifegym_dtos.NuevoClienteDTO;
 import com.mycompany.fitlifegym_dtos.TipoMembresiaDTO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -223,7 +225,14 @@ public class BienvenidaFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProgresoActionPerformed
 
     private void btnBeneficiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeneficiosActionPerformed
-        control.navegarBenificios(new NuevoClienteDTO());
+
+        ClienteLogueadoDTO cliente = control.getClienteActual();
+        
+        if (cliente.getEstadoMembresia() == EstadoDTO.ACTIVO) {
+            JOptionPane.showMessageDialog(this, "Ya tienes una membresía activa.");
+        } else {
+            control.navegarBenificios(new NuevoClienteDTO());
+        }
     }//GEN-LAST:event_btnBeneficiosActionPerformed
 
     private void btnQuejaSugerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuejaSugerenciaActionPerformed

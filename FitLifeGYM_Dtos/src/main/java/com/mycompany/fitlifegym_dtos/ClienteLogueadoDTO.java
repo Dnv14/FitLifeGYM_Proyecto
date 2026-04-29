@@ -9,17 +9,23 @@ package com.mycompany.fitlifegym_dtos;
  * @author PC GAMER MASTER RACE
  */
 public class ClienteLogueadoDTO {
+
     private final Long idCliente;
-    
+
     private final String nombreCompleto;
-    
+
     private final TipoMembresiaDTO membresiaActiva;
 
-    public ClienteLogueadoDTO(Long idCliente, String nombreCompleto, TipoMembresiaDTO membresiaActiva) {
+    private final EstadoDTO estadoMembresia;
+
+    public ClienteLogueadoDTO(Long idCliente, String nombreCompleto, TipoMembresiaDTO membresiaActiva, EstadoDTO estadoMembresia) {
         this.idCliente = idCliente;
         this.nombreCompleto = nombreCompleto;
         this.membresiaActiva = membresiaActiva;
+        this.estadoMembresia = estadoMembresia;
     }
+
+    
 
     public Long getIdCliente() {
         return idCliente;
@@ -32,5 +38,11 @@ public class ClienteLogueadoDTO {
     public TipoMembresiaDTO getMembresiaActiva() {
         return membresiaActiva;
     }
+
+    public EstadoDTO getEstadoMembresia() {
+        return estadoMembresia;
+    }
+
     
+
 }
