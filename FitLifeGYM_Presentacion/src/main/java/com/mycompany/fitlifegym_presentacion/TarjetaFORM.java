@@ -284,21 +284,18 @@ public class TarjetaFORM extends javax.swing.JDialog {
     }//GEN-LAST:event_txtCVVActionPerformed
 
     private void btnPagarAhoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarAhoraActionPerformed
-        String nombre = txtNombreTitular.getText().trim();
+        String nombreTitular = txtNombreTitular.getText().trim();
         String numero = txtNumeroTarjeta.getText().trim();
         String ccv = txtCVV.getText().trim();
         String fecha = txtFechaVencimiento.getText().trim();
 
-        if (nombre.isEmpty() || numero.isEmpty() || ccv.isEmpty() || fecha.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Favor de llenar todos los campos requeridos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
-            return;
-        }   
+        
         try {
             // Asignar la membresia al cliente (en memoria por lo pronto)
             control.asignarMembresiaCliente(this.cliente, this.membresia);
 
             // Procesar pago registra cliente + membresía en BD
-            control.procesarPagoTarjeta(this.cliente, numero, ccv, fecha);
+            control.procesarPagoTarjeta(this.cliente, numero, ccv, fecha, nombreTitular);
 
             JOptionPane.showMessageDialog(this, "El pago se ha realizado correctamente.", "Pago Correctamente", JOptionPane.INFORMATION_MESSAGE);
 

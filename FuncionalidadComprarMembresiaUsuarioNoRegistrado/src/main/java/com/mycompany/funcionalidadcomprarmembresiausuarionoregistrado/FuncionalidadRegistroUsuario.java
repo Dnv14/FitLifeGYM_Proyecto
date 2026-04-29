@@ -43,7 +43,7 @@ public class FuncionalidadRegistroUsuario implements IFuncionalidadRegistrarUsua
 
     @Override
     public void validarDatosUsuario(NuevoClienteDTO clienteDTO) throws NegocioException {
-        if (clienteDTO.getNombre() == null || clienteDTO.getNombre().isEmpty() ) {
+        if (clienteDTO.getNombre() == null || clienteDTO.getNombre().isEmpty()) {
             throw new NegocioException("El nombre del cliente no puede ser nulo.");
         }
 
@@ -62,7 +62,7 @@ public class FuncionalidadRegistroUsuario implements IFuncionalidadRegistrarUsua
         if (clienteDTO.getPin() == null || !clienteDTO.getPin().matches("\\d{4}")) {
             throw new NegocioException("Ingrese un PIN con al menos 4 números.");
         }
-        
+
         // Validar que el PIN y el correo no esten duplicados Dieguin
         List<Cliente> clientesExistentes = clientesBO.consultarClientes();
         if (clientesExistentes != null) {
@@ -75,7 +75,37 @@ public class FuncionalidadRegistroUsuario implements IFuncionalidadRegistrarUsua
                 }
             }
         }
-    
 
     }
+
+    @Override
+    public void validarTarjeta(String cvv, String numeroTarjeta, String fechaVencimiento, String nombreTitular) throws NegocioException {
+        if (!numeroTarjeta.matches("\\d{16}")) {
+            throw new NegocioException("La tarjeta debe tener exactamente 16 números.");
+        }
+
+        if (!cvv.matches("\\d{3}")) {
+            throw new NegocioException("El CVV debe ser de 3 dígitos.");
+        }
+
+        if (!fechaVencimiento.matches("(0[1-9]|1[0-2])/[0-9]{2}")) {
+            throw new NegocioException("Formato de fecha inválido (MM/YY)");
+        }
+
+        if (nombreTitular.isEmpty() || numeroTarjeta.isEmpty() || cvv.isEmpty() || fechaVencimiento.isEmpty()) {
+            throw new NegocioException("Favor de llenar todos los campos");
+        }
+    }
+
+    @Override
+    public void validarPaypal(String correo, String contrasenia) throws NegocioException {
+        if (!correo.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
+            throw new NegocioException("Formato de correo inválido");
+        }
+
+        if (contrasenia.isEmpty()) {
+            throw new NegocioException("La contraseña no puede estar vacía");
+        }
+    }
+
 }

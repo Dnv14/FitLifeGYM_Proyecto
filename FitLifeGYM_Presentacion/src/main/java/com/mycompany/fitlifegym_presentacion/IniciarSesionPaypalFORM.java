@@ -50,8 +50,8 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
         textBeneficiario2 = new javax.swing.JTextArea();
         jScrollPane13 = new javax.swing.JScrollPane();
         textBeneficiario3 = new javax.swing.JTextArea();
-        txtNombreTitular1 = new javax.swing.JTextField();
-        txtNombreTitular2 = new javax.swing.JTextField();
+        txtCorreoPaypal = new javax.swing.JTextField();
+        txtContrasenia = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -123,19 +123,14 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
         textBeneficiario3.setRows(5);
         jScrollPane13.setViewportView(textBeneficiario3);
 
-        txtNombreTitular1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNombreTitular1.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreoPaypal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCorreoPaypal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreTitular1ActionPerformed(evt);
+                txtCorreoPaypalActionPerformed(evt);
             }
         });
 
-        txtNombreTitular2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNombreTitular2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreTitular2ActionPerformed(evt);
-            }
-        });
+        txtContrasenia.setText("jPasswordField1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -164,12 +159,11 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreTitular1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtNombreTitular2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCorreoPaypal, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                            .addComponent(txtContrasenia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -185,18 +179,11 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreTitular2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCorreoPaypal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombreTitular1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
-                        .addComponent(btnTransferenciaRealizada, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(159, 159, 159)
@@ -204,7 +191,15 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(61, 61, 61)
                                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(87, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnTransferenciaRealizada, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,17 +217,15 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTransferenciaRealizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaRealizadaActionPerformed
-       if (txtNombreTitular2.getText().trim().isEmpty() || txtNombreTitular1.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Ups, Credenciales Inválidas, por favor inténtalo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+       String correo = txtCorreoPaypal.getText();
+       String contrasenia = txtContrasenia.getText();
 
         try {
             // Asignar la membresia al cliente en memoria
             control.asignarMembresiaCliente(this.cliente, this.membresia);
 
             // Procesar el pago registra en "BD"
-            control.procesarPagoTarjeta(this.cliente, "PAYPAL", "N/A", "N/A");
+            control.procesarPagoPaypal(cliente, correo, contrasenia);
 
             JOptionPane.showMessageDialog(this, "Pago con PayPal exitoso. Membresía activada.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
@@ -245,13 +238,9 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
         
     }//GEN-LAST:event_btnTransferenciaRealizadaActionPerformed
 
-    private void txtNombreTitular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreTitular1ActionPerformed
+    private void txtCorreoPaypalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoPaypalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreTitular1ActionPerformed
-
-    private void txtNombreTitular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreTitular2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreTitular2ActionPerformed
+    }//GEN-LAST:event_txtCorreoPaypalActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -268,7 +257,7 @@ public class IniciarSesionPaypalFORM extends javax.swing.JDialog {
     private javax.swing.JTextArea textBeneficiario1;
     private javax.swing.JTextArea textBeneficiario2;
     private javax.swing.JTextArea textBeneficiario3;
-    private javax.swing.JTextField txtNombreTitular1;
-    private javax.swing.JTextField txtNombreTitular2;
+    private javax.swing.JPasswordField txtContrasenia;
+    private javax.swing.JTextField txtCorreoPaypal;
     // End of variables declaration//GEN-END:variables
 }

@@ -216,7 +216,7 @@ public class TransferenciaFORM extends javax.swing.JDialog {
             control.asignarMembresiaCliente(this.cliente, this.membresia);
 
             // Procesar el "pago" por transferencia reutilizamos el mismo registro
-            control.procesarPagoTarjeta(this.cliente, "TRANSFERENCIA", "TRANSFERENCIA", "TRANSFERENCIA");
+            control.procesarPagoTransferencia(cliente);
 
             JOptionPane.showMessageDialog(this, "¡Transferencia recibida! Membresía activada.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 

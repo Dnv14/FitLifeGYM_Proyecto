@@ -21,4 +21,8 @@ public interface IFuncionalidadRegistrarUsuario {
     public abstract List<Cliente> obtenerTodas() throws NegocioException;
     
     public abstract void validarDatosUsuario(NuevoClienteDTO clienteDTO)throws NegocioException;
+    
+    public abstract void validarTarjeta(String cvv, String numeroTarjeta, String fechaVencimiento,String nombreTitular)throws NegocioException;
+    
+    public abstract void validarPaypal(String correo, String contrasenia)throws NegocioException;
 }
